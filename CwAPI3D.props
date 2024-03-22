@@ -5,6 +5,7 @@
     <CwAPI3D>D:\source\CwAPI3D_CSharp\CwAPI3D\includes</CwAPI3D>
     <USERPROFILE_API>D:\cadwork\userprofil_30\3d\API.x64</USERPROFILE_API>
     <AssemblyName>CwAPI3D_CSharp</AssemblyName>
+    <API_NAME>CwAPI3D_CSharp</API_NAME>
   </PropertyGroup>
   <PropertyGroup>
     <OutDir>$(Platform)\$(Configuration)\</OutDir>
@@ -21,7 +22,8 @@
       <AdditionalIncludeDirectories>./src;$(CwAPI3D);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <PostBuildEvent>
-      <Command>copy /y $(TargetPath) $(USERPROFILE_API)\$(API_NAME)\$(AssemblyName).dll</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -34,6 +36,9 @@
     </BuildMacro>
     <BuildMacro Include="AssemblyName">
       <Value>$(AssemblyName)</Value>
+    </BuildMacro>
+    <BuildMacro Include="API_NAME">
+      <Value>$(API_NAME)</Value>
     </BuildMacro>
   </ItemGroup>
 </Project>

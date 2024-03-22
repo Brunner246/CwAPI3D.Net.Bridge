@@ -53,8 +53,7 @@ CwAPI3D_CLI::IVisualizationController ^ CwAPI3D_CLI::CwApi3DFactory::getVisualiz
 {
 	if(!mVisualizationController)
 	{
-		mVisualizationController =
-			gcnew VisualizationController(System::IntPtr(mControllerFactory));
+		mVisualizationController = gcnew VisualizationController(System::IntPtr(mControllerFactory));
 	}
 	return mVisualizationController;
 }

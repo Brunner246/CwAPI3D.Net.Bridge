@@ -20,12 +20,12 @@ public
 
 		!ElementController();
 
-		virtual List<int> ^ getAllIdentifiableElementIDs();
+		virtual List<elementId> ^ getAllIdentifiableElementIDs();
 
-		virtual List<int> ^ getActiveIdentifiableElementIDs();
+		virtual List<elementId> ^ getActiveIdentifiableElementIDs();
 
-		virtual List<int> ^ getVisibleIdentifiableElementIDs();
+		virtual List<elementId> ^ getVisibleIdentifiableElementIDs();
 
-		virtual void addElementsToUndo(List<int> ^ aElementIDs, Utils::undoType aUndoType);
+		virtual void addElementsToUndo(List<elementId> ^ aElementIDs, Utils::undoType aUndoType);
 	};
 } // namespace CwAPI3D_CLI

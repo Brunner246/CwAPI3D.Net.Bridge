@@ -2,6 +2,8 @@
 #include <stdexcept>
 #include <msclr/marshal_cppstd.h>
 
+#include "vector3D.h"
+
 CwAPI3D_CLI::UtilityController::UtilityController(System::IntPtr aFactoryPtr)
 {
 	if(aFactoryPtr == System::IntPtr::Zero)
@@ -40,7 +42,7 @@ CwAPI3D_CLI::vector3D ^ CwAPI3D_CLI::UtilityController::getGlobalOrigin()
 	return gcnew vector3D(mX, mY, mZ);
 }
 
-String ^ CwAPI3D_CLI::UtilityController::createSnapshot(String ^ aFormat, int aQuality, bool aWhiteBackground)
+String ^ CwAPI3D_CLI::UtilityController::createSnapshot(String ^ aFormat, const int aQuality, const bool aWhiteBackground)
 {
 	const std::wstring lNativeString = msclr::interop::marshal_as<std::wstring>(aFormat);
 	const auto lSnapshot = mUtilityController->createSnapshot(lNativeString.c_str(), aQuality, aWhiteBackground);

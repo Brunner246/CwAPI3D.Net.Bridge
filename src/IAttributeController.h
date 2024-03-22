@@ -1,5 +1,7 @@
 #pragma once
 
+#include "typedefs.h"
+
 using namespace System;
 
 namespace CwAPI3D_CLI
@@ -7,6 +9,6 @@ namespace CwAPI3D_CLI
 public
 	interface class IAttributeController
 	{
-		String ^ getName(int aElementID);
+		String ^ getName(elementId aElementID);
 	};
 } // namespace CwAPI3D_CLI

@@ -71,8 +71,7 @@
       <AdditionalDependencies />
     </Link>
     <PostBuildEvent>
-      <Command>
-      </Command>
+      <Command>copy /y $(TargetPath) $(USERPROFILE_API)\$(API_NAME)\$(AssemblyName).dll</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -124,6 +123,7 @@
     <ClInclude Include="src\IfcTypeMapper.h" />
     <ClInclude Include="src\IUtilityController.h" />
     <ClInclude Include="src\IVisualizationController.h" />
+    <ClInclude Include="src\typedefs.h" />
     <ClInclude Include="src\UtilityController.h" />
     <ClInclude Include="src\vector3D.h" />
     <ClInclude Include="src\VisualizationController.h" />
@@ -249,7 +249,6 @@
     <Content Include="CWAPI3D\html\_static\searchtools.js" />
     <Content Include="CWAPI3D\html\_static\underscore-1.13.1.js" />
     <Content Include="CWAPI3D\html\_static\underscore.js" />
-    <Content Include="VisualizationController\IVisualizationController.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -19,6 +19,6 @@ public
 
 		!AttributeController();
 
-		virtual String ^ getName(int aElementID);
+		virtual String ^ getName(elementId aElementID);
 	};
 } // namespace CwAPI3D_CLI

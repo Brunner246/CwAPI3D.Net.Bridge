@@ -16,11 +16,14 @@ CwAPI3D_CLI::AttributeController::AttributeController(System::IntPtr aFactoryPtr
 	mAttributeController = lControllerFactory->getAttributeController();
 }
 
-CwAPI3D_CLI::AttributeController::~AttributeController() { this->!AttributeController(); }
+CwAPI3D_CLI::AttributeController::~AttributeController()
+{
+	this->!AttributeController();
+}
 
 CwAPI3D_CLI::AttributeController::!AttributeController() { }
 
-String ^ CwAPI3D_CLI::AttributeController::getName(int aElementID)
+String ^ CwAPI3D_CLI::AttributeController::getName(elementId aElementID)
 {
 	const auto lName = mAttributeController->getName(static_cast<uint64_t>(aElementID));
 	return gcnew String(lName->data());

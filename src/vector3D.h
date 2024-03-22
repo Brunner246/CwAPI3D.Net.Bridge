@@ -27,7 +27,7 @@ public
 				return mX;
 			}
 
-			void set(double aX)
+			void set(const double aX)
 			{
 				mX = aX;
 			}
@@ -40,7 +40,7 @@ public
 				return mY;
 			}
 
-			void set(double aY)
+			void set(const double aY)
 			{
 				mY = aY;
 			}
@@ -53,7 +53,7 @@ public
 				return mZ;
 			}
 
-			void set(double aZ)
+			void set(const double aZ)
 			{
 				mZ = aZ;
 			}

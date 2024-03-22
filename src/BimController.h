@@ -12,12 +12,12 @@ public
 	public:
 		explicit BimController(System::IntPtr aFactoryPtr);
 
-		virtual String ^ getIfcTypeDisplayString(int aElementId);
+		virtual String ^ getIfcTypeDisplayString(elementId aElementId);
 
-		virtual int getElementIdFromIfcBase64Guid(String ^ aIfcBase64Guid);
+		virtual elementId getElementIdFromIfcBase64Guid(String ^ aIfcBase64Guid);
 
-		virtual String ^ getIfcBase64Guid(int aElementId);
+		virtual String ^ getIfcBase64Guid(elementId aElementId);
 
-		virtual EBimIfcType getIfcType(int aElementId);
+		virtual EBimIfcType getIfcType(elementId aElementId);
 	};
 } // namespace CwAPI3D_CLI

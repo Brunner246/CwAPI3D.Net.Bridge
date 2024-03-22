@@ -1,5 +1,6 @@
 #pragma once
 #include "ApiUtils.h"
+#include "typedefs.h"
 
 using namespace System::Collections::Generic;
 
@@ -8,12 +9,12 @@ namespace CwAPI3D_CLI
 public
 	interface class IElementController
 	{
-		List<int> ^ getAllIdentifiableElementIDs();
+		List<elementId> ^ getAllIdentifiableElementIDs();
 
-		List<int> ^ getVisibleIdentifiableElementIDs();
+		List<elementId> ^ getVisibleIdentifiableElementIDs();
 
-		List<int> ^ getActiveIdentifiableElementIDs();
+		List<elementId> ^ getActiveIdentifiableElementIDs();
 
-		void addElementsToUndo(List<int> ^ aElementIDs, Utils::undoType aUndoType);
+		void addElementsToUndo(List<elementId> ^ aElementIDs, Utils::undoType aUndoType);
 	};
 } // namespace CwAPI3D_CLI

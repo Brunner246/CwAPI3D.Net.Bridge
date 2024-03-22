@@ -70,7 +70,7 @@ CwAPI3D_CLI::ICameraData::projectionType CwAPI3D_CLI::CameraData::getProjectionT
 			   : ICameraData::projectionType::orthographic;
 }
 
-void CwAPI3D_CLI::CameraData::setFieldWidth(float aFieldWidth)
+void CwAPI3D_CLI::CameraData::setFieldWidth(const float aFieldWidth)
 {
 	mCameraDataInstance->setFieldWidth(aFieldWidth);
 }
@@ -80,7 +80,7 @@ float CwAPI3D_CLI::CameraData::getFieldWidth()
 	return mCameraDataInstance->getFieldWidth();
 }
 
-void CwAPI3D_CLI::CameraData::setFieldHeight(float aFieldHeight)
+void CwAPI3D_CLI::CameraData::setFieldHeight(const float aFieldHeight)
 {
 	mCameraDataInstance->setFieldHeight(aFieldHeight);
 }
@@ -90,7 +90,7 @@ float CwAPI3D_CLI::CameraData::getFieldHeight()
 	return mCameraDataInstance->getFieldHeight();
 }
 
-void CwAPI3D_CLI::CameraData::setFieldOfView(double aFieldOfView)
+void CwAPI3D_CLI::CameraData::setFieldOfView(const double aFieldOfView)
 {
 	mCameraDataInstance->setFieldOfView(aFieldOfView);
 }

@@ -85,6 +85,9 @@
     <ClInclude Include="src\ICwApi3DFactory.h">
       <Filter>ControllerFactory</Filter>
     </ClInclude>
+    <ClInclude Include="src\typedefs.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="AttributeController">

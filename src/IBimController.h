@@ -1,5 +1,6 @@
 #pragma once
 #include "EBimIfcType.h"
+#include "typedefs.h"
 
 using namespace System;
 
@@ -8,12 +9,12 @@ namespace CwAPI3D_CLI
 public
 	interface class IBimController
 	{
-		EBimIfcType getIfcType(int aElementId);
+		EBimIfcType getIfcType(elementId aElementId);
 
-		String ^ getIfcTypeDisplayString(int aElementId);
+		String ^ getIfcTypeDisplayString(elementId aElementId);
 
-		int getElementIdFromIfcBase64Guid(String ^ aIfcBase64Guid);
+		elementId getElementIdFromIfcBase64Guid(String ^ aIfcBase64Guid);
 
-		String ^ getIfcBase64Guid(int aElementId);
+		String ^ getIfcBase64Guid(elementId aElementId);
 	};
 } // namespace CwAPI3D_CLI

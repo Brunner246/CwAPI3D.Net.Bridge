@@ -6,7 +6,7 @@
 namespace CwAPI3D_CLI
 {
 public
-	ref class CameraData : public ICameraData
+	ref class CameraData sealed : public ICameraData
 	{
 	public:
 		explicit CameraData(CwAPI3D::Interfaces::ICwAPI3DCameraData* aCameraData);
