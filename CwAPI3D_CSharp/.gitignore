@@ -363,5 +363,6 @@ MigrationBackup/
 FodyWeavers.xsd
 
 *.html
-CwAPI3D/
+CwAPI3D/html/
+CwAPI3D/CwApi30.zip
 Output/
