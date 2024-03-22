@@ -48,7 +48,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>$(SolutionDir)output\</OutDir>
+    <OutDir>$(Platform)\$(Configuration)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -109,36 +109,36 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ApiUtils.h" />
-    <ClInclude Include="AttributeController.h" />
-    <ClInclude Include="BimController.h" />
-    <ClInclude Include="CameraData.h" />
-    <ClInclude Include="CwApi3DFactory.h" />
-    <ClInclude Include="EBimIfcType.h" />
-    <ClInclude Include="ElementController.h" />
-    <ClInclude Include="IAttributeController.h" />
-    <ClInclude Include="IBimController.h" />
-    <ClInclude Include="ICameraData.h" />
-    <ClInclude Include="ICwApi3DFactory.h" />
-    <ClInclude Include="IElementController.h" />
-    <ClInclude Include="IfcTypeMapper.h" />
-    <ClInclude Include="IUtilityController.h" />
-    <ClInclude Include="IVisualizationController.h" />
-    <ClInclude Include="UtilityController.h" />
-    <ClInclude Include="vector3D.h" />
-    <ClInclude Include="VisualizationController.h" />
+    <ClInclude Include="src\ApiUtils.h" />
+    <ClInclude Include="src\AttributeController.h" />
+    <ClInclude Include="src\BimController.h" />
+    <ClInclude Include="src\CameraData.h" />
+    <ClInclude Include="src\CwApi3DFactory.h" />
+    <ClInclude Include="src\EBimIfcType.h" />
+    <ClInclude Include="src\ElementController.h" />
+    <ClInclude Include="src\IAttributeController.h" />
+    <ClInclude Include="src\IBimController.h" />
+    <ClInclude Include="src\ICameraData.h" />
+    <ClInclude Include="src\ICwApi3DFactory.h" />
+    <ClInclude Include="src\IElementController.h" />
+    <ClInclude Include="src\IfcTypeMapper.h" />
+    <ClInclude Include="src\IUtilityController.h" />
+    <ClInclude Include="src\IVisualizationController.h" />
+    <ClInclude Include="src\UtilityController.h" />
+    <ClInclude Include="src\vector3D.h" />
+    <ClInclude Include="src\VisualizationController.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="AttributeController.cpp" />
-    <ClCompile Include="BimController.cpp" />
-    <ClCompile Include="CameraData.cpp" />
-    <ClCompile Include="CwApi3DFactory.cpp" />
-    <ClCompile Include="dllmain.cpp" />
-    <ClCompile Include="EBimIfcType.cpp" />
-    <ClCompile Include="ElementController.cpp" />
-    <ClCompile Include="IfcTypeMapper.cpp" />
-    <ClCompile Include="UtilityController.cpp" />
-    <ClCompile Include="VisualizationController.cpp" />
+    <ClCompile Include="src\AttributeController.cpp" />
+    <ClCompile Include="src\BimController.cpp" />
+    <ClCompile Include="src\CameraData.cpp" />
+    <ClCompile Include="src\CwApi3DFactory.cpp" />
+    <ClCompile Include="src\dllmain.cpp" />
+    <ClCompile Include="src\EBimIfcType.cpp" />
+    <ClCompile Include="src\ElementController.cpp" />
+    <ClCompile Include="src\IfcTypeMapper.cpp" />
+    <ClCompile Include="src\UtilityController.cpp" />
+    <ClCompile Include="src\VisualizationController.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="CopyAndUnzipCwAPI3D.bat" />
