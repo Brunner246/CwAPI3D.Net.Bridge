@@ -7,7 +7,7 @@ on:
 env:
   BUILD_CONFIGURATION: Release
   PLATFORM: x64
-  UPLOAD_PATH: D:/a/CwAPI3D_CSharp/CwAPI3D_CSharp/CwAPI3D_CSharp/x64/Release
+  UPLOAD_PATH: D:/a/CwAPI3D_CSharp/CwAPI3D_CSharp/examplelib/bin/Release
 
 permissions:
   contents: read
