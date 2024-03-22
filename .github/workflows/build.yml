@@ -7,7 +7,7 @@ on:
 env:
   BUILD_CONFIGURATION: Release
   PLATFORM: x64
-  # UPLOAD_PATH: D:/a/CWAPI3D_CSharp/output
+  UPLOAD_PATH: D:/a/CWAPI3D_CSharp/output
 
 permissions:
   contents: read
@@ -32,8 +32,8 @@ jobs:
       # - name: Test
       #  run: dotnet test ./CWAPI3D_UnitTest/CWAPI3D_UnitTest.csproj --no-restore --verbosity normal
 
-      # - name: Upload Artifact
-      #   uses: actions/upload-artifact@v4
-      #   with:
-      #     name: CWAPI3D_CSharp
-      #     path: ${{ env.UPLOAD_PATH }}
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: CWAPI3D_CSharp
+          path: ${{ env.UPLOAD_PATH }}
