@@ -1,0 +1,31 @@
+#pragma once
+
+#include "CwAPI3D.h"
+
+#include "IUtilityController.h"
+#include "vector3D.h"
+
+using namespace System;
+
+namespace CwAPI3D_CLI
+{
+
+    public ref class UtilityController sealed : public IUtilityController
+    {
+        CwAPI3D::UtilityController* mUtilityController{nullptr};
+    public:
+        explicit UtilityController(System::IntPtr aFactoryPtr);
+        ~UtilityController();
+        
+        !UtilityController();
+        
+        virtual String^ getPluginPath();
+        virtual bool getUseOfGlobalCoordinates();
+        virtual vector3D^ getGlobalOrigin();
+        virtual String^ createSnapshot(String^ aFormat, int aQuality, bool aWhiteBackground);
+        virtual void disableAutoDisplayRefresh();
+        virtual void enableAutoDisplayRefresh();
+        virtual Tuple<int, int>^ get3dGuiUpperLeftScreenCoordinates();
+        virtual String^ getLanguage();
+    };
+}

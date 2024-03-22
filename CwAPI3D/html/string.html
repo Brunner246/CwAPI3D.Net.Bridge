@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>String &mdash; CwAPI3D V29</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Vertex List" href="vertexlist.html" />
+    <link rel="prev" title="Process Type" href="processtype.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> CwAPI3D
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">General</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gettingstartedcpp.html">Getting Started (C++)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gettingstartedlua.html">Getting Started (Lua)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="versioning.html">Versioning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="philosophy.html">Philosophy</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lua</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="lua.html">Lua</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Factories</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="controllerfactory.html">Controller Factory</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Controllers</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="attributecontroller.html">Attribute Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="connectoraxiscontroller.html">Connector Axis Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="elementcontroller.html">Element Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="endtypecontroller.html">Endtype Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="filecontroller.html">File Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="geometrycontroller.html">Geometry Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="listcontroller.html">List Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="machinecontroller.html">Machine Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="materialcontroller.html">Material Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="menucontroller.html">Menu Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="roofcontroller.html">Roof Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scenecontroller.html">Scene Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shopdrawingcontroller.html">Shop Drawing Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utilitycontroller.html">Utility Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visualizationcontroller.html">Visualization Controller</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Helpers</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="activationstate.html">Activation State</a></li>
+<li class="toctree-l1"><a class="reference internal" href="elementidlist.html">Element ID List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="elementtype.html">Element Type</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extendedsettings.html">Extended Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="menu.html">Menu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="processtype.html">Process Type</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">String</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vertexlist.html">Vertex List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visibilitystate.html">Visibility State</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CwAPI3D</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>String</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/string.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="string">
+<h1>String<a class="headerlink" href="#string" title="Permalink to this headline"></a></h1>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces14ICwAPI3DStringE">
+<span id="_CPPv3N7CwAPI3D10Interfaces14ICwAPI3DStringE"></span><span id="_CPPv2N7CwAPI3D10Interfaces14ICwAPI3DStringE"></span><span id="CwAPI3D::Interfaces::ICwAPI3DString"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_string"></span><span class="k"><span class="pre">interface</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">CwAPI3D</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Interfaces</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">ICwAPI3DString</span></span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces14ICwAPI3DStringE" title="Permalink to this definition"></a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces14ICwAPI3DString7destroyEv">
+<span id="_CPPv3N7CwAPI3D10Interfaces14ICwAPI3DString7destroyEv"></span><span id="_CPPv2N7CwAPI3D10Interfaces14ICwAPI3DString7destroyEv"></span><span id="CwAPI3D::Interfaces::ICwAPI3DString::destroy"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_string_1a162bc8299207ecb826cac7956f0ba0bf"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">destroy</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces14ICwAPI3DString7destroyEv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Destroys itself. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces14ICwAPI3DString6lengthEv">
+<span id="_CPPv3N7CwAPI3D10Interfaces14ICwAPI3DString6lengthEv"></span><span id="_CPPv2N7CwAPI3D10Interfaces14ICwAPI3DString6lengthEv"></span><span id="CwAPI3D::Interfaces::ICwAPI3DString::length"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_string_1a0c2dbd6bb3267c6d02c9a77ad275b411"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">length</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces14ICwAPI3DString6lengthEv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Returns the length of the string. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>length of string </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces14ICwAPI3DString4dataEv">
+<span id="_CPPv3N7CwAPI3D10Interfaces14ICwAPI3DString4dataEv"></span><span id="_CPPv2N7CwAPI3D10Interfaces14ICwAPI3DString4dataEv"></span><span id="CwAPI3D::Interfaces::ICwAPI3DString::data"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_string_1a43cb31a3ead54025e065b42bd349225e"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">character</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">data</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces14ICwAPI3DString4dataEv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Returns the data of the string. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>data of string </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces14ICwAPI3DString10narrowDataEv">
+<span id="_CPPv3N7CwAPI3D10Interfaces14ICwAPI3DString10narrowDataEv"></span><span id="_CPPv2N7CwAPI3D10Interfaces14ICwAPI3DString10narrowDataEv"></span><span id="CwAPI3D::Interfaces::ICwAPI3DString::narrowData"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_string_1a1add5c56c38f799887db5f7114986b85"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">narrowCharacter</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">narrowData</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces14ICwAPI3DString10narrowDataEv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Returns the narrow data of the string. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>narrow data of string </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces14ICwAPI3DString12copyToBufferEP9character8uint32_t">
+<span id="_CPPv3N7CwAPI3D10Interfaces14ICwAPI3DString12copyToBufferEP9character8uint32_t"></span><span id="_CPPv2N7CwAPI3D10Interfaces14ICwAPI3DString12copyToBufferEP9character8uint32_t"></span><span id="CwAPI3D::Interfaces::ICwAPI3DString::copyToBuffer__characterP.uint32_t"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_string_1afe9b3bfe30e83c8b32355f3613109d2b"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">copyToBuffer</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">character</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aBuffer</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aSize</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces14ICwAPI3DString12copyToBufferEP9character8uint32_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Copies the data to a buffer. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aBuffer</strong> – buffer </p></li>
+<li><p><strong>aSize</strong> – size of buffer </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces14ICwAPI3DString18copyToNarrowBufferEP15narrowCharacter8uint32_t">
+<span id="_CPPv3N7CwAPI3D10Interfaces14ICwAPI3DString18copyToNarrowBufferEP15narrowCharacter8uint32_t"></span><span id="_CPPv2N7CwAPI3D10Interfaces14ICwAPI3DString18copyToNarrowBufferEP15narrowCharacter8uint32_t"></span><span id="CwAPI3D::Interfaces::ICwAPI3DString::copyToNarrowBuffer__narrowCharacterP.uint32_t"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_string_1a08e8b5c3d23ba542a2c449aaac66fb02"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">copyToNarrowBuffer</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">narrowCharacter</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aBuffer</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aSize</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces14ICwAPI3DString18copyToNarrowBufferEP15narrowCharacter8uint32_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Copies the data to a narrow buffer. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aBuffer</strong> – narrow buffer </p></li>
+<li><p><strong>aSize</strong> – size of narrow buffer </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Cadwork.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

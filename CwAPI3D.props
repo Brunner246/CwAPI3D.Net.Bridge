@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros">
+    <CwAPI3D>D:\source\CwAPI3D_CSharp\CwAPI3D\includes</CwAPI3D>
+    <USERPROFILE_API>D:\cadwork\userprofil_30\3d\API.x64</USERPROFILE_API>
+    <AssemblyName>CwAPI3D_CSharp</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OutDir>$(Platform)\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Label="QtSettings">
+    <QtInstall>v30-x64</QtInstall>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <PreprocessorDefinitions>CWAPI3D_PLUGIN_NAME=L"Cadwork Test Plugin";CWAPI3D_AUTHOR_NAME=L"Michael Brunner";CWAPI3D_AUTHOR_EMAIL=L"brunner@cadwork.swiss";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <EnableModules>false</EnableModules>
+      <BuildStlModules>false</BuildStlModules>
+      <AdditionalIncludeDirectories>$(CwAPI3D);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <PostBuildEvent>
+      <Command>copy /y $(TargetPath) $(USERPROFILE_API)\$(API_NAME)\$(AssemblyName).dll</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <BuildMacro Include="CwAPI3D">
+      <Value>$(CwAPI3D)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="USERPROFILE_API">
+      <Value>$(USERPROFILE_API)</Value>
+    </BuildMacro>
+    <BuildMacro Include="AssemblyName">
+      <Value>$(AssemblyName)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>

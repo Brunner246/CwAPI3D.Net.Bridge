@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Process Type &mdash; CwAPI3D V29</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="String" href="string.html" />
+    <link rel="prev" title="Menu" href="menu.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> CwAPI3D
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">General</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gettingstartedcpp.html">Getting Started (C++)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gettingstartedlua.html">Getting Started (Lua)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="versioning.html">Versioning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="philosophy.html">Philosophy</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lua</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="lua.html">Lua</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Factories</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="controllerfactory.html">Controller Factory</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Controllers</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="attributecontroller.html">Attribute Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="connectoraxiscontroller.html">Connector Axis Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="elementcontroller.html">Element Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="endtypecontroller.html">Endtype Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="filecontroller.html">File Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="geometrycontroller.html">Geometry Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="listcontroller.html">List Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="machinecontroller.html">Machine Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="materialcontroller.html">Material Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="menucontroller.html">Menu Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="roofcontroller.html">Roof Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scenecontroller.html">Scene Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shopdrawingcontroller.html">Shop Drawing Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utilitycontroller.html">Utility Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visualizationcontroller.html">Visualization Controller</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Helpers</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="activationstate.html">Activation State</a></li>
+<li class="toctree-l1"><a class="reference internal" href="elementidlist.html">Element ID List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="elementtype.html">Element Type</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extendedsettings.html">Extended Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="menu.html">Menu</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Process Type</a></li>
+<li class="toctree-l1"><a class="reference internal" href="string.html">String</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vertexlist.html">Vertex List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visibilitystate.html">Visibility State</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CwAPI3D</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Process Type</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/processtype.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="process-type">
+<h1>Process Type<a class="headerlink" href="#process-type" title="Permalink to this headline"></a></h1>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessTypeE">
+<span id="_CPPv3N7CwAPI3D10Interfaces19ICwAPI3DProcessTypeE"></span><span id="_CPPv2N7CwAPI3D10Interfaces19ICwAPI3DProcessTypeE"></span><span id="CwAPI3D::Interfaces::ICwAPI3DProcessType"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_process_type"></span><span class="k"><span class="pre">interface</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">CwAPI3D</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Interfaces</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">ICwAPI3DProcessType</span></span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessTypeE" title="Permalink to this definition"></a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType7destroyEv">
+<span id="_CPPv3N7CwAPI3D10Interfaces19ICwAPI3DProcessType7destroyEv"></span><span id="_CPPv2N7CwAPI3D10Interfaces19ICwAPI3DProcessType7destroyEv"></span><span id="CwAPI3D::Interfaces::ICwAPI3DProcessType::destroy"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_process_type_1a3d2410e98f9b234178327bb614261574"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">destroy</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType7destroyEv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Destroys itself. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType7setNoneEv">
+<span id="_CPPv3N7CwAPI3D10Interfaces19ICwAPI3DProcessType7setNoneEv"></span><span id="_CPPv2N7CwAPI3D10Interfaces19ICwAPI3DProcessType7setNoneEv"></span><span id="CwAPI3D::Interfaces::ICwAPI3DProcessType::setNone"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_process_type_1a8ca0538810702bada2b8eb5aaffb7504"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setNone</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType7setNoneEv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sets the process type to none. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType6isNoneEv">
+<span id="_CPPv3N7CwAPI3D10Interfaces19ICwAPI3DProcessType6isNoneEv"></span><span id="_CPPv2N7CwAPI3D10Interfaces19ICwAPI3DProcessType6isNoneEv"></span><span id="CwAPI3D::Interfaces::ICwAPI3DProcessType::isNone"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_process_type_1ac1fa0007b60e0253b42660d169b18c57"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isNone</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType6isNoneEv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Tests if the process type is none. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>is the process type none </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType9setPurlinEv">
+<span id="_CPPv3N7CwAPI3D10Interfaces19ICwAPI3DProcessType9setPurlinEv"></span><span id="_CPPv2N7CwAPI3D10Interfaces19ICwAPI3DProcessType9setPurlinEv"></span><span id="CwAPI3D::Interfaces::ICwAPI3DProcessType::setPurlin"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_process_type_1a915ab5a5d5d163dcefa994c4186fac05"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setPurlin</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType9setPurlinEv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sets the process type to purlin. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType8isPurlinEv">
+<span id="_CPPv3N7CwAPI3D10Interfaces19ICwAPI3DProcessType8isPurlinEv"></span><span id="_CPPv2N7CwAPI3D10Interfaces19ICwAPI3DProcessType8isPurlinEv"></span><span id="CwAPI3D::Interfaces::ICwAPI3DProcessType::isPurlin"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_process_type_1ac5e5867f495a2fc19aea89dd6563610f"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isPurlin</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType8isPurlinEv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Tests if the process type is purlin. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>is the process type purlin </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType7setStudEv">
+<span id="_CPPv3N7CwAPI3D10Interfaces19ICwAPI3DProcessType7setStudEv"></span><span id="_CPPv2N7CwAPI3D10Interfaces19ICwAPI3DProcessType7setStudEv"></span><span id="CwAPI3D::Interfaces::ICwAPI3DProcessType::setStud"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_process_type_1aef118a3db81463f765723a2054c6b605"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setStud</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType7setStudEv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sets the process type to stud. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType6isStudEv">
+<span id="_CPPv3N7CwAPI3D10Interfaces19ICwAPI3DProcessType6isStudEv"></span><span id="_CPPv2N7CwAPI3D10Interfaces19ICwAPI3DProcessType6isStudEv"></span><span id="CwAPI3D::Interfaces::ICwAPI3DProcessType::isStud"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_process_type_1aeb46980c1e00d0ce4796c2d5e81e5b64"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isStud</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType6isStudEv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Tests if the process type is stud. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>is the process type stud </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType9setRafterEv">
+<span id="_CPPv3N7CwAPI3D10Interfaces19ICwAPI3DProcessType9setRafterEv"></span><span id="_CPPv2N7CwAPI3D10Interfaces19ICwAPI3DProcessType9setRafterEv"></span><span id="CwAPI3D::Interfaces::ICwAPI3DProcessType::setRafter"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_process_type_1a28cd420cb92f18b14ec321004bd88786"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setRafter</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType9setRafterEv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sets the process type to rafter. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType8isRafterEv">
+<span id="_CPPv3N7CwAPI3D10Interfaces19ICwAPI3DProcessType8isRafterEv"></span><span id="_CPPv2N7CwAPI3D10Interfaces19ICwAPI3DProcessType8isRafterEv"></span><span id="CwAPI3D::Interfaces::ICwAPI3DProcessType::isRafter"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_process_type_1a95a20ff069ac359bdb00b97c2e6f6fd8"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isRafter</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType8isRafterEv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Tests if the process type is rafter. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>is the process type rafter </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType13setJackRafterEv">
+<span id="_CPPv3N7CwAPI3D10Interfaces19ICwAPI3DProcessType13setJackRafterEv"></span><span id="_CPPv2N7CwAPI3D10Interfaces19ICwAPI3DProcessType13setJackRafterEv"></span><span id="CwAPI3D::Interfaces::ICwAPI3DProcessType::setJackRafter"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_process_type_1a4264c21c3dfc8c1cfec7f02c08e10833"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setJackRafter</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType13setJackRafterEv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sets the process type to jack rafter. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType12isJackRafterEv">
+<span id="_CPPv3N7CwAPI3D10Interfaces19ICwAPI3DProcessType12isJackRafterEv"></span><span id="_CPPv2N7CwAPI3D10Interfaces19ICwAPI3DProcessType12isJackRafterEv"></span><span id="CwAPI3D::Interfaces::ICwAPI3DProcessType::isJackRafter"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_process_type_1a029e4d22118d92ce510bfba97534697b"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isJackRafter</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType12isJackRafterEv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Tests if the process type is jack rafter. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>is the process type jack rafter </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType12setHipValleyEv">
+<span id="_CPPv3N7CwAPI3D10Interfaces19ICwAPI3DProcessType12setHipValleyEv"></span><span id="_CPPv2N7CwAPI3D10Interfaces19ICwAPI3DProcessType12setHipValleyEv"></span><span id="CwAPI3D::Interfaces::ICwAPI3DProcessType::setHipValley"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_process_type_1a39710a7c60b422abf9e35c881fcd5be1"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setHipValley</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType12setHipValleyEv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sets the process type to hip or valley. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType11isHipValleyEv">
+<span id="_CPPv3N7CwAPI3D10Interfaces19ICwAPI3DProcessType11isHipValleyEv"></span><span id="_CPPv2N7CwAPI3D10Interfaces19ICwAPI3DProcessType11isHipValleyEv"></span><span id="CwAPI3D::Interfaces::ICwAPI3DProcessType::isHipValley"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_process_type_1a69fbd0f24503f7bed301e33ca25ad100"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isHipValley</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType11isHipValleyEv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Tests if the process type is hip or valley. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>is the process type hip or valley </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType6setLogEv">
+<span id="_CPPv3N7CwAPI3D10Interfaces19ICwAPI3DProcessType6setLogEv"></span><span id="_CPPv2N7CwAPI3D10Interfaces19ICwAPI3DProcessType6setLogEv"></span><span id="CwAPI3D::Interfaces::ICwAPI3DProcessType::setLog"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_process_type_1afab3e7a885bedfc328a1e5096cb394cc"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setLog</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType6setLogEv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sets the process type to log. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType5isLogEv">
+<span id="_CPPv3N7CwAPI3D10Interfaces19ICwAPI3DProcessType5isLogEv"></span><span id="_CPPv2N7CwAPI3D10Interfaces19ICwAPI3DProcessType5isLogEv"></span><span id="CwAPI3D::Interfaces::ICwAPI3DProcessType::isLog"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_process_type_1acbf0e8c7cabd25fa8f9357a78716f62c"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isLog</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType5isLogEv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Tests if the process type is log. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>is the process type log </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType8setTrussEv">
+<span id="_CPPv3N7CwAPI3D10Interfaces19ICwAPI3DProcessType8setTrussEv"></span><span id="_CPPv2N7CwAPI3D10Interfaces19ICwAPI3DProcessType8setTrussEv"></span><span id="CwAPI3D::Interfaces::ICwAPI3DProcessType::setTruss"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_process_type_1ac420afa160131bee9e7e7fe2e7b1c1b2"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setTruss</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType8setTrussEv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sets the process type to truss. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType7isTrussEv">
+<span id="_CPPv3N7CwAPI3D10Interfaces19ICwAPI3DProcessType7isTrussEv"></span><span id="_CPPv2N7CwAPI3D10Interfaces19ICwAPI3DProcessType7isTrussEv"></span><span id="CwAPI3D::Interfaces::ICwAPI3DProcessType::isTruss"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_process_type_1a961310e4187d464bb3b91195d97f4b1c"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isTruss</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType7isTrussEv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Tests if the process type is truss. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>is the process type truss </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType8setTreadEv">
+<span id="_CPPv3N7CwAPI3D10Interfaces19ICwAPI3DProcessType8setTreadEv"></span><span id="_CPPv2N7CwAPI3D10Interfaces19ICwAPI3DProcessType8setTreadEv"></span><span id="CwAPI3D::Interfaces::ICwAPI3DProcessType::setTread"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_process_type_1ad54657969b89c1f364abc18ad325c4fd"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setTread</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType8setTreadEv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sets the process type to tread. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType7isTreadEv">
+<span id="_CPPv3N7CwAPI3D10Interfaces19ICwAPI3DProcessType7isTreadEv"></span><span id="_CPPv2N7CwAPI3D10Interfaces19ICwAPI3DProcessType7isTreadEv"></span><span id="CwAPI3D::Interfaces::ICwAPI3DProcessType::isTread"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_process_type_1abf723373707e074a283f11055e2a5e62"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isTread</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType7isTreadEv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Tests if the process type is tread. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>is the process type tread </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType8setUser1Ev">
+<span id="_CPPv3N7CwAPI3D10Interfaces19ICwAPI3DProcessType8setUser1Ev"></span><span id="_CPPv2N7CwAPI3D10Interfaces19ICwAPI3DProcessType8setUser1Ev"></span><span id="CwAPI3D::Interfaces::ICwAPI3DProcessType::setUser1"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_process_type_1ab8bfa6325e6d8d6b68d9105918743b87"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setUser1</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType8setUser1Ev" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sets the process type to user 1. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType7isUser1Ev">
+<span id="_CPPv3N7CwAPI3D10Interfaces19ICwAPI3DProcessType7isUser1Ev"></span><span id="_CPPv2N7CwAPI3D10Interfaces19ICwAPI3DProcessType7isUser1Ev"></span><span id="CwAPI3D::Interfaces::ICwAPI3DProcessType::isUser1"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_process_type_1aec006d344460febe030ca25fa309d8dd"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isUser1</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType7isUser1Ev" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Tests if the process type is user 1. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>is the process type user 1 </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType8setUser2Ev">
+<span id="_CPPv3N7CwAPI3D10Interfaces19ICwAPI3DProcessType8setUser2Ev"></span><span id="_CPPv2N7CwAPI3D10Interfaces19ICwAPI3DProcessType8setUser2Ev"></span><span id="CwAPI3D::Interfaces::ICwAPI3DProcessType::setUser2"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_process_type_1a54579166764c1689a0ce0f8899751d5f"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setUser2</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType8setUser2Ev" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sets the process type to user 2. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType7isUser2Ev">
+<span id="_CPPv3N7CwAPI3D10Interfaces19ICwAPI3DProcessType7isUser2Ev"></span><span id="_CPPv2N7CwAPI3D10Interfaces19ICwAPI3DProcessType7isUser2Ev"></span><span id="CwAPI3D::Interfaces::ICwAPI3DProcessType::isUser2"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_process_type_1a107dd97a8013c04bb5c6f98b1d05a804"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isUser2</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType7isUser2Ev" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Tests if the process type is user 2. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>is the process type user 2 </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType8setUser3Ev">
+<span id="_CPPv3N7CwAPI3D10Interfaces19ICwAPI3DProcessType8setUser3Ev"></span><span id="_CPPv2N7CwAPI3D10Interfaces19ICwAPI3DProcessType8setUser3Ev"></span><span id="CwAPI3D::Interfaces::ICwAPI3DProcessType::setUser3"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_process_type_1ae9ff42482bd28c42a4bc948e11440c6d"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setUser3</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType8setUser3Ev" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sets the process type to user 3. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType7isUser3Ev">
+<span id="_CPPv3N7CwAPI3D10Interfaces19ICwAPI3DProcessType7isUser3Ev"></span><span id="_CPPv2N7CwAPI3D10Interfaces19ICwAPI3DProcessType7isUser3Ev"></span><span id="CwAPI3D::Interfaces::ICwAPI3DProcessType::isUser3"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_process_type_1a56b2d29eaf13cdaea369489f88d7efaa"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isUser3</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType7isUser3Ev" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Tests if the process type is user 3. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>is the process type user 3 </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType8setUser4Ev">
+<span id="_CPPv3N7CwAPI3D10Interfaces19ICwAPI3DProcessType8setUser4Ev"></span><span id="_CPPv2N7CwAPI3D10Interfaces19ICwAPI3DProcessType8setUser4Ev"></span><span id="CwAPI3D::Interfaces::ICwAPI3DProcessType::setUser4"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_process_type_1a0ce25e8b3ccc43fe8638f8cc907de9a1"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setUser4</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType8setUser4Ev" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sets the process type to user 4. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType7isUser4Ev">
+<span id="_CPPv3N7CwAPI3D10Interfaces19ICwAPI3DProcessType7isUser4Ev"></span><span id="_CPPv2N7CwAPI3D10Interfaces19ICwAPI3DProcessType7isUser4Ev"></span><span id="CwAPI3D::Interfaces::ICwAPI3DProcessType::isUser4"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_process_type_1a1fbc4e3505e0b42ae14b49d90aaef85e"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isUser4</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType7isUser4Ev" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Tests if the process type is user 4. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>is the process type user 4 </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType8setUser5Ev">
+<span id="_CPPv3N7CwAPI3D10Interfaces19ICwAPI3DProcessType8setUser5Ev"></span><span id="_CPPv2N7CwAPI3D10Interfaces19ICwAPI3DProcessType8setUser5Ev"></span><span id="CwAPI3D::Interfaces::ICwAPI3DProcessType::setUser5"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_process_type_1a6c17ab1b3f941e81fc907c2f0de201f9"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setUser5</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType8setUser5Ev" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sets the process type to user 5. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType7isUser5Ev">
+<span id="_CPPv3N7CwAPI3D10Interfaces19ICwAPI3DProcessType7isUser5Ev"></span><span id="_CPPv2N7CwAPI3D10Interfaces19ICwAPI3DProcessType7isUser5Ev"></span><span id="CwAPI3D::Interfaces::ICwAPI3DProcessType::isUser5"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_process_type_1ae78943fff578f69e5f6ba5b2d35374f0"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isUser5</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType7isUser5Ev" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Tests if the process type is user 5. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>is the process type user 5 </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType9setPanel1Ev">
+<span id="_CPPv3N7CwAPI3D10Interfaces19ICwAPI3DProcessType9setPanel1Ev"></span><span id="_CPPv2N7CwAPI3D10Interfaces19ICwAPI3DProcessType9setPanel1Ev"></span><span id="CwAPI3D::Interfaces::ICwAPI3DProcessType::setPanel1"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_process_type_1a0377809845c171f978196fda28ec1f05"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setPanel1</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType9setPanel1Ev" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sets the process type to panel 1. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType8isPanel1Ev">
+<span id="_CPPv3N7CwAPI3D10Interfaces19ICwAPI3DProcessType8isPanel1Ev"></span><span id="_CPPv2N7CwAPI3D10Interfaces19ICwAPI3DProcessType8isPanel1Ev"></span><span id="CwAPI3D::Interfaces::ICwAPI3DProcessType::isPanel1"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_process_type_1af79d7fb2c87866d00c615e4ffd46d43f"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isPanel1</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType8isPanel1Ev" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Tests if the process type is panel 1. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>is the process type panel 1 </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType9setPanel2Ev">
+<span id="_CPPv3N7CwAPI3D10Interfaces19ICwAPI3DProcessType9setPanel2Ev"></span><span id="_CPPv2N7CwAPI3D10Interfaces19ICwAPI3DProcessType9setPanel2Ev"></span><span id="CwAPI3D::Interfaces::ICwAPI3DProcessType::setPanel2"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_process_type_1a51233d0db691c06ce63cfe88af956aa6"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setPanel2</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType9setPanel2Ev" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sets the process type to panel 2. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType8isPanel2Ev">
+<span id="_CPPv3N7CwAPI3D10Interfaces19ICwAPI3DProcessType8isPanel2Ev"></span><span id="_CPPv2N7CwAPI3D10Interfaces19ICwAPI3DProcessType8isPanel2Ev"></span><span id="CwAPI3D::Interfaces::ICwAPI3DProcessType::isPanel2"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_process_type_1af07402db6f42c111a94d2805bd3b9574"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isPanel2</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType8isPanel2Ev" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Tests if the process type is panel 2. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>is the process type panel 2 </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType9setPanel3Ev">
+<span id="_CPPv3N7CwAPI3D10Interfaces19ICwAPI3DProcessType9setPanel3Ev"></span><span id="_CPPv2N7CwAPI3D10Interfaces19ICwAPI3DProcessType9setPanel3Ev"></span><span id="CwAPI3D::Interfaces::ICwAPI3DProcessType::setPanel3"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_process_type_1a9a497bb382e868b55fa4a1eb1567eb60"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setPanel3</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType9setPanel3Ev" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sets the process type to panel 3. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType8isPanel3Ev">
+<span id="_CPPv3N7CwAPI3D10Interfaces19ICwAPI3DProcessType8isPanel3Ev"></span><span id="_CPPv2N7CwAPI3D10Interfaces19ICwAPI3DProcessType8isPanel3Ev"></span><span id="CwAPI3D::Interfaces::ICwAPI3DProcessType::isPanel3"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_process_type_1a5a84a3a260d64d8dcdde6c81676caebe"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isPanel3</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType8isPanel3Ev" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Tests if the process type is panel 3. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>is the process type panel 3 </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType9setPanel4Ev">
+<span id="_CPPv3N7CwAPI3D10Interfaces19ICwAPI3DProcessType9setPanel4Ev"></span><span id="_CPPv2N7CwAPI3D10Interfaces19ICwAPI3DProcessType9setPanel4Ev"></span><span id="CwAPI3D::Interfaces::ICwAPI3DProcessType::setPanel4"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_process_type_1abd6ea3130de9e671cfa3fdced75fe85b"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setPanel4</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType9setPanel4Ev" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sets the panel type to panel 4. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType8isPanel4Ev">
+<span id="_CPPv3N7CwAPI3D10Interfaces19ICwAPI3DProcessType8isPanel4Ev"></span><span id="_CPPv2N7CwAPI3D10Interfaces19ICwAPI3DProcessType8isPanel4Ev"></span><span id="CwAPI3D::Interfaces::ICwAPI3DProcessType::isPanel4"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_process_type_1a50ea1a6934fe92c68d6ecba28042c8ca"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isPanel4</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType8isPanel4Ev" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Tests if the process type is panel 4. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>is the process type panel 4 </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType9setPanel5Ev">
+<span id="_CPPv3N7CwAPI3D10Interfaces19ICwAPI3DProcessType9setPanel5Ev"></span><span id="_CPPv2N7CwAPI3D10Interfaces19ICwAPI3DProcessType9setPanel5Ev"></span><span id="CwAPI3D::Interfaces::ICwAPI3DProcessType::setPanel5"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_process_type_1ab5afe23bfdad515a6b1c4d53abd894cb"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setPanel5</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType9setPanel5Ev" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sets the process type to panel 5. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType8isPanel5Ev">
+<span id="_CPPv3N7CwAPI3D10Interfaces19ICwAPI3DProcessType8isPanel5Ev"></span><span id="_CPPv2N7CwAPI3D10Interfaces19ICwAPI3DProcessType8isPanel5Ev"></span><span id="CwAPI3D::Interfaces::ICwAPI3DProcessType::isPanel5"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_process_type_1af334c84193e3286470e706569baa1279"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isPanel5</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType8isPanel5Ev" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Tests if the process type is panel 5. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>is the process type panel 5 </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType24setRoughVolumeFramedWallEv">
+<span id="_CPPv3N7CwAPI3D10Interfaces19ICwAPI3DProcessType24setRoughVolumeFramedWallEv"></span><span id="_CPPv2N7CwAPI3D10Interfaces19ICwAPI3DProcessType24setRoughVolumeFramedWallEv"></span><span id="CwAPI3D::Interfaces::ICwAPI3DProcessType::setRoughVolumeFramedWall"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_process_type_1ab9508a835ed1868cd2586800014380d6"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setRoughVolumeFramedWall</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType24setRoughVolumeFramedWallEv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sets the process type to rough volume framed wall. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType23isRoughVolumeFramedWallEv">
+<span id="_CPPv3N7CwAPI3D10Interfaces19ICwAPI3DProcessType23isRoughVolumeFramedWallEv"></span><span id="_CPPv2N7CwAPI3D10Interfaces19ICwAPI3DProcessType23isRoughVolumeFramedWallEv"></span><span id="CwAPI3D::Interfaces::ICwAPI3DProcessType::isRoughVolumeFramedWall"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_process_type_1a25dcffa77b158e31d34d4b302e2e0802"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isRoughVolumeFramedWall</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType23isRoughVolumeFramedWallEv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Tests if the process type is rough volume framed wall. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>is the process type rough volume framed wall </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType27setRoughVolumeSolidWoodWallEv">
+<span id="_CPPv3N7CwAPI3D10Interfaces19ICwAPI3DProcessType27setRoughVolumeSolidWoodWallEv"></span><span id="_CPPv2N7CwAPI3D10Interfaces19ICwAPI3DProcessType27setRoughVolumeSolidWoodWallEv"></span><span id="CwAPI3D::Interfaces::ICwAPI3DProcessType::setRoughVolumeSolidWoodWall"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_process_type_1a3a2b7908db872e87af0cc8ac26e5b462"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setRoughVolumeSolidWoodWall</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType27setRoughVolumeSolidWoodWallEv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sets the process type to solid wood wall. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType26isRoughVolumeSolidWoodWallEv">
+<span id="_CPPv3N7CwAPI3D10Interfaces19ICwAPI3DProcessType26isRoughVolumeSolidWoodWallEv"></span><span id="_CPPv2N7CwAPI3D10Interfaces19ICwAPI3DProcessType26isRoughVolumeSolidWoodWallEv"></span><span id="CwAPI3D::Interfaces::ICwAPI3DProcessType::isRoughVolumeSolidWoodWall"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_process_type_1a9ba876e8e9b906e6ac2ce40c277a9be5"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isRoughVolumeSolidWoodWall</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType26isRoughVolumeSolidWoodWallEv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Tests if the process type is rough volume solid wood wall. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>is the process type rough volume solid wood wall </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType21setRoughVolumeLogHomeEv">
+<span id="_CPPv3N7CwAPI3D10Interfaces19ICwAPI3DProcessType21setRoughVolumeLogHomeEv"></span><span id="_CPPv2N7CwAPI3D10Interfaces19ICwAPI3DProcessType21setRoughVolumeLogHomeEv"></span><span id="CwAPI3D::Interfaces::ICwAPI3DProcessType::setRoughVolumeLogHome"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_process_type_1a001b865553add5031946d35a04313fd1"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setRoughVolumeLogHome</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType21setRoughVolumeLogHomeEv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sets the process type to rough volume log home. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType20isRoughVolumeLogHomeEv">
+<span id="_CPPv3N7CwAPI3D10Interfaces19ICwAPI3DProcessType20isRoughVolumeLogHomeEv"></span><span id="_CPPv2N7CwAPI3D10Interfaces19ICwAPI3DProcessType20isRoughVolumeLogHomeEv"></span><span id="CwAPI3D::Interfaces::ICwAPI3DProcessType::isRoughVolumeLogHome"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_process_type_1a7d5397d6a19bce5bd45b459d225b1737"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isRoughVolumeLogHome</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType20isRoughVolumeLogHomeEv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Tests if the process type is rough volume log home. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>is the process type rough volume log home </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType15getCadworkValueEv">
+<span id="_CPPv3N7CwAPI3D10Interfaces19ICwAPI3DProcessType15getCadworkValueEv"></span><span id="_CPPv2N7CwAPI3D10Interfaces19ICwAPI3DProcessType15getCadworkValueEv"></span><span id="CwAPI3D::Interfaces::ICwAPI3DProcessType::getCadworkValue"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_process_type_1afd268cd09ad75f35d7714ff3806c4997"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getCadworkValue</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType15getCadworkValueEv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the Cadwork value. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Cadwork value </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType15setCadworkValueEi">
+<span id="_CPPv3N7CwAPI3D10Interfaces19ICwAPI3DProcessType15setCadworkValueEi"></span><span id="_CPPv2N7CwAPI3D10Interfaces19ICwAPI3DProcessType15setCadworkValueEi"></span><span id="CwAPI3D::Interfaces::ICwAPI3DProcessType::setCadworkValue__i"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_process_type_1aa5c4db52f27312c9cb9e48662e3f818e"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setCadworkValue</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aProcessType</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessType15setCadworkValueEi" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sets the Cadwork value. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aProcessType</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Cadwork.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

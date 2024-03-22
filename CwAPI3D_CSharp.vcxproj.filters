@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="AttributeController.cpp">
+      <Filter>AttributeController</Filter>
+    </ClCompile>
+    <ClCompile Include="CwApi3DFactory.cpp" />
+    <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="BimController.cpp">
+      <Filter>BimController</Filter>
+    </ClCompile>
+    <ClCompile Include="ElementController.cpp">
+      <Filter>ElementController</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraData.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="EBimIfcType.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="IfcTypeMapper.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="UtilityController.cpp">
+      <Filter>UtilityController</Filter>
+    </ClCompile>
+    <ClCompile Include="VisualizationController.cpp">
+      <Filter>VisualizationController</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AttributeController.h">
+      <Filter>AttributeController</Filter>
+    </ClInclude>
+    <ClInclude Include="IAttributeController.h">
+      <Filter>AttributeController</Filter>
+    </ClInclude>
+    <ClInclude Include="CwApi3DFactory.h" />
+    <ClInclude Include="ICwApi3DFactory.h" />
+    <ClInclude Include="BimController.h">
+      <Filter>BimController</Filter>
+    </ClInclude>
+    <ClInclude Include="IBimController.h">
+      <Filter>BimController</Filter>
+    </ClInclude>
+    <ClInclude Include="ElementController.h">
+      <Filter>ElementController</Filter>
+    </ClInclude>
+    <ClInclude Include="IElementController.h">
+      <Filter>ElementController</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiUtils.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraData.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="ICameraData.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="EBimIfcType.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="IfcTypeMapper.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="vector3D.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="IUtilityController.h">
+      <Filter>UtilityController</Filter>
+    </ClInclude>
+    <ClInclude Include="UtilityController.h">
+      <Filter>UtilityController</Filter>
+    </ClInclude>
+    <ClInclude Include="IVisualizationController.h">
+      <Filter>VisualizationController</Filter>
+    </ClInclude>
+    <ClInclude Include="VisualizationController.h">
+      <Filter>VisualizationController</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="AttributeController">
+      <UniqueIdentifier>{1a11ee32-3368-4ebe-bf2f-369e28fd6cf0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BimController">
+      <UniqueIdentifier>{ba9b88e7-9cc1-4955-a65d-52b7b2a4c5cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ElementController">
+      <UniqueIdentifier>{d6fca0b5-9ffc-48ff-a6dd-803b65c2ef6e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utils">
+      <UniqueIdentifier>{89aee3bc-ab1d-40fd-b0be-006bb030df1b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UtilityController">
+      <UniqueIdentifier>{559ad787-a10f-4875-a68f-38dbdaf6a042}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="VisualizationController">
+      <UniqueIdentifier>{122bf5a9-74d8-4099-b678-6db2592dcfbd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GeometryController">
+      <UniqueIdentifier>{75b76dc4-e828-48ea-827f-76e8ca9e56eb}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

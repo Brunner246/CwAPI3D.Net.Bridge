@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Geometry Controller &mdash; CwAPI3D V29</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="List Controller" href="listcontroller.html" />
+    <link rel="prev" title="File Controller" href="filecontroller.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> CwAPI3D
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">General</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gettingstartedcpp.html">Getting Started (C++)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gettingstartedlua.html">Getting Started (Lua)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="versioning.html">Versioning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="philosophy.html">Philosophy</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lua</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="lua.html">Lua</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Factories</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="controllerfactory.html">Controller Factory</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Controllers</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="attributecontroller.html">Attribute Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="connectoraxiscontroller.html">Connector Axis Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="elementcontroller.html">Element Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="endtypecontroller.html">Endtype Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="filecontroller.html">File Controller</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Geometry Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="listcontroller.html">List Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="machinecontroller.html">Machine Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="materialcontroller.html">Material Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="menucontroller.html">Menu Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="roofcontroller.html">Roof Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scenecontroller.html">Scene Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shopdrawingcontroller.html">Shop Drawing Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utilitycontroller.html">Utility Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visualizationcontroller.html">Visualization Controller</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Helpers</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="activationstate.html">Activation State</a></li>
+<li class="toctree-l1"><a class="reference internal" href="elementidlist.html">Element ID List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="elementtype.html">Element Type</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extendedsettings.html">Extended Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="menu.html">Menu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="processtype.html">Process Type</a></li>
+<li class="toctree-l1"><a class="reference internal" href="string.html">String</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vertexlist.html">Vertex List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visibilitystate.html">Visibility State</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CwAPI3D</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Geometry Controller</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/geometrycontroller.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="geometry-controller">
+<h1>Geometry Controller<a class="headerlink" href="#geometry-controller" title="Permalink to this headline"></a></h1>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryControllerE">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryControllerE"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryControllerE"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller"></span><span class="k"><span class="pre">interface</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">CwAPI3D</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Interfaces</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">ICwAPI3DGeometryController</span></span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryControllerE" title="Permalink to this definition"></a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController12getLastErrorEP7int32_t">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController12getLastErrorEP7int32_t"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController12getLastErrorEP7int32_t"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::getLastError__int32_tP"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1a7e6998248ffe127679efd8fca6f9cf7f"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><a class="reference internal" href="string.html#_CPPv4N7CwAPI3D10Interfaces14ICwAPI3DStringE" title="CwAPI3D::Interfaces::ICwAPI3DString"><span class="n"><span class="pre">ICwAPI3DString</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getLastError</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aErrorCode</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController12getLastErrorEP7int32_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the last error. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aErrorCode</strong> – error code </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>error string </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController8getWidthE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController8getWidthE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController8getWidthE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::getWidth__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1ab51ab258be366fc1b5bf7045dc444f38"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getWidth</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController8getWidthE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the element width. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>element width </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController9getHeightE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController9getHeightE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController9getHeightE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::getHeight__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1a15d6a22e273f14d6bf78fed8d9e83c5f"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getHeight</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController9getHeightE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the element height. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>element height </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController9getLengthE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController9getLengthE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController9getLengthE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::getLength__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1ae71575526a399108a71eded6f4418c11"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getLength</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController9getLengthE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the element length. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>element length </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController5getP1E9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController5getP1E9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController5getP1E9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::getP1__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1a9c2342e7de967287c886239e6cc6d341"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="n"><span class="pre">vector3D</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getP1</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController5getP1E9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the element P1. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>element P1 </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController5getP2E9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController5getP2E9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController5getP2E9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::getP2__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1ad857231260fad14d2ca0b8995e546468"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="n"><span class="pre">vector3D</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getP2</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController5getP2E9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the element P2. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>element P2 </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController5getP3E9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController5getP3E9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController5getP3E9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::getP3__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1abfff6c619ac313b171bcc4685c7824e9"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="n"><span class="pre">vector3D</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getP3</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController5getP3E9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the element P3. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>element P3 </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController22getStartHeightCutAngleE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController22getStartHeightCutAngleE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController22getStartHeightCutAngleE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::getStartHeightCutAngle__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1a98e4aff8eba48f3b34397ce860d1643f"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getStartHeightCutAngle</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController22getStartHeightCutAngleE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the element start height cut angle. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>element start height cut angle </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController21getStartWidthCutAngleE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController21getStartWidthCutAngleE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController21getStartWidthCutAngleE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::getStartWidthCutAngle__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1aa7f8caf83227faa63d0e17e0e3fa21e6"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getStartWidthCutAngle</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController21getStartWidthCutAngleE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the element start width cut angle. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>element start width cut angle </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController20getEndHeightCutAngleE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController20getEndHeightCutAngleE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController20getEndHeightCutAngleE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::getEndHeightCutAngle__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1a8375320812a0ed69ffd331289417afa4"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getEndHeightCutAngle</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController20getEndHeightCutAngleE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the element end height cut angle. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>element end height cut angle </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController19getEndWidthCutAngleE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController19getEndWidthCutAngleE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController19getEndWidthCutAngleE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::getEndWidthCutAngle__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1a858b9519e74f8b894626685510936e42"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getEndWidthCutAngle</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController19getEndWidthCutAngleE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the element end width cut angle. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>element end width cut angle </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController18rotateHeightAxis90EP21ICwAPI3DElementIDList">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController18rotateHeightAxis90EP21ICwAPI3DElementIDList"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController18rotateHeightAxis90EP21ICwAPI3DElementIDList"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::rotateHeightAxis90__ICwAPI3DElementIDListP"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1ad5aa3d0a78a683550114c04a4cec8d91"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">rotateHeightAxis90</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aElementIDList</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController18rotateHeightAxis90EP21ICwAPI3DElementIDList" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Rotates the element height axis 90 degrees. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aElementIDList</strong> – element ID list </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController19rotateHeightAxis180EP21ICwAPI3DElementIDList">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController19rotateHeightAxis180EP21ICwAPI3DElementIDList"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController19rotateHeightAxis180EP21ICwAPI3DElementIDList"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::rotateHeightAxis180__ICwAPI3DElementIDListP"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1ab4d265c51b0c04b3971da217abca2556"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">rotateHeightAxis180</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aElementIDList</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController19rotateHeightAxis180EP21ICwAPI3DElementIDList" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Rotates the element height axis 180 degrees. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aElementIDList</strong> – element ID list </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController12getOverWidthE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController12getOverWidthE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController12getOverWidthE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::getOverWidth__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1a6b0f94934b50a0d30a5b008fc0669519"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getOverWidth</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController12getOverWidthE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the element overwidth. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>element overwidth </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController12setOverWidthEP21ICwAPI3DElementIDListd">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController12setOverWidthEP21ICwAPI3DElementIDListd"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController12setOverWidthEP21ICwAPI3DElementIDListd"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::setOverWidth__ICwAPI3DElementIDListP.double"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1a4e9a8f870b3c774b44be91954032d873"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setOverWidth</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aElementIDList</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aValue</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController12setOverWidthEP21ICwAPI3DElementIDListd" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sets the element overwidth. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aElementIDList</strong> – element ID list </p></li>
+<li><p><strong>aValue</strong> – element overwidth </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController13getOverHeightE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController13getOverHeightE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController13getOverHeightE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::getOverHeight__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1aa0c1bbbd3edb23df68694098bb6927e0"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getOverHeight</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController13getOverHeightE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the element overheight. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>element overheight </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController13setOverHeightEP21ICwAPI3DElementIDListd">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController13setOverHeightEP21ICwAPI3DElementIDListd"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController13setOverHeightEP21ICwAPI3DElementIDListd"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::setOverHeight__ICwAPI3DElementIDListP.double"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1a2fdb61d3d3acb793b28b49575e70146b"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setOverHeight</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aElementIDList</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aValue</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController13setOverHeightEP21ICwAPI3DElementIDListd" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sets the element overheight. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aElementIDList</strong> – element ID list </p></li>
+<li><p><strong>aValue</strong> – element overheight </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController13getOverLengthE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController13getOverLengthE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController13getOverLengthE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::getOverLength__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1a1590913c2894e5480ae93af9e5ec92e3"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getOverLength</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController13getOverLengthE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the element overlength. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>element overlength </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController13setOverLengthEP21ICwAPI3DElementIDListd">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController13setOverLengthEP21ICwAPI3DElementIDListd"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController13setOverLengthEP21ICwAPI3DElementIDListd"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::setOverLength__ICwAPI3DElementIDListP.double"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1a3d5fe685861d161c177ac6a4ed4eb580"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setOverLength</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aElementIDList</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aValue</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController13setOverLengthEP21ICwAPI3DElementIDListd" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sets the element overlength. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aElementIDList</strong> – element ID list </p></li>
+<li><p><strong>aValue</strong> – element overlength </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController16getRoundingWidthE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController16getRoundingWidthE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController16getRoundingWidthE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::getRoundingWidth__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1ae9cf686fc010278eccbf403c7d0d3b48"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getRoundingWidth</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController16getRoundingWidthE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the element rounding width. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>element rounding width </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController16setRoundingWidthEP21ICwAPI3DElementIDListd">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController16setRoundingWidthEP21ICwAPI3DElementIDListd"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController16setRoundingWidthEP21ICwAPI3DElementIDListd"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::setRoundingWidth__ICwAPI3DElementIDListP.double"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1a2de161f99beebacabeb76200405ea45e"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setRoundingWidth</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aElementIDList</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aValue</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController16setRoundingWidthEP21ICwAPI3DElementIDListd" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sets the element rounding width. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aElementIDList</strong> – element ID list </p></li>
+<li><p><strong>aValue</strong> – element rounding width </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController17getRoundingHeightE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController17getRoundingHeightE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController17getRoundingHeightE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::getRoundingHeight__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1a1c0223badcff20717ba0bc067717f17e"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getRoundingHeight</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController17getRoundingHeightE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the element rounding height. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>element rounding height </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController17setRoundingHeightEP21ICwAPI3DElementIDListd">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController17setRoundingHeightEP21ICwAPI3DElementIDListd"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController17setRoundingHeightEP21ICwAPI3DElementIDListd"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::setRoundingHeight__ICwAPI3DElementIDListP.double"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1a04c8e4c5f27e1774c436708d19024177"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setRoundingHeight</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aElementIDList</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aValue</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController17setRoundingHeightEP21ICwAPI3DElementIDListd" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sets the element rounding height. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aElementIDList</strong> – element ID list </p></li>
+<li><p><strong>aValue</strong> – element rounding height </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController17getRoundingLengthE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController17getRoundingLengthE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController17getRoundingLengthE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::getRoundingLength__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1afe2f185fd52554f33cb84625060f3c91"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getRoundingLength</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController17getRoundingLengthE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the element rounding length. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>element rounding length </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController17setRoundingLengthEP21ICwAPI3DElementIDListd">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController17setRoundingLengthEP21ICwAPI3DElementIDListd"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController17setRoundingLengthEP21ICwAPI3DElementIDListd"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::setRoundingLength__ICwAPI3DElementIDListP.double"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1a806642b23a6a73808ace91e7174d17a1"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setRoundingLength</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aElementIDList</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aValue</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController17setRoundingLengthEP21ICwAPI3DElementIDListd" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sets the element rounding length. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aElementIDList</strong> – element ID list </p></li>
+<li><p><strong>aValue</strong> – element rounding length </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController31getCrossCorrectionNegativeWidthE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController31getCrossCorrectionNegativeWidthE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController31getCrossCorrectionNegativeWidthE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::getCrossCorrectionNegativeWidth__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1a0404eb5725c3f7dfdee053f11570aa7d"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getCrossCorrectionNegativeWidth</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController31getCrossCorrectionNegativeWidthE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the element negative width cross correction. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>element negative width cross correction </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController31setCrossCorrectionNegativeWidthEP21ICwAPI3DElementIDListd">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController31setCrossCorrectionNegativeWidthEP21ICwAPI3DElementIDListd"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController31setCrossCorrectionNegativeWidthEP21ICwAPI3DElementIDListd"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::setCrossCorrectionNegativeWidth__ICwAPI3DElementIDListP.double"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1a48e2c831729f9f2802f55db0a250097d"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setCrossCorrectionNegativeWidth</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aElementIDList</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aValue</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController31setCrossCorrectionNegativeWidthEP21ICwAPI3DElementIDListd" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sets the element negative width cross correction. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aElementIDList</strong> – element ID list </p></li>
+<li><p><strong>aValue</strong> – element negative width cross correction </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController31getCrossCorrectionPositiveWidthE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController31getCrossCorrectionPositiveWidthE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController31getCrossCorrectionPositiveWidthE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::getCrossCorrectionPositiveWidth__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1a0402adc2099b1d19e83c2e00b69ad15b"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getCrossCorrectionPositiveWidth</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController31getCrossCorrectionPositiveWidthE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the element positive width cross correction. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>element positive width cross correction </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController31setCrossCorrectionPositiveWidthEP21ICwAPI3DElementIDListd">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController31setCrossCorrectionPositiveWidthEP21ICwAPI3DElementIDListd"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController31setCrossCorrectionPositiveWidthEP21ICwAPI3DElementIDListd"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::setCrossCorrectionPositiveWidth__ICwAPI3DElementIDListP.double"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1a46f0a1f2336ba9e1720fe7ed4d0ee55b"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setCrossCorrectionPositiveWidth</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aElementIDList</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aValue</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController31setCrossCorrectionPositiveWidthEP21ICwAPI3DElementIDListd" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sets the element positive width cross correction. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aElementIDList</strong> – element ID list </p></li>
+<li><p><strong>aValue</strong> – element positive width cross correction </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController32getCrossCorrectionNegativeHeightE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController32getCrossCorrectionNegativeHeightE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController32getCrossCorrectionNegativeHeightE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::getCrossCorrectionNegativeHeight__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1af4b945d47408bbcc18d02f7154d54e61"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getCrossCorrectionNegativeHeight</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController32getCrossCorrectionNegativeHeightE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the element negative height cross correction. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>element negative height cross correction </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController32setCrossCorrectionNegativeHeightEP21ICwAPI3DElementIDListd">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController32setCrossCorrectionNegativeHeightEP21ICwAPI3DElementIDListd"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController32setCrossCorrectionNegativeHeightEP21ICwAPI3DElementIDListd"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::setCrossCorrectionNegativeHeight__ICwAPI3DElementIDListP.double"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1a1baba36d0e569fa50f5621ca46b42a4e"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setCrossCorrectionNegativeHeight</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aElementIDList</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aValue</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController32setCrossCorrectionNegativeHeightEP21ICwAPI3DElementIDListd" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sets the element negative height cross correction. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aElementIDList</strong> – element ID list </p></li>
+<li><p><strong>aValue</strong> – element negative height cross correction </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController32getCrossCorrectionPositiveHeightE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController32getCrossCorrectionPositiveHeightE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController32getCrossCorrectionPositiveHeightE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::getCrossCorrectionPositiveHeight__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1adbe52bbe0a4e335c3bc2a1f96ab92065"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getCrossCorrectionPositiveHeight</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController32getCrossCorrectionPositiveHeightE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the element positive height cross correction. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>element positive height cross correction </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController32setCrossCorrectionPositiveHeightEP21ICwAPI3DElementIDListd">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController32setCrossCorrectionPositiveHeightEP21ICwAPI3DElementIDListd"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController32setCrossCorrectionPositiveHeightEP21ICwAPI3DElementIDListd"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::setCrossCorrectionPositiveHeight__ICwAPI3DElementIDListP.double"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1a5320ed1bd091aca999d2877fd61f64b6"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setCrossCorrectionPositiveHeight</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aElementIDList</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aValue</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController32setCrossCorrectionPositiveHeightEP21ICwAPI3DElementIDListd" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sets the element positive height cross correction. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aElementIDList</strong> – element ID list </p></li>
+<li><p><strong>aValue</strong> – element positive height cross correction </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController32getCrossCorrectionNegativeLengthE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController32getCrossCorrectionNegativeLengthE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController32getCrossCorrectionNegativeLengthE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::getCrossCorrectionNegativeLength__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1a8e3c6cc455b66a484601858c7f462349"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getCrossCorrectionNegativeLength</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController32getCrossCorrectionNegativeLengthE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the element negative length cross correction. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>element negative length cross correction </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController32setCrossCorrectionNegativeLengthEP21ICwAPI3DElementIDListd">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController32setCrossCorrectionNegativeLengthEP21ICwAPI3DElementIDListd"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController32setCrossCorrectionNegativeLengthEP21ICwAPI3DElementIDListd"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::setCrossCorrectionNegativeLength__ICwAPI3DElementIDListP.double"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1aadc4bb7e3b68647790057bf3d733edff"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setCrossCorrectionNegativeLength</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aElementIDList</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aValue</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController32setCrossCorrectionNegativeLengthEP21ICwAPI3DElementIDListd" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sets the element negative length cross correction. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aElementIDList</strong> – element ID list </p></li>
+<li><p><strong>aValue</strong> – element negative length cross correction </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController32getCrossCorrectionPositiveLengthE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController32getCrossCorrectionPositiveLengthE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController32getCrossCorrectionPositiveLengthE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::getCrossCorrectionPositiveLength__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1a8e208dc202c4515edc584165acd8e362"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getCrossCorrectionPositiveLength</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController32getCrossCorrectionPositiveLengthE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the element positive length cross correction. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>element positive length cross correction </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController32setCrossCorrectionPositiveLengthEP21ICwAPI3DElementIDListd">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController32setCrossCorrectionPositiveLengthEP21ICwAPI3DElementIDListd"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController32setCrossCorrectionPositiveLengthEP21ICwAPI3DElementIDListd"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::setCrossCorrectionPositiveLength__ICwAPI3DElementIDListP.double"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1a7f251951ae31d14bedde049ab78b3f16"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setCrossCorrectionPositiveLength</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aElementIDList</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aValue</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController32setCrossCorrectionPositiveLengthEP21ICwAPI3DElementIDListd" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sets the element positive length cross correction. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aElementIDList</strong> – element ID list </p></li>
+<li><p><strong>aValue</strong> – element positive length cross correction </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController9getWeightE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController9getWeightE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController9getWeightE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::getWeight__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1aa8eea911da9b299f3ab88251c7715044"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getWeight</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController9getWeightE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the element real weight. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>element real weight </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController13getListWeightE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController13getListWeightE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController13getListWeightE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::getListWeight__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1a0979ef1d94eec39273bffee9a2435a2a"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getListWeight</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController13getListWeightE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the element list weight. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>element list weight </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController9getVolumeE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController9getVolumeE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController9getVolumeE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::getVolume__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1a4d812a60f03a9c4864be9fd32a4fb3a0"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getVolume</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController9getVolumeE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the element real volume. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>element real volume </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController13getListVolumeE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController13getListVolumeE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController13getListVolumeE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::getListVolume__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1a5f8cc61a3bf3cfc642874e4276ae488f"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getListVolume</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController13getListVolumeE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the element list volume. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>element list volume </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController5getXLE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController5getXLE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController5getXLE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::getXL__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1a1f736d49eea66f6ad800eb3a419e027b"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="n"><span class="pre">vector3D</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getXL</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController5getXLE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the element XL vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>element XL vector </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController5getYLE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController5getYLE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController5getYLE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::getYL__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1adfd770d88bab5becee24da0b2d9525bd"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="n"><span class="pre">vector3D</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getYL</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController5getYLE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the element YL vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>element YL vector </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController5getZLE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController5getZLE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController5getZLE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::getZL__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1aaa86acbbd29554004c13701f962bc040"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="n"><span class="pre">vector3D</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getZL</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController5getZLE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the element ZL vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>element ZL vector </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController18getCenterOfGravityE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController18getCenterOfGravityE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController18getCenterOfGravityE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::getCenterOfGravity__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1a4496a29acea33f38e38947e5f1771e38"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="n"><span class="pre">vector3D</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getCenterOfGravity</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController18getCenterOfGravityE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the element center of gravity. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>element center of gravity </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController16getReferenceSideE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController16getReferenceSideE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController16getReferenceSideE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::getReferenceSide__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1afd52feeedb1f6415b223d471e059c4a6"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="n"><span class="pre">referenceSide</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getReferenceSide</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController16getReferenceSideE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the element reference side. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>element reference side </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController18getElementVerticesE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController18getElementVerticesE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController18getElementVerticesE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::getElementVertices__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1adc2c652b87cd1a6c216fa339b420fa7f"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><a class="reference internal" href="vertexlist.html#_CPPv4N7CwAPI3D10Interfaces18ICwAPI3DVertexListE" title="CwAPI3D::Interfaces::ICwAPI3DVertexList"><span class="n"><span class="pre">ICwAPI3DVertexList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getElementVertices</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController18getElementVerticesE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the element vertices. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>element vertices </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController16applyGlobalScaleEP21ICwAPI3DElementIDListd8vector3D">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController16applyGlobalScaleEP21ICwAPI3DElementIDListd8vector3D"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController16applyGlobalScaleEP21ICwAPI3DElementIDListd8vector3D"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::applyGlobalScale__ICwAPI3DElementIDListP.double.vector3D"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1aa3cddb45fb671fbfbea1a4cd1313ef19"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">applyGlobalScale</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aElementIDList</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aScale</span></span>, <span class="n"><span class="pre">vector3D</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aOrigin</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController16applyGlobalScaleEP21ICwAPI3DElementIDListd8vector3D" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Applies a global scale to element. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aElementIDList</strong> – element ID list </p></li>
+<li><p><strong>aScale</strong> – global scale </p></li>
+<li><p><strong>aOrigin</strong> – scaling origin </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController18autoRegenerateAxesEP21ICwAPI3DElementIDList">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController18autoRegenerateAxesEP21ICwAPI3DElementIDList"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController18autoRegenerateAxesEP21ICwAPI3DElementIDList"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::autoRegenerateAxes__ICwAPI3DElementIDListP"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1aca19d7cead201008206b9a3fc79a5689"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">autoRegenerateAxes</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aElementIDList</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController18autoRegenerateAxesEP21ICwAPI3DElementIDList" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Automatically regenerates axes on element. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aElementIDList</strong> – element ID list </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController18rotateLengthAxis90EP21ICwAPI3DElementIDList">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController18rotateLengthAxis90EP21ICwAPI3DElementIDList"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController18rotateLengthAxis90EP21ICwAPI3DElementIDList"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::rotateLengthAxis90__ICwAPI3DElementIDListP"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1a862e569df2ea1109fb29ccb796422d01"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">rotateLengthAxis90</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aElementIDList</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController18rotateLengthAxis90EP21ICwAPI3DElementIDList" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Rotates element length axis 90 degrees. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aElementIDList</strong> – element ID list </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController19rotateLengthAxis180EP21ICwAPI3DElementIDList">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController19rotateLengthAxis180EP21ICwAPI3DElementIDList"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController19rotateLengthAxis180EP21ICwAPI3DElementIDList"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::rotateLengthAxis180__ICwAPI3DElementIDListP"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1a2779f4f34c75bd92c5661e6efdab723c"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">rotateLengthAxis180</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aElementIDList</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController19rotateLengthAxis180EP21ICwAPI3DElementIDList" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Rotates element length axis 180 degrees. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aElementIDList</strong> – element ID list </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController11invertModelEP21ICwAPI3DElementIDList">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController11invertModelEP21ICwAPI3DElementIDList"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController11invertModelEP21ICwAPI3DElementIDList"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::invertModel__ICwAPI3DElementIDListP"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1a5c8b101b10127a3cb19ef0e2fc92d83d"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">invertModel</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aElementIDList</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController11invertModelEP21ICwAPI3DElementIDList" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Inverts element model. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aElementIDList</strong> – element ID list </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController16getElementFacetsE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController16getElementFacetsE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController16getElementFacetsE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::getElementFacets__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1a6c4eff32260682821ccbbab746d72dc0"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="n"><span class="pre">ICwAPI3DFacetList</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getElementFacets</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController16getElementFacetsE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the element facets. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>element facets </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController12getListWidthE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController12getListWidthE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController12getListWidthE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::getListWidth__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1a5c97cb3ffa25f56edb3bee6b578538ff"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getListWidth</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController12getListWidthE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Get the element list width. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>element list width </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController13getListHeightE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController13getListHeightE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController13getListHeightE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::getListHeight__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1a89b191cd56cef608b5bf2ba0ca07d064"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getListHeight</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController13getListHeightE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the element list height. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>element list height </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController13getListLengthE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController13getListLengthE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController13getListLengthE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::getListLength__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1a1e3d9cb93829c0e5273b4975f97f6b86"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getListLength</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController13getListLengthE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the element list length. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>element list length </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController12setWidthRealEP21ICwAPI3DElementIDListd">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController12setWidthRealEP21ICwAPI3DElementIDListd"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController12setWidthRealEP21ICwAPI3DElementIDListd"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::setWidthReal__ICwAPI3DElementIDListP.double"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1aaeceeb8d7919962ae25080138cc923e7"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setWidthReal</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aElements</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aWidth</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController12setWidthRealEP21ICwAPI3DElementIDListd" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sets the element real width. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aElements</strong> – element ID list </p></li>
+<li><p><strong>aWidth</strong> – element real width </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController13setHeightRealEP21ICwAPI3DElementIDListd">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController13setHeightRealEP21ICwAPI3DElementIDListd"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController13setHeightRealEP21ICwAPI3DElementIDListd"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::setHeightReal__ICwAPI3DElementIDListP.double"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1a5ba4d7fa1f7db22ab1e9d281875dca9c"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setHeightReal</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aElements</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aHeight</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController13setHeightRealEP21ICwAPI3DElementIDListd" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sets the element real height. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aElements</strong> – element ID list </p></li>
+<li><p><strong>aHeight</strong> – element real height </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController13setLengthRealEP21ICwAPI3DElementIDListd">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController13setLengthRealEP21ICwAPI3DElementIDListd"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController13setLengthRealEP21ICwAPI3DElementIDListd"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::setLengthReal__ICwAPI3DElementIDListP.double"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1aa40f7cd3ba9dfa53f4ad77fe7c68a051"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setLengthReal</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aElements</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aLength</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController13setLengthRealEP21ICwAPI3DElementIDListd" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the element real length. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aElements</strong> – element ID list </p></li>
+<li><p><strong>aLength</strong> – element real length </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController23rotateHeightAxis2PointsEP21ICwAPI3DElementIDList8vector3D8vector3D">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController23rotateHeightAxis2PointsEP21ICwAPI3DElementIDList8vector3D8vector3D"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController23rotateHeightAxis2PointsEP21ICwAPI3DElementIDList8vector3D8vector3D"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::rotateHeightAxis2Points__ICwAPI3DElementIDListP.vector3D.vector3D"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1a05e1794af8ed90c17a21ad6ac79523a3"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">rotateHeightAxis2Points</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aElements</span></span>, <span class="n"><span class="pre">vector3D</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aPoint1</span></span>, <span class="n"><span class="pre">vector3D</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aPoint2</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController23rotateHeightAxis2PointsEP21ICwAPI3DElementIDList8vector3D8vector3D" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Rotates the element height axis via 2 points. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aElements</strong> – element ID list </p></li>
+<li><p><strong>aPoint1</strong> – first point </p></li>
+<li><p><strong>aPoint2</strong> – second point </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController33getMinimumDistanceBetweenElementsE9elementID9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController33getMinimumDistanceBetweenElementsE9elementID9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController33getMinimumDistanceBetweenElementsE9elementID9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::getMinimumDistanceBetweenElements__elementID.elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1af83b22ce67e5b5b79bae4f7f0c520b9e"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getMinimumDistanceBetweenElements</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aFirstID</span></span>, <span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aSecondID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController33getMinimumDistanceBetweenElementsE9elementID9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the minimum distance between 2 elements. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aFirstID</strong> – first element ID </p></li>
+<li><p><strong>aSecondID</strong> – second element ID </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>minimum distance </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController22getTotalAreaOfAllFacesE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController22getTotalAreaOfAllFacesE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController22getTotalAreaOfAllFacesE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::getTotalAreaOfAllFaces__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1add43ba0321722b08faa1aaae80c71ef3"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getTotalAreaOfAllFaces</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aElement</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController22getTotalAreaOfAllFacesE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the total area of all faces for element. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aElement</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>element total faces area </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController18getAreaOfFrontFaceE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController18getAreaOfFrontFaceE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController18getAreaOfFrontFaceE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::getAreaOfFrontFace__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1a68b2df2f3ace8876a6b52de908cf8627"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getAreaOfFrontFace</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aElement</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController18getAreaOfFrontFaceE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the front face are for element. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aElement</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>element front face area </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController14getDoorSurfaceEP21ICwAPI3DElementIDList">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController14getDoorSurfaceEP21ICwAPI3DElementIDList"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController14getDoorSurfaceEP21ICwAPI3DElementIDList"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::getDoorSurface__ICwAPI3DElementIDListP"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1ac44238bcea9af96adfdc280316b4800a"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getDoorSurface</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aElements</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController14getDoorSurfaceEP21ICwAPI3DElementIDList" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the element door surface. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aElements</strong> – element ID list </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>element door surface </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController16getWindowSurfaceEP21ICwAPI3DElementIDList">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController16getWindowSurfaceEP21ICwAPI3DElementIDList"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController16getWindowSurfaceEP21ICwAPI3DElementIDList"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::getWindowSurface__ICwAPI3DElementIDListP"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1acd1ba8e9977f108bb409ea9ae3ad439c"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getWindowSurface</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aElements</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController16getWindowSurfaceEP21ICwAPI3DElementIDList" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the element window surface. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aElements</strong> – element ID list </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>element window surface </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController18createDivisionZoneE9elementID8vector3D21divisionZoneDirection">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController18createDivisionZoneE9elementID8vector3D21divisionZoneDirection"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController18createDivisionZoneE9elementID8vector3D21divisionZoneDirection"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::createDivisionZone__elementID.vector3D.divisionZoneDirection"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1a36a44ff2594ea48b7c07d558fd4dc5a3"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">createDivisionZone</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aElement</span></span>, <span class="n"><span class="pre">vector3D</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aPoint</span></span>, <span class="n"><span class="pre">divisionZoneDirection</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aDirection</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController18createDivisionZoneE9elementID8vector3D21divisionZoneDirection" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Creates a division zone. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aElement</strong> – element ID </p></li>
+<li><p><strong>aPoint</strong> – division zone point </p></li>
+<li><p><strong>aDirection</strong> – division zone direction </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController18deleteDivisionZoneE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController18deleteDivisionZoneE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController18deleteDivisionZoneE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::deleteDivisionZone__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1af845a1f41738e36848ea0b9f8725ec83"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">deleteDivisionZone</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aElement</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController18deleteDivisionZoneE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Deletes a division zone. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aElement</strong> – element ID </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController21getDivisionZonePointsE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController21getDivisionZonePointsE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController21getDivisionZonePointsE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::getDivisionZonePoints__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1ae5cb22dd99445ab0f5668712d1b3e2c4"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><a class="reference internal" href="vertexlist.html#_CPPv4N7CwAPI3D10Interfaces18ICwAPI3DVertexListE" title="CwAPI3D::Interfaces::ICwAPI3DVertexList"><span class="n"><span class="pre">ICwAPI3DVertexList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getDivisionZonePoints</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aElement</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController21getDivisionZonePointsE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the division zone points. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aElement</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>division zone points </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController9getLocalXEv">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController9getLocalXEv"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController9getLocalXEv"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::getLocalX"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1a9832134156e460587b2df5cac66e8877"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="n"><span class="pre">vector3D</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getLocalX</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController9getLocalXEv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the local X vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>local X vector </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController9getLocalZEv">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController9getLocalZEv"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController9getLocalZEv"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::getLocalZ"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1ad26bf74580d3b33af11374e04e0e53d8"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="n"><span class="pre">vector3D</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getLocalZ</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController9getLocalZEv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the local Y vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>local Y vector </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController9getLocalYEv">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController9getLocalYEv"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController9getLocalYEv"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::getLocalY"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1adce6671d47490e05b5d0d133e63abf6b"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="n"><span class="pre">vector3D</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getLocalY</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController9getLocalYEv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the local Z vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>local Z vector </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController20setDrillingToleranceEP21ICwAPI3DElementIDListd">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController20setDrillingToleranceEP21ICwAPI3DElementIDListd"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController20setDrillingToleranceEP21ICwAPI3DElementIDListd"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::setDrillingTolerance__ICwAPI3DElementIDListP.double"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1a1c05de01fe1179d8edfdd38283baf620"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setDrillingTolerance</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aElements</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aTolerance</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController20setDrillingToleranceEP21ICwAPI3DElementIDListd" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the division zone points. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aElements</strong> – element IDs </p></li>
+<li><p><strong>aTolerance</strong> – new drilling tolerance </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController20getDrillingToleranceE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController20getDrillingToleranceE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController20getDrillingToleranceE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::getDrillingTolerance__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1ac35a4637df322d558e3c5b29484b679c"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getDrillingTolerance</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aElement</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController20getDrillingToleranceE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the drilling tolerance of an axis. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aElement</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the drilling tolerance </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController31getElementReferenceFaceVerticesE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController31getElementReferenceFaceVerticesE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController31getElementReferenceFaceVerticesE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::getElementReferenceFaceVertices__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1ab801dd959f4ce74e01abe822dd53c1ce"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><a class="reference internal" href="vertexlist.html#_CPPv4N7CwAPI3D10Interfaces18ICwAPI3DVertexListE" title="CwAPI3D::Interfaces::ICwAPI3DVertexList"><span class="n"><span class="pre">ICwAPI3DVertexList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getElementReferenceFaceVertices</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aElementID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController31getElementReferenceFaceVerticesE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the vertices of the reference side. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aElementID</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>vertexlist of all points </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController27getElementReferenceFaceAreaE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController27getElementReferenceFaceAreaE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController27getElementReferenceFaceAreaE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::getElementReferenceFaceArea__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1a610b3b6ec2fd72176c359f81fea26b26"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getElementReferenceFaceArea</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aElementID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController27getElementReferenceFaceAreaE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the area of the reference side. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aElementID</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>area(size) of reference face </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController23rotateLengthAxis2PointsEP21ICwAPI3DElementIDList8vector3D8vector3D">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController23rotateLengthAxis2PointsEP21ICwAPI3DElementIDList8vector3D8vector3D"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController23rotateLengthAxis2PointsEP21ICwAPI3DElementIDList8vector3D8vector3D"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::rotateLengthAxis2Points__ICwAPI3DElementIDListP.vector3D.vector3D"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1a96bc84c0d50a55d2fb48afd07a4fa234"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">rotateLengthAxis2Points</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aElements</span></span>, <span class="n"><span class="pre">vector3D</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aPoint1</span></span>, <span class="n"><span class="pre">vector3D</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aPoint2</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController23rotateLengthAxis2PointsEP21ICwAPI3DElementIDList8vector3D8vector3D" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Rotates the element length axis via 2 points. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aElements</strong> – element ID list </p></li>
+<li><p><strong>aPoint1</strong> – first point </p></li>
+<li><p><strong>aPoint2</strong> – second point </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController25getCenterOfGravityForListEP21ICwAPI3DElementIDList">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController25getCenterOfGravityForListEP21ICwAPI3DElementIDList"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController25getCenterOfGravityForListEP21ICwAPI3DElementIDList"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::getCenterOfGravityForList__ICwAPI3DElementIDListP"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1aa74f10b6431e2e822f0a65e2eb8138b8"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="n"><span class="pre">vector3D</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getCenterOfGravityForList</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aElements</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController25getCenterOfGravityForListEP21ICwAPI3DElementIDList" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aElements</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController45getCenterOfGravityForListConsideringMaterialsEP21ICwAPI3DElementIDList">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController45getCenterOfGravityForListConsideringMaterialsEP21ICwAPI3DElementIDList"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController45getCenterOfGravityForListConsideringMaterialsEP21ICwAPI3DElementIDList"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::getCenterOfGravityForListConsideringMaterials__ICwAPI3DElementIDListP"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1a8709fb8a4f262b7fbc13cd6012c54dbc"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="n"><span class="pre">vector3D</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getCenterOfGravityForListConsideringMaterials</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aElements</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController45getCenterOfGravityForListConsideringMaterialsEP21ICwAPI3DElementIDList" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aElements</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController20getElementFacetCountE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController20getElementFacetCountE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController20getElementFacetCountE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::getElementFacetCount__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1abb9fcf7369fa80c0f71525ea58430b3a"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getElementFacetCount</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController20getElementFacetCountE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController13getWeightRealE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces26ICwAPI3DGeometryController13getWeightRealE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces26ICwAPI3DGeometryController13getWeightRealE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DGeometryController::getWeightReal__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_geometry_controller_1a1f1498d7453db761639fac2712c0aca2"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getWeightReal</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces26ICwAPI3DGeometryController13getWeightRealE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Cadwork.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

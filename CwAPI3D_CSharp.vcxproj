@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <ProjectGuid>{D7AFEB12-6630-40FE-A8E1-BED9C0238AB8}</ProjectGuid>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <Keyword>ManagedCProj</Keyword>
+    <RootNamespace>CwAPI3DCLI</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CLRSupport>true</CLRSupport>
+    <CharacterSet>Unicode</CharacterSet>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CLRSupport>true</CLRSupport>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="CwAPI3D.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="CwAPI3D.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)output\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <IgnoreImportLibrary>false</IgnoreImportLibrary>
+    <GenerateManifest>true</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>
+      </PrecompiledHeaderFile>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions);CWAPI3D_PLUGIN_NAME=L"Cadwork Test Plugin";CWAPI3D_AUTHOR_NAME=L"Michael Brunner";CWAPI3D_AUTHOR_EMAIL=L"brunner@cadwork.swiss"</PreprocessorDefinitions>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeaderOutputFile>
+      </PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies />
+    </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions);CWAPI3D_PLUGIN_NAME=L"Cadwork Test Plugin";CWAPI3D_AUTHOR_NAME=L"Michael Brunner";CWAPI3D_AUTHOR_EMAIL=L"brunner@cadwork.swiss"</PreprocessorDefinitions>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies />
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AssemblyDebug>
+      </AssemblyDebug>
+      <SubSystem>Console</SubSystem>
+      <OptimizeReferences>
+      </OptimizeReferences>
+      <EnableCOMDATFolding>
+      </EnableCOMDATFolding>
+      <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy /y $(TargetPath) D:\cadwork\userprofil_30\3d\API.x64\CWAPI3D_CLR</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ApiUtils.h" />
+    <ClInclude Include="AttributeController.h" />
+    <ClInclude Include="BimController.h" />
+    <ClInclude Include="CameraData.h" />
+    <ClInclude Include="CwApi3DFactory.h" />
+    <ClInclude Include="EBimIfcType.h" />
+    <ClInclude Include="ElementController.h" />
+    <ClInclude Include="IAttributeController.h" />
+    <ClInclude Include="IBimController.h" />
+    <ClInclude Include="ICameraData.h" />
+    <ClInclude Include="ICwApi3DFactory.h" />
+    <ClInclude Include="IElementController.h" />
+    <ClInclude Include="IfcTypeMapper.h" />
+    <ClInclude Include="IUtilityController.h" />
+    <ClInclude Include="IVisualizationController.h" />
+    <ClInclude Include="UtilityController.h" />
+    <ClInclude Include="vector3D.h" />
+    <ClInclude Include="VisualizationController.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="AttributeController.cpp" />
+    <ClCompile Include="BimController.cpp" />
+    <ClCompile Include="CameraData.cpp" />
+    <ClCompile Include="CwApi3DFactory.cpp" />
+    <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="EBimIfcType.cpp" />
+    <ClCompile Include="ElementController.cpp" />
+    <ClCompile Include="IfcTypeMapper.cpp" />
+    <ClCompile Include="UtilityController.cpp" />
+    <ClCompile Include="VisualizationController.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CopyAndUnzipCwAPI3D.bat" />
+    <Content Include="CWAPI3D\CwApi30.zip" />
+    <Content Include="CWAPI3D\html\.buildinfo" />
+    <Content Include="CWAPI3D\html\activationstate.html" />
+    <Content Include="CWAPI3D\html\attributecontroller.html" />
+    <Content Include="CWAPI3D\html\connectoraxiscontroller.html" />
+    <Content Include="CWAPI3D\html\controllerfactory.html" />
+    <Content Include="CWAPI3D\html\elementcontroller.html" />
+    <Content Include="CWAPI3D\html\elementidlist.html" />
+    <Content Include="CWAPI3D\html\elementtype.html" />
+    <Content Include="CWAPI3D\html\endtypecontroller.html" />
+    <Content Include="CWAPI3D\html\extendedsettings.html" />
+    <Content Include="CWAPI3D\html\filecontroller.html" />
+    <Content Include="CWAPI3D\html\genindex.html" />
+    <Content Include="CWAPI3D\html\geometrycontroller.html" />
+    <Content Include="CWAPI3D\html\gettingstartedcpp.html" />
+    <Content Include="CWAPI3D\html\gettingstartedlua.html" />
+    <Content Include="CWAPI3D\html\index.html" />
+    <Content Include="CWAPI3D\html\introduction.html" />
+    <Content Include="CWAPI3D\html\listcontroller.html" />
+    <Content Include="CWAPI3D\html\lua.html" />
+    <Content Include="CWAPI3D\html\machinecontroller.html" />
+    <Content Include="CWAPI3D\html\materialcontroller.html" />
+    <Content Include="CWAPI3D\html\menu.html" />
+    <Content Include="CWAPI3D\html\menucontroller.html" />
+    <Content Include="CWAPI3D\html\objects.inv" />
+    <Content Include="CWAPI3D\html\philosophy.html" />
+    <Content Include="CWAPI3D\html\processtype.html" />
+    <Content Include="CWAPI3D\html\roofcontroller.html" />
+    <Content Include="CWAPI3D\html\scenecontroller.html" />
+    <Content Include="CWAPI3D\html\search.html" />
+    <Content Include="CWAPI3D\html\searchindex.js" />
+    <Content Include="CWAPI3D\html\shopdrawingcontroller.html" />
+    <Content Include="CWAPI3D\html\string.html" />
+    <Content Include="CWAPI3D\html\utilitycontroller.html" />
+    <Content Include="CWAPI3D\html\versioning.html" />
+    <Content Include="CWAPI3D\html\vertexlist.html" />
+    <Content Include="CWAPI3D\html\visibilitystate.html" />
+    <Content Include="CWAPI3D\html\visualizationcontroller.html" />
+    <Content Include="CWAPI3D\html\_sources\activationstate.rst.txt" />
+    <Content Include="CWAPI3D\html\_sources\attributecontroller.rst.txt" />
+    <Content Include="CWAPI3D\html\_sources\connectoraxiscontroller.rst.txt" />
+    <Content Include="CWAPI3D\html\_sources\controllerfactory.rst.txt" />
+    <Content Include="CWAPI3D\html\_sources\elementcontroller.rst.txt" />
+    <Content Include="CWAPI3D\html\_sources\elementidlist.rst.txt" />
+    <Content Include="CWAPI3D\html\_sources\elementtype.rst.txt" />
+    <Content Include="CWAPI3D\html\_sources\endtypecontroller.rst.txt" />
+    <Content Include="CWAPI3D\html\_sources\extendedsettings.rst.txt" />
+    <Content Include="CWAPI3D\html\_sources\filecontroller.rst.txt" />
+    <Content Include="CWAPI3D\html\_sources\geometrycontroller.rst.txt" />
+    <Content Include="CWAPI3D\html\_sources\gettingstartedcpp.rst.txt" />
+    <Content Include="CWAPI3D\html\_sources\gettingstartedlua.rst.txt" />
+    <Content Include="CWAPI3D\html\_sources\index.rst.txt" />
+    <Content Include="CWAPI3D\html\_sources\introduction.rst.txt" />
+    <Content Include="CWAPI3D\html\_sources\listcontroller.rst.txt" />
+    <Content Include="CWAPI3D\html\_sources\lua.rst.txt" />
+    <Content Include="CWAPI3D\html\_sources\machinecontroller.rst.txt" />
+    <Content Include="CWAPI3D\html\_sources\materialcontroller.rst.txt" />
+    <Content Include="CWAPI3D\html\_sources\menu.rst.txt" />
+    <Content Include="CWAPI3D\html\_sources\menucontroller.rst.txt" />
+    <Content Include="CWAPI3D\html\_sources\philosophy.rst.txt" />
+    <Content Include="CWAPI3D\html\_sources\processtype.rst.txt" />
+    <Content Include="CWAPI3D\html\_sources\roofcontroller.rst.txt" />
+    <Content Include="CWAPI3D\html\_sources\scenecontroller.rst.txt" />
+    <Content Include="CWAPI3D\html\_sources\shopdrawingcontroller.rst.txt" />
+    <Content Include="CWAPI3D\html\_sources\string.rst.txt" />
+    <Content Include="CWAPI3D\html\_sources\utilitycontroller.rst.txt" />
+    <Content Include="CWAPI3D\html\_sources\versioning.rst.txt" />
+    <Content Include="CWAPI3D\html\_sources\vertexlist.rst.txt" />
+    <Content Include="CWAPI3D\html\_sources\visibilitystate.rst.txt" />
+    <Content Include="CWAPI3D\html\_sources\visualizationcontroller.rst.txt" />
+    <Content Include="CWAPI3D\html\_static\basic.css" />
+    <Content Include="CWAPI3D\html\_static\css\badge_only.css" />
+    <Content Include="CWAPI3D\html\_static\css\fonts\fontawesome-webfont.eot" />
+    <Content Include="CWAPI3D\html\_static\css\fonts\fontawesome-webfont.svg" />
+    <Content Include="CWAPI3D\html\_static\css\fonts\fontawesome-webfont.ttf" />
+    <Content Include="CWAPI3D\html\_static\css\fonts\fontawesome-webfont.woff" />
+    <Content Include="CWAPI3D\html\_static\css\fonts\fontawesome-webfont.woff2" />
+    <Content Include="CWAPI3D\html\_static\css\fonts\lato-bold-italic.woff" />
+    <Content Include="CWAPI3D\html\_static\css\fonts\lato-bold-italic.woff2" />
+    <Content Include="CWAPI3D\html\_static\css\fonts\lato-bold.woff" />
+    <Content Include="CWAPI3D\html\_static\css\fonts\lato-bold.woff2" />
+    <Content Include="CWAPI3D\html\_static\css\fonts\lato-normal-italic.woff" />
+    <Content Include="CWAPI3D\html\_static\css\fonts\lato-normal-italic.woff2" />
+    <Content Include="CWAPI3D\html\_static\css\fonts\lato-normal.woff" />
+    <Content Include="CWAPI3D\html\_static\css\fonts\lato-normal.woff2" />
+    <Content Include="CWAPI3D\html\_static\css\fonts\Roboto-Slab-Bold.woff" />
+    <Content Include="CWAPI3D\html\_static\css\fonts\Roboto-Slab-Bold.woff2" />
+    <Content Include="CWAPI3D\html\_static\css\fonts\Roboto-Slab-Regular.woff" />
+    <Content Include="CWAPI3D\html\_static\css\fonts\Roboto-Slab-Regular.woff2" />
+    <Content Include="CWAPI3D\html\_static\css\theme.css" />
+    <Content Include="CWAPI3D\html\_static\custom.css" />
+    <Content Include="CWAPI3D\html\_static\doctools.js" />
+    <Content Include="CWAPI3D\html\_static\documentation_options.js" />
+    <Content Include="CWAPI3D\html\_static\file.png" />
+    <Content Include="CWAPI3D\html\_static\jquery-3.5.1.js" />
+    <Content Include="CWAPI3D\html\_static\jquery.js" />
+    <Content Include="CWAPI3D\html\_static\js\badge_only.js" />
+    <Content Include="CWAPI3D\html\_static\js\html5shiv-printshiv.min.js" />
+    <Content Include="CWAPI3D\html\_static\js\html5shiv.min.js" />
+    <Content Include="CWAPI3D\html\_static\js\theme.js" />
+    <Content Include="CWAPI3D\html\_static\language_data.js" />
+    <Content Include="CWAPI3D\html\_static\minus.png" />
+    <Content Include="CWAPI3D\html\_static\plus.png" />
+    <Content Include="CWAPI3D\html\_static\pygments.css" />
+    <Content Include="CWAPI3D\html\_static\searchtools.js" />
+    <Content Include="CWAPI3D\html\_static\underscore-1.13.1.js" />
+    <Content Include="CWAPI3D\html\_static\underscore.js" />
+    <Content Include="VisualizationController\IVisualizationController.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

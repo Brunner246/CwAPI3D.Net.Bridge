@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Endtype Controller &mdash; CwAPI3D V29</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="File Controller" href="filecontroller.html" />
+    <link rel="prev" title="Element Controller" href="elementcontroller.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> CwAPI3D
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">General</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gettingstartedcpp.html">Getting Started (C++)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gettingstartedlua.html">Getting Started (Lua)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="versioning.html">Versioning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="philosophy.html">Philosophy</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lua</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="lua.html">Lua</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Factories</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="controllerfactory.html">Controller Factory</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Controllers</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="attributecontroller.html">Attribute Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="connectoraxiscontroller.html">Connector Axis Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="elementcontroller.html">Element Controller</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Endtype Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="filecontroller.html">File Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="geometrycontroller.html">Geometry Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="listcontroller.html">List Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="machinecontroller.html">Machine Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="materialcontroller.html">Material Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="menucontroller.html">Menu Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="roofcontroller.html">Roof Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scenecontroller.html">Scene Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shopdrawingcontroller.html">Shop Drawing Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utilitycontroller.html">Utility Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visualizationcontroller.html">Visualization Controller</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Helpers</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="activationstate.html">Activation State</a></li>
+<li class="toctree-l1"><a class="reference internal" href="elementidlist.html">Element ID List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="elementtype.html">Element Type</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extendedsettings.html">Extended Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="menu.html">Menu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="processtype.html">Process Type</a></li>
+<li class="toctree-l1"><a class="reference internal" href="string.html">String</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vertexlist.html">Vertex List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visibilitystate.html">Visibility State</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CwAPI3D</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Endtype Controller</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/endtypecontroller.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="endtype-controller">
+<h1>Endtype Controller<a class="headerlink" href="#endtype-controller" title="Permalink to this headline"></a></h1>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces25ICwAPI3DEndtypeControllerE">
+<span id="_CPPv3N7CwAPI3D10Interfaces25ICwAPI3DEndtypeControllerE"></span><span id="_CPPv2N7CwAPI3D10Interfaces25ICwAPI3DEndtypeControllerE"></span><span id="CwAPI3D::Interfaces::ICwAPI3DEndtypeController"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_endtype_controller"></span><span class="k"><span class="pre">interface</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">CwAPI3D</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Interfaces</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">ICwAPI3DEndtypeController</span></span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces25ICwAPI3DEndtypeControllerE" title="Permalink to this definition"></a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController12getLastErrorEP7int32_t">
+<span id="_CPPv3N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController12getLastErrorEP7int32_t"></span><span id="_CPPv2N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController12getLastErrorEP7int32_t"></span><span id="CwAPI3D::Interfaces::ICwAPI3DEndtypeController::getLastError__int32_tP"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_endtype_controller_1af687bea115a7030688cf3938c82c3578"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><a class="reference internal" href="string.html#_CPPv4N7CwAPI3D10Interfaces14ICwAPI3DStringE" title="CwAPI3D::Interfaces::ICwAPI3DString"><span class="n"><span class="pre">ICwAPI3DString</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getLastError</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aErrorCode</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController12getLastErrorEP7int32_t" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aErrorCode</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController14getEndtypeNameE9endtypeID">
+<span id="_CPPv3N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController14getEndtypeNameE9endtypeID"></span><span id="_CPPv2N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController14getEndtypeNameE9endtypeID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DEndtypeController::getEndtypeName__endtypeID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_endtype_controller_1a0e42e34e8c56bf342660777908394afc"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><a class="reference internal" href="string.html#_CPPv4N7CwAPI3D10Interfaces14ICwAPI3DStringE" title="CwAPI3D::Interfaces::ICwAPI3DString"><span class="n"><span class="pre">ICwAPI3DString</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getEndtypeName</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">endtypeID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController14getEndtypeNameE9endtypeID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the endtypename by endtypeID. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController12getEndtypeIDEPK9character">
+<span id="_CPPv3N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController12getEndtypeIDEPK9character"></span><span id="_CPPv2N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController12getEndtypeIDEPK9character"></span><span id="CwAPI3D::Interfaces::ICwAPI3DEndtypeController::getEndtypeID__characterCP"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_endtype_controller_1ad3a6b6f5931b98d0394312e81b411fe6"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="n"><span class="pre">endtypeID</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getEndtypeID</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">character</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aName</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController12getEndtypeIDEPK9character" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the endtypeID by endtypename. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aName</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController17getEndtypeIdStartE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController17getEndtypeIdStartE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController17getEndtypeIdStartE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DEndtypeController::getEndtypeIdStart__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_endtype_controller_1ab93fddcaa2e802e681ea740dcdce9964"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="n"><span class="pre">endtypeID</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getEndtypeIdStart</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController17getEndtypeIdStartE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the endtypeID of the start face. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController15getEndtypeIdEndE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController15getEndtypeIdEndE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController15getEndtypeIdEndE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DEndtypeController::getEndtypeIdEnd__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_endtype_controller_1ad4597e9fcb8e6fc1bd01ce03fb7891be"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="n"><span class="pre">endtypeID</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getEndtypeIdEnd</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController15getEndtypeIdEndE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the endtypeID of the end face. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController15getEndtypeIdFacE9elementID8uint32_t">
+<span id="_CPPv3N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController15getEndtypeIdFacE9elementID8uint32_t"></span><span id="_CPPv2N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController15getEndtypeIdFacE9elementID8uint32_t"></span><span id="CwAPI3D::Interfaces::ICwAPI3DEndtypeController::getEndtypeIdFac__elementID.uint32_t"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_endtype_controller_1afa109389e54439b60d8b61c4d48e2032"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="n"><span class="pre">endtypeID</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getEndtypeIdFac</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aFaceNumber</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController15getEndtypeIdFacE9elementID8uint32_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the endtypeID of the face with a number. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aID</strong> – </p></li>
+<li><p><strong>aFaceNumber</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController19getEndtypeNameStartE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController19getEndtypeNameStartE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController19getEndtypeNameStartE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DEndtypeController::getEndtypeNameStart__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_endtype_controller_1a636460eea30f0bf3ce45ffb38592af66"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><a class="reference internal" href="string.html#_CPPv4N7CwAPI3D10Interfaces14ICwAPI3DStringE" title="CwAPI3D::Interfaces::ICwAPI3DString"><span class="n"><span class="pre">ICwAPI3DString</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getEndtypeNameStart</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController19getEndtypeNameStartE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the endtypename of the start face. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController17getEndtypeNameEndE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController17getEndtypeNameEndE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController17getEndtypeNameEndE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DEndtypeController::getEndtypeNameEnd__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_endtype_controller_1a3a06fd8a6e51ff87bb042fba614b6da6"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><a class="reference internal" href="string.html#_CPPv4N7CwAPI3D10Interfaces14ICwAPI3DStringE" title="CwAPI3D::Interfaces::ICwAPI3DString"><span class="n"><span class="pre">ICwAPI3DString</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getEndtypeNameEnd</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController17getEndtypeNameEndE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the endtypename of the end face. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController17getEndtypeNameFacE9elementID8uint32_t">
+<span id="_CPPv3N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController17getEndtypeNameFacE9elementID8uint32_t"></span><span id="_CPPv2N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController17getEndtypeNameFacE9elementID8uint32_t"></span><span id="CwAPI3D::Interfaces::ICwAPI3DEndtypeController::getEndtypeNameFac__elementID.uint32_t"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_endtype_controller_1a65f4603e383ca07a89c0122e5d7918d3"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><a class="reference internal" href="string.html#_CPPv4N7CwAPI3D10Interfaces14ICwAPI3DStringE" title="CwAPI3D::Interfaces::ICwAPI3DString"><span class="n"><span class="pre">ICwAPI3DString</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getEndtypeNameFac</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aFaceNumber</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController17getEndtypeNameFacE9elementID8uint32_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the endtypename of the face with a number. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aID</strong> – </p></li>
+<li><p><strong>aFaceNumber</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController19setEndtypeNameStartE9elementIDPK9character">
+<span id="_CPPv3N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController19setEndtypeNameStartE9elementIDPK9character"></span><span id="_CPPv2N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController19setEndtypeNameStartE9elementIDPK9character"></span><span id="CwAPI3D::Interfaces::ICwAPI3DEndtypeController::setEndtypeNameStart__elementID.characterCP"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_endtype_controller_1a3b0dbc1c3194d03d3bfc276c96889386"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setEndtypeNameStart</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">character</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aName</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController19setEndtypeNameStartE9elementIDPK9character" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sets the endtype to start face by endtypename. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aID</strong> – </p></li>
+<li><p><strong>aName</strong> – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController17setEndtypeNameEndE9elementIDPK9character">
+<span id="_CPPv3N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController17setEndtypeNameEndE9elementIDPK9character"></span><span id="_CPPv2N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController17setEndtypeNameEndE9elementIDPK9character"></span><span id="CwAPI3D::Interfaces::ICwAPI3DEndtypeController::setEndtypeNameEnd__elementID.characterCP"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_endtype_controller_1aa545fe2c4637f1807f62a767db4527a2"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setEndtypeNameEnd</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">character</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aName</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController17setEndtypeNameEndE9elementIDPK9character" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sets the endtype to end face by endtypename. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aID</strong> – </p></li>
+<li><p><strong>aName</strong> – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController17setEndtypeNameFacE9elementIDPK9character8uint32_t">
+<span id="_CPPv3N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController17setEndtypeNameFacE9elementIDPK9character8uint32_t"></span><span id="_CPPv2N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController17setEndtypeNameFacE9elementIDPK9character8uint32_t"></span><span id="CwAPI3D::Interfaces::ICwAPI3DEndtypeController::setEndtypeNameFac__elementID.characterCP.uint32_t"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_endtype_controller_1ac883fce2409d706fd2e97689876bd0c0"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setEndtypeNameFac</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aElementID</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">character</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aName</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aFaceNumber</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController17setEndtypeNameFacE9elementIDPK9character8uint32_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sets the endtype to a face by endtypename. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aElementID</strong> – </p></li>
+<li><p><strong>aName</strong> – </p></li>
+<li><p><strong>aFaceNumber</strong> – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController17setEndtypeIdStartE9elementID9endtypeID">
+<span id="_CPPv3N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController17setEndtypeIdStartE9elementID9endtypeID"></span><span id="_CPPv2N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController17setEndtypeIdStartE9elementID9endtypeID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DEndtypeController::setEndtypeIdStart__elementID.endtypeID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_endtype_controller_1a62b5e4540952c493d58575feae716e63"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setEndtypeIdStart</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aElementID</span></span>, <span class="n"><span class="pre">endtypeID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aEndtypeID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController17setEndtypeIdStartE9elementID9endtypeID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sets the endtype to start face by endtypeID. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aElementID</strong> – </p></li>
+<li><p><strong>aEndtypeID</strong> – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController15setEndtypeIdEndE9elementID9endtypeID">
+<span id="_CPPv3N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController15setEndtypeIdEndE9elementID9endtypeID"></span><span id="_CPPv2N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController15setEndtypeIdEndE9elementID9endtypeID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DEndtypeController::setEndtypeIdEnd__elementID.endtypeID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_endtype_controller_1a9e109639ad9568a2a60104a44b39ea62"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setEndtypeIdEnd</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aElementID</span></span>, <span class="n"><span class="pre">endtypeID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aEndtypeID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController15setEndtypeIdEndE9elementID9endtypeID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sets the endtype to end face by endtypeID. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aElementID</strong> – </p></li>
+<li><p><strong>aEndtypeID</strong> – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController15setEndtypeIdFacE9elementID9endtypeID8uint32_t">
+<span id="_CPPv3N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController15setEndtypeIdFacE9elementID9endtypeID8uint32_t"></span><span id="_CPPv2N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController15setEndtypeIdFacE9elementID9endtypeID8uint32_t"></span><span id="CwAPI3D::Interfaces::ICwAPI3DEndtypeController::setEndtypeIdFac__elementID.endtypeID.uint32_t"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_endtype_controller_1add43ab5866bdb3937247447f91d38451"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setEndtypeIdFac</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aElementID</span></span>, <span class="n"><span class="pre">endtypeID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aEndtypeID</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aFaceNumber</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController15setEndtypeIdFacE9elementID9endtypeID8uint32_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sets the endtype to a face by endtypeID. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aElementID</strong> – </p></li>
+<li><p><strong>aEndtypeID</strong> – </p></li>
+<li><p><strong>aFaceNumber</strong> – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController16createNewEndtypeEPK9character8uint32_tPK9character">
+<span id="_CPPv3N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController16createNewEndtypeEPK9character8uint32_tPK9character"></span><span id="_CPPv2N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController16createNewEndtypeEPK9character8uint32_tPK9character"></span><span id="CwAPI3D::Interfaces::ICwAPI3DEndtypeController::createNewEndtype__characterCP.uint32_t.characterCP"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_endtype_controller_1aee0178685402767854398e3a237ddc31"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="n"><span class="pre">endtypeID</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">createNewEndtype</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">character</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aEndtypeName</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aEndtypeID</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">character</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aFolderName</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController16createNewEndtypeEPK9character8uint32_tPK9character" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Creates a new Endtype. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aEndtypeName</strong> – </p></li>
+<li><p><strong>aEndtypeID</strong> – </p></li>
+<li><p><strong>aFolderName</strong> – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController19getExistingTenonIdsEv">
+<span id="_CPPv3N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController19getExistingTenonIdsEv"></span><span id="_CPPv2N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController19getExistingTenonIdsEv"></span><span id="CwAPI3D::Interfaces::ICwAPI3DEndtypeController::getExistingTenonIds"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_endtype_controller_1aeb59c4c2c062156080da78c95a736082"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="n"><span class="pre">ICwAPI3DEndtypeIDList</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getExistingTenonIds</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController19getExistingTenonIdsEv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Get the existing tenon endtypeIDs. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>list of existing tenon endtypeIDs </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController25getExistingLengtheningIdsEv">
+<span id="_CPPv3N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController25getExistingLengtheningIdsEv"></span><span id="_CPPv2N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController25getExistingLengtheningIdsEv"></span><span id="CwAPI3D::Interfaces::ICwAPI3DEndtypeController::getExistingLengtheningIds"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_endtype_controller_1a1aff92fe329994f591067c63cfbde13a"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="n"><span class="pre">ICwAPI3DEndtypeIDList</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getExistingLengtheningIds</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController25getExistingLengtheningIdsEv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Get the existing lengthening endtypeIDs. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>list of existing lengthening endtypeIDs </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController22getExistingDovetailIdsEv">
+<span id="_CPPv3N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController22getExistingDovetailIdsEv"></span><span id="_CPPv2N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController22getExistingDovetailIdsEv"></span><span id="CwAPI3D::Interfaces::ICwAPI3DEndtypeController::getExistingDovetailIds"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_endtype_controller_1abf2e2bbc109bfd2f1f29eb1cea673004"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="n"><span class="pre">ICwAPI3DEndtypeIDList</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getExistingDovetailIds</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController22getExistingDovetailIdsEv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Get the existing dovetail endtypeIDs. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>list of existing dovetail endtypeIDs </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController26getExistingDovetailDadoIdsEv">
+<span id="_CPPv3N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController26getExistingDovetailDadoIdsEv"></span><span id="_CPPv2N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController26getExistingDovetailDadoIdsEv"></span><span id="CwAPI3D::Interfaces::ICwAPI3DEndtypeController::getExistingDovetailDadoIds"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_endtype_controller_1a1027ef080214cf99ce46ac4f80949ea5"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="n"><span class="pre">ICwAPI3DEndtypeIDList</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getExistingDovetailDadoIds</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController26getExistingDovetailDadoIdsEv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Get the existing dado endtypeIDs. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>list of existing dado endtypeIDs </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController27getExistingJapaneseTenonIdsEv">
+<span id="_CPPv3N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController27getExistingJapaneseTenonIdsEv"></span><span id="_CPPv2N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController27getExistingJapaneseTenonIdsEv"></span><span id="CwAPI3D::Interfaces::ICwAPI3DEndtypeController::getExistingJapaneseTenonIds"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_endtype_controller_1a0ec7c0857ae70a191f87d6e5f6160c5d"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="n"><span class="pre">ICwAPI3DEndtypeIDList</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getExistingJapaneseTenonIds</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController27getExistingJapaneseTenonIdsEv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Get the existing japanese-tenon endtypeIDs. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>list of existing japanese-tenon endtypeIDs </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController18startEndtypeDialogEv">
+<span id="_CPPv3N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController18startEndtypeDialogEv"></span><span id="_CPPv2N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController18startEndtypeDialogEv"></span><span id="CwAPI3D::Interfaces::ICwAPI3DEndtypeController::startEndtypeDialog"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_endtype_controller_1a9820621d1661bec5bf60b12b650a8c1e"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="n"><span class="pre">endtypeID</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">startEndtypeDialog</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces25ICwAPI3DEndtypeController18startEndtypeDialogEv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Start endtype dialog. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Selected endtypeID </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Cadwork.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

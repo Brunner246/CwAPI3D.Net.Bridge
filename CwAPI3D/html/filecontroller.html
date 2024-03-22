@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>File Controller &mdash; CwAPI3D V29</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Geometry Controller" href="geometrycontroller.html" />
+    <link rel="prev" title="Endtype Controller" href="endtypecontroller.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> CwAPI3D
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">General</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gettingstartedcpp.html">Getting Started (C++)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gettingstartedlua.html">Getting Started (Lua)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="versioning.html">Versioning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="philosophy.html">Philosophy</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lua</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="lua.html">Lua</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Factories</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="controllerfactory.html">Controller Factory</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Controllers</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="attributecontroller.html">Attribute Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="connectoraxiscontroller.html">Connector Axis Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="elementcontroller.html">Element Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="endtypecontroller.html">Endtype Controller</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">File Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="geometrycontroller.html">Geometry Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="listcontroller.html">List Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="machinecontroller.html">Machine Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="materialcontroller.html">Material Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="menucontroller.html">Menu Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="roofcontroller.html">Roof Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scenecontroller.html">Scene Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shopdrawingcontroller.html">Shop Drawing Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utilitycontroller.html">Utility Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visualizationcontroller.html">Visualization Controller</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Helpers</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="activationstate.html">Activation State</a></li>
+<li class="toctree-l1"><a class="reference internal" href="elementidlist.html">Element ID List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="elementtype.html">Element Type</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extendedsettings.html">Extended Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="menu.html">Menu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="processtype.html">Process Type</a></li>
+<li class="toctree-l1"><a class="reference internal" href="string.html">String</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vertexlist.html">Vertex List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visibilitystate.html">Visibility State</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CwAPI3D</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>File Controller</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/filecontroller.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="file-controller">
+<h1>File Controller<a class="headerlink" href="#file-controller" title="Permalink to this headline"></a></h1>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces22ICwAPI3DFileControllerE">
+<span id="_CPPv3N7CwAPI3D10Interfaces22ICwAPI3DFileControllerE"></span><span id="_CPPv2N7CwAPI3D10Interfaces22ICwAPI3DFileControllerE"></span><span id="CwAPI3D::Interfaces::ICwAPI3DFileController"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_file_controller"></span><span class="k"><span class="pre">interface</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">CwAPI3D</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Interfaces</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">ICwAPI3DFileController</span></span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces22ICwAPI3DFileControllerE" title="Permalink to this definition"></a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces22ICwAPI3DFileController12getLastErrorEP7int32_t">
+<span id="_CPPv3N7CwAPI3D10Interfaces22ICwAPI3DFileController12getLastErrorEP7int32_t"></span><span id="_CPPv2N7CwAPI3D10Interfaces22ICwAPI3DFileController12getLastErrorEP7int32_t"></span><span id="CwAPI3D::Interfaces::ICwAPI3DFileController::getLastError__int32_tP"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_file_controller_1abbde9d0fa02d3649b924779cd84470e2"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><a class="reference internal" href="string.html#_CPPv4N7CwAPI3D10Interfaces14ICwAPI3DStringE" title="CwAPI3D::Interfaces::ICwAPI3DString"><span class="n"><span class="pre">ICwAPI3DString</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getLastError</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aErrorCode</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces22ICwAPI3DFileController12getLastErrorEP7int32_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the last error. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aErrorCode</strong> – error code </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>error string </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces22ICwAPI3DFileController13exportSTLFileEP21ICwAPI3DElementIDListPK9character">
+<span id="_CPPv3N7CwAPI3D10Interfaces22ICwAPI3DFileController13exportSTLFileEP21ICwAPI3DElementIDListPK9character"></span><span id="_CPPv2N7CwAPI3D10Interfaces22ICwAPI3DFileController13exportSTLFileEP21ICwAPI3DElementIDListPK9character"></span><span id="CwAPI3D::Interfaces::ICwAPI3DFileController::exportSTLFile__ICwAPI3DElementIDListP.characterCP"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_file_controller_1a99175595bbd993d1199e0f16c9d483b1"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">exportSTLFile</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aElementIDList</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">character</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aFilePath</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces22ICwAPI3DFileController13exportSTLFileEP21ICwAPI3DElementIDListPK9character" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Exports an STL file. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aElementIDList</strong> – element ID list </p></li>
+<li><p><strong>aFilePath</strong> – file path </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces22ICwAPI3DFileController14importStepFileEPK9characterd">
+<span id="_CPPv3N7CwAPI3D10Interfaces22ICwAPI3DFileController14importStepFileEPK9characterd"></span><span id="_CPPv2N7CwAPI3D10Interfaces22ICwAPI3DFileController14importStepFileEPK9characterd"></span><span id="CwAPI3D::Interfaces::ICwAPI3DFileController::importStepFile__characterCP.double"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_file_controller_1a93cc354a9f59def86f0c0e33b7313ab1"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">importStepFile</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">character</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aFilePath</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aScaleFactor</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces22ICwAPI3DFileController14importStepFileEPK9characterd" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Imports a STEP file. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aFilePath</strong> – file path </p></li>
+<li><p><strong>aScaleFactor</strong> – file scale factor </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>imported element ID list </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces22ICwAPI3DFileController31importStepFileWithMessageOptionEPK9characterdb">
+<span id="_CPPv3N7CwAPI3D10Interfaces22ICwAPI3DFileController31importStepFileWithMessageOptionEPK9characterdb"></span><span id="_CPPv2N7CwAPI3D10Interfaces22ICwAPI3DFileController31importStepFileWithMessageOptionEPK9characterdb"></span><span id="CwAPI3D::Interfaces::ICwAPI3DFileController::importStepFileWithMessageOption__characterCP.double.b"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_file_controller_1a50b6474fe917f42371e9d2dd9d1d3e1e"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">importStepFileWithMessageOption</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">character</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aFilePath</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aScaleFactor</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aHideMessage</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces22ICwAPI3DFileController31importStepFileWithMessageOptionEPK9characterdb" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Imports a STEP file. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aFilePath</strong> – file path </p></li>
+<li><p><strong>aScaleFactor</strong> – file scale factor </p></li>
+<li><p><strong>aHideMessage</strong> – hide message </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>imported element ID list </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces22ICwAPI3DFileController11exportWebGlEP21ICwAPI3DElementIDListPK9character">
+<span id="_CPPv3N7CwAPI3D10Interfaces22ICwAPI3DFileController11exportWebGlEP21ICwAPI3DElementIDListPK9character"></span><span id="_CPPv2N7CwAPI3D10Interfaces22ICwAPI3DFileController11exportWebGlEP21ICwAPI3DElementIDListPK9character"></span><span id="CwAPI3D::Interfaces::ICwAPI3DFileController::exportWebGl__ICwAPI3DElementIDListP.characterCP"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_file_controller_1afcde2e0e389b998e7cacc28afe4fed76"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">exportWebGl</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aElementIdList</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">character</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aFilePath</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces22ICwAPI3DFileController11exportWebGlEP21ICwAPI3DElementIDListPK9character" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Exports a WebGL file. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aElementIdList</strong> – element ID list </p></li>
+<li><p><strong>aFilePath</strong> – file path </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>did operation succeed </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces22ICwAPI3DFileController12export3dFileEP21ICwAPI3DElementIDListPKN7CwAPI3D9characterE">
+<span id="_CPPv3N7CwAPI3D10Interfaces22ICwAPI3DFileController12export3dFileEP21ICwAPI3DElementIDListPKN7CwAPI3D9characterE"></span><span id="_CPPv2N7CwAPI3D10Interfaces22ICwAPI3DFileController12export3dFileEP21ICwAPI3DElementIDListPKN7CwAPI3D9characterE"></span><span id="CwAPI3D::Interfaces::ICwAPI3DFileController::export3dFile__ICwAPI3DElementIDListP.CwAPI3D::characterCP"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_file_controller_1aebc19beb9f8a2d15e73356361ed9e1b6"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">export3dFile</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aElementIdList</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">CwAPI3D</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">character</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aFilePath</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces22ICwAPI3DFileController12export3dFileEP21ICwAPI3DElementIDListPKN7CwAPI3D9characterE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Exports a 3D file. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aElementIdList</strong> – element ID list </p></li>
+<li><p><strong>aFilePath</strong> – file path </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>did operation succeed </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces22ICwAPI3DFileController13importSATFileEPK9characterdb">
+<span id="_CPPv3N7CwAPI3D10Interfaces22ICwAPI3DFileController13importSATFileEPK9characterdb"></span><span id="_CPPv2N7CwAPI3D10Interfaces22ICwAPI3DFileController13importSATFileEPK9characterdb"></span><span id="CwAPI3D::Interfaces::ICwAPI3DFileController::importSATFile__characterCP.double.b"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_file_controller_1a2773794648ab8690a7914235a18e7066"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">importSATFile</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">character</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aFilePath</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aScaleFactor</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aBinary</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces22ICwAPI3DFileController13importSATFileEPK9characterdb" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Imports an SAT file. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aFilePath</strong> – file path </p></li>
+<li><p><strong>aScaleFactor</strong> – file scale factor </p></li>
+<li><p><strong>aBinary</strong> – use binary mode </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>imported element ID list </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces22ICwAPI3DFileController13import3dcFileEPK9character">
+<span id="_CPPv3N7CwAPI3D10Interfaces22ICwAPI3DFileController13import3dcFileEPK9character"></span><span id="_CPPv2N7CwAPI3D10Interfaces22ICwAPI3DFileController13import3dcFileEPK9character"></span><span id="CwAPI3D::Interfaces::ICwAPI3DFileController::import3dcFile__characterCP"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_file_controller_1a48c360410171d7a4c29614f4d159cb5b"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">import3dcFile</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">character</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aFilePath</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces22ICwAPI3DFileController13import3dcFileEPK9character" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Imports a 3DC file. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aFilePath</strong> – file path </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>imported element ID list </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces22ICwAPI3DFileController15importRhinoFileEPK9characterb">
+<span id="_CPPv3N7CwAPI3D10Interfaces22ICwAPI3DFileController15importRhinoFileEPK9characterb"></span><span id="_CPPv2N7CwAPI3D10Interfaces22ICwAPI3DFileController15importRhinoFileEPK9characterb"></span><span id="CwAPI3D::Interfaces::ICwAPI3DFileController::importRhinoFile__characterCP.b"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_file_controller_1aa70a93bbc85cef972f59a00534d286d1"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">importRhinoFile</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">character</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aFilePath</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aWithoutDialog</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces22ICwAPI3DFileController15importRhinoFileEPK9characterb" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Imports a Rhino file. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aFilePath</strong> – file path </p></li>
+<li><p><strong>aWithoutDialog</strong> – import without dialog </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>imported element ID list </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces22ICwAPI3DFileController14exportStepFileEP21ICwAPI3DElementIDListPK9characterd7int32_tb">
+<span id="_CPPv3N7CwAPI3D10Interfaces22ICwAPI3DFileController14exportStepFileEP21ICwAPI3DElementIDListPK9characterd7int32_tb"></span><span id="_CPPv2N7CwAPI3D10Interfaces22ICwAPI3DFileController14exportStepFileEP21ICwAPI3DElementIDListPK9characterd7int32_tb"></span><span id="CwAPI3D::Interfaces::ICwAPI3DFileController::exportStepFile__ICwAPI3DElementIDListP.characterCP.double.int32_t.b"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_file_controller_1a807c9b546fb7d927e2803753ac763184"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">exportStepFile</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aElementList</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">character</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aFilePath</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aScaleFactor</span></span>, <span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aVersion</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aTextMode</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces22ICwAPI3DFileController14exportStepFileEP21ICwAPI3DElementIDListPK9characterd7int32_tb" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Exports a STEP file. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aElementList</strong> – element ID list </p></li>
+<li><p><strong>aFilePath</strong> – file path </p></li>
+<li><p><strong>aScaleFactor</strong> – file scale factor </p></li>
+<li><p><strong>aVersion</strong> – file version </p></li>
+<li><p><strong>aTextMode</strong> – use text mode </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces22ICwAPI3DFileController13import3DZFileEPK9character">
+<span id="_CPPv3N7CwAPI3D10Interfaces22ICwAPI3DFileController13import3DZFileEPK9character"></span><span id="_CPPv2N7CwAPI3D10Interfaces22ICwAPI3DFileController13import3DZFileEPK9character"></span><span id="CwAPI3D::Interfaces::ICwAPI3DFileController::import3DZFile__characterCP"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_file_controller_1aa194587fa8255f245ac69f5f14505400"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">import3DZFile</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">character</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aFilePath</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces22ICwAPI3DFileController13import3DZFileEPK9character" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Imports a 3DZ file. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aFilePath</strong> – file path </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces22ICwAPI3DFileController13exportOBJFileEP21ICwAPI3DElementIDListPK9character">
+<span id="_CPPv3N7CwAPI3D10Interfaces22ICwAPI3DFileController13exportOBJFileEP21ICwAPI3DElementIDListPK9character"></span><span id="_CPPv2N7CwAPI3D10Interfaces22ICwAPI3DFileController13exportOBJFileEP21ICwAPI3DElementIDListPK9character"></span><span id="CwAPI3D::Interfaces::ICwAPI3DFileController::exportOBJFile__ICwAPI3DElementIDListP.characterCP"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_file_controller_1a74c12ee085c610cf2f3dbc5d00ea4e60"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">exportOBJFile</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aElements</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">character</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aFilePath</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces22ICwAPI3DFileController13exportOBJFileEP21ICwAPI3DElementIDListPK9character" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Exports a OBJ file. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aElements</strong> – element ID list </p></li>
+<li><p><strong>aFilePath</strong> – file path </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces22ICwAPI3DFileController21importSATFileSilentlyEPK9characterdb">
+<span id="_CPPv3N7CwAPI3D10Interfaces22ICwAPI3DFileController21importSATFileSilentlyEPK9characterdb"></span><span id="_CPPv2N7CwAPI3D10Interfaces22ICwAPI3DFileController21importSATFileSilentlyEPK9characterdb"></span><span id="CwAPI3D::Interfaces::ICwAPI3DFileController::importSATFileSilently__characterCP.double.b"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_file_controller_1a1f0c9eac200508875b52ac0548fe790c"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">importSATFileSilently</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">character</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aFilePath</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aScaleFactor</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aBinary</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces22ICwAPI3DFileController21importSATFileSilentlyEPK9characterdb" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Imports a SAT File without messages. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aFilePath</strong> – file path </p></li>
+<li><p><strong>aScaleFactor</strong> – </p></li>
+<li><p><strong>aBinary</strong> – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces22ICwAPI3DFileController13exportFBXFileEP21ICwAPI3DElementIDListPK9character8uint32_t">
+<span id="_CPPv3N7CwAPI3D10Interfaces22ICwAPI3DFileController13exportFBXFileEP21ICwAPI3DElementIDListPK9character8uint32_t"></span><span id="_CPPv2N7CwAPI3D10Interfaces22ICwAPI3DFileController13exportFBXFileEP21ICwAPI3DElementIDListPK9character8uint32_t"></span><span id="CwAPI3D::Interfaces::ICwAPI3DFileController::exportFBXFile__ICwAPI3DElementIDListP.characterCP.uint32_t"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_file_controller_1a8a76afa91eb283ca05b3005d04515c37"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">exportFBXFile</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aElements</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">character</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aFilePath</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aFBXFormat</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces22ICwAPI3DFileController13exportFBXFileEP21ICwAPI3DElementIDListPK9character8uint32_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Exports a FBX file. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aElements</strong> – element ID list </p></li>
+<li><p><strong>aFilePath</strong> – file path </p></li>
+<li><p><strong>aFBXFormat</strong> – 1 = “FBX binary(*.fbx) ; 2 = “FBX ascii(*.fbx)” ; 3 = “FBX encrypted(*.fbx)” ; 4 = “FBX 6.0 binary(*.fbx)” ; 5 = “FBX 6.0 ascii(*.fbx)” ; 6 = “FBX 6.0 encrypted(*.fbx)”; </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces22ICwAPI3DFileController22import3dcFileWithGlideEPK9character">
+<span id="_CPPv3N7CwAPI3D10Interfaces22ICwAPI3DFileController22import3dcFileWithGlideEPK9character"></span><span id="_CPPv2N7CwAPI3D10Interfaces22ICwAPI3DFileController22import3dcFileWithGlideEPK9character"></span><span id="CwAPI3D::Interfaces::ICwAPI3DFileController::import3dcFileWithGlide__characterCP"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_file_controller_1a8532a839df6f57d504df842ae5ca02ca"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">import3dcFileWithGlide</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">character</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aFilePath</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces22ICwAPI3DFileController22import3dcFileWithGlideEPK9character" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Imports a 3DC file with glide. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aFilePath</strong> – file path </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>imported element ID list </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces22ICwAPI3DFileController13importBTLFileEPK9character">
+<span id="_CPPv3N7CwAPI3D10Interfaces22ICwAPI3DFileController13importBTLFileEPK9character"></span><span id="_CPPv2N7CwAPI3D10Interfaces22ICwAPI3DFileController13importBTLFileEPK9character"></span><span id="CwAPI3D::Interfaces::ICwAPI3DFileController::importBTLFile__characterCP"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_file_controller_1a8c5c8d15993fdaec81d2319b9109dfa8"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">importBTLFile</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">character</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aFilePath</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces22ICwAPI3DFileController13importBTLFileEPK9character" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Imports a BTL file. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aFilePath</strong> – file path </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces22ICwAPI3DFileController13export3DCFileEP21ICwAPI3DElementIDListPKN7CwAPI3D9characterE">
+<span id="_CPPv3N7CwAPI3D10Interfaces22ICwAPI3DFileController13export3DCFileEP21ICwAPI3DElementIDListPKN7CwAPI3D9characterE"></span><span id="_CPPv2N7CwAPI3D10Interfaces22ICwAPI3DFileController13export3DCFileEP21ICwAPI3DElementIDListPKN7CwAPI3D9characterE"></span><span id="CwAPI3D::Interfaces::ICwAPI3DFileController::export3DCFile__ICwAPI3DElementIDListP.CwAPI3D::characterCP"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_file_controller_1a187542671d9321da1500332f8ea75785"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">export3DCFile</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aElementIdList</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">CwAPI3D</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">character</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aFilePath</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces22ICwAPI3DFileController13export3DCFileEP21ICwAPI3DElementIDListPKN7CwAPI3D9characterE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Exports a 3D file. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aElementIdList</strong> – element ID list </p></li>
+<li><p><strong>aFilePath</strong> – file path </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces22ICwAPI3DFileController23importBTLFileForNestingEPK9character">
+<span id="_CPPv3N7CwAPI3D10Interfaces22ICwAPI3DFileController23importBTLFileForNestingEPK9character"></span><span id="_CPPv2N7CwAPI3D10Interfaces22ICwAPI3DFileController23importBTLFileForNestingEPK9character"></span><span id="CwAPI3D::Interfaces::ICwAPI3DFileController::importBTLFileForNesting__characterCP"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_file_controller_1a7e7e800451b6fae95078967b4d10064f"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">importBTLFileForNesting</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">character</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aFilePath</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces22ICwAPI3DFileController23importBTLFileForNestingEPK9character" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Imports a BTL file for nesting. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aFilePath</strong> – file path </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces22ICwAPI3DFileController23exportBTLFileForNestingEPK9character">
+<span id="_CPPv3N7CwAPI3D10Interfaces22ICwAPI3DFileController23exportBTLFileForNestingEPK9character"></span><span id="_CPPv2N7CwAPI3D10Interfaces22ICwAPI3DFileController23exportBTLFileForNestingEPK9character"></span><span id="CwAPI3D::Interfaces::ICwAPI3DFileController::exportBTLFileForNesting__characterCP"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_file_controller_1a75fdf986e67b9f2fa78c5dad2d6fa0ab"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">exportBTLFileForNesting</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">character</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aFilePath</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces22ICwAPI3DFileController23exportBTLFileForNestingEPK9character" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Exports a BTL file for nesting. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aFilePath</strong> – file path </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces22ICwAPI3DFileController15exportRhinoFileEP21ICwAPI3DElementIDListPKN7CwAPI3D9characterEibb">
+<span id="_CPPv3N7CwAPI3D10Interfaces22ICwAPI3DFileController15exportRhinoFileEP21ICwAPI3DElementIDListPKN7CwAPI3D9characterEibb"></span><span id="_CPPv2N7CwAPI3D10Interfaces22ICwAPI3DFileController15exportRhinoFileEP21ICwAPI3DElementIDListPKN7CwAPI3D9characterEibb"></span><span id="CwAPI3D::Interfaces::ICwAPI3DFileController::exportRhinoFile__ICwAPI3DElementIDListP.CwAPI3D::characterCP.i.b.b"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_file_controller_1ad484270640063eb96ecf1be579c75f44"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">exportRhinoFile</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aElementIdList</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">CwAPI3D</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">character</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aFilePath</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aVersion</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aUseDefaultAssignment</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aWriteStandardAttributes</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces22ICwAPI3DFileController15exportRhinoFileEP21ICwAPI3DElementIDListPKN7CwAPI3D9characterEibb" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Exports a 3dm rhino file. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aElementIdList</strong> – </p></li>
+<li><p><strong>aFilePath</strong> – file path </p></li>
+<li><p><strong>aVersion</strong> – Rhino V5.0 = 5, V6.0 = 6, V7.0 = 7, V8.0 = 8 </p></li>
+<li><p><strong>aUseDefaultAssignment</strong> – true: default assignment is used; false: no attributes are exported </p></li>
+<li><p><strong>aWriteStandardAttributes</strong> – see checkbox in assignment dialog </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces22ICwAPI3DFileController13importBXFFileEPKN7CwAPI3D9characterEN7CwAPI3D8vector3DE">
+<span id="_CPPv3N7CwAPI3D10Interfaces22ICwAPI3DFileController13importBXFFileEPKN7CwAPI3D9characterEN7CwAPI3D8vector3DE"></span><span id="_CPPv2N7CwAPI3D10Interfaces22ICwAPI3DFileController13importBXFFileEPKN7CwAPI3D9characterEN7CwAPI3D8vector3DE"></span><span id="CwAPI3D::Interfaces::ICwAPI3DFileController::importBXFFile__CwAPI3D::characterCP.CwAPI3D::vector3D"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_file_controller_1ae82284a92b0f8d119d7bfe6faff5411b"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">importBXFFile</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">CwAPI3D</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">character</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aFilePath</span></span>, <span class="n"><span class="pre">CwAPI3D</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector3D</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aInsertPosition</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces22ICwAPI3DFileController13importBXFFileEPKN7CwAPI3D9characterEN7CwAPI3D8vector3DE" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aFilePath</strong> – file path </p></li>
+<li><p><strong>aInsertPosition</strong> – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces22ICwAPI3DFileController17getBlumExportPathEv">
+<span id="_CPPv3N7CwAPI3D10Interfaces22ICwAPI3DFileController17getBlumExportPathEv"></span><span id="_CPPv2N7CwAPI3D10Interfaces22ICwAPI3DFileController17getBlumExportPathEv"></span><span id="CwAPI3D::Interfaces::ICwAPI3DFileController::getBlumExportPath"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_file_controller_1a7e63cbbb857542867a3c41cfc38086c2"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><a class="reference internal" href="string.html#_CPPv4N7CwAPI3D10Interfaces14ICwAPI3DStringE" title="CwAPI3D::Interfaces::ICwAPI3DString"><span class="n"><span class="pre">ICwAPI3DString</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getBlumExportPath</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces22ICwAPI3DFileController17getBlumExportPathEv" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces22ICwAPI3DFileController17setBlumExportPathEPKN7CwAPI3D9characterE">
+<span id="_CPPv3N7CwAPI3D10Interfaces22ICwAPI3DFileController17setBlumExportPathEPKN7CwAPI3D9characterE"></span><span id="_CPPv2N7CwAPI3D10Interfaces22ICwAPI3DFileController17setBlumExportPathEPKN7CwAPI3D9characterE"></span><span id="CwAPI3D::Interfaces::ICwAPI3DFileController::setBlumExportPath__CwAPI3D::characterCP"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_file_controller_1ac0628d20ad57294d3b46334ba11b28a2"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setBlumExportPath</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">CwAPI3D</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">character</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aPath</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces22ICwAPI3DFileController17setBlumExportPathEPKN7CwAPI3D9characterE" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aPath</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces22ICwAPI3DFileController17setWebGLHierarchyE8uint32_tP24ICwAPI3DDisplayAttribute">
+<span id="_CPPv3N7CwAPI3D10Interfaces22ICwAPI3DFileController17setWebGLHierarchyE8uint32_tP24ICwAPI3DDisplayAttribute"></span><span id="_CPPv2N7CwAPI3D10Interfaces22ICwAPI3DFileController17setWebGLHierarchyE8uint32_tP24ICwAPI3DDisplayAttribute"></span><span id="CwAPI3D::Interfaces::ICwAPI3DFileController::setWebGLHierarchy__uint32_t.ICwAPI3DDisplayAttributeP"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_file_controller_1a305bd2bda92d1c6e0275fc8e53fca1f4"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setWebGLHierarchy</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aStage</span></span>, <span class="n"><span class="pre">ICwAPI3DDisplayAttribute</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aAttribute</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces22ICwAPI3DFileController17setWebGLHierarchyE8uint32_tP24ICwAPI3DDisplayAttribute" title="Permalink to this definition"></a><br /></dt>
+<dd><p>sets the webGL Export hierachie </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aStage</strong> – </p></li>
+<li><p><strong>aAttribute</strong> – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces22ICwAPI3DFileController13exportSATFileEP21ICwAPI3DElementIDListPK9characterdb7int32_t">
+<span id="_CPPv3N7CwAPI3D10Interfaces22ICwAPI3DFileController13exportSATFileEP21ICwAPI3DElementIDListPK9characterdb7int32_t"></span><span id="_CPPv2N7CwAPI3D10Interfaces22ICwAPI3DFileController13exportSATFileEP21ICwAPI3DElementIDListPK9characterdb7int32_t"></span><span id="CwAPI3D::Interfaces::ICwAPI3DFileController::exportSATFile__ICwAPI3DElementIDListP.characterCP.double.b.int32_t"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_file_controller_1ab8fd328d69d9aa18069834c94b052b43"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">exportSATFile</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aElements</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">character</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aFilePath</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aScaleFactor</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aBinary</span></span>, <span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aVersion</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces22ICwAPI3DFileController13exportSATFileEP21ICwAPI3DElementIDListPK9characterdb7int32_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>exports a SAT File </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aElements</strong> – </p></li>
+<li><p><strong>aFilePath</strong> – </p></li>
+<li><p><strong>aScaleFactor</strong> – </p></li>
+<li><p><strong>aBinary</strong> – </p></li>
+<li><p><strong>aVersion</strong> – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces22ICwAPI3DFileController13exportGLBFileEP21ICwAPI3DElementIDListPK9character">
+<span id="_CPPv3N7CwAPI3D10Interfaces22ICwAPI3DFileController13exportGLBFileEP21ICwAPI3DElementIDListPK9character"></span><span id="_CPPv2N7CwAPI3D10Interfaces22ICwAPI3DFileController13exportGLBFileEP21ICwAPI3DElementIDListPK9character"></span><span id="CwAPI3D::Interfaces::ICwAPI3DFileController::exportGLBFile__ICwAPI3DElementIDListP.characterCP"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_file_controller_1a4f7aa334ecdb9416aeec63489af96df7"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">exportGLBFile</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aElements</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">character</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aFilePath</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces22ICwAPI3DFileController13exportGLBFileEP21ICwAPI3DElementIDListPK9character" title="Permalink to this definition"></a><br /></dt>
+<dd><p>exports a GLB File </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aElements</strong> – </p></li>
+<li><p><strong>aFilePath</strong> – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces22ICwAPI3DFileController17importVariantFileEPK9characterN7CwAPI3D8vector3DE">
+<span id="_CPPv3N7CwAPI3D10Interfaces22ICwAPI3DFileController17importVariantFileEPK9characterN7CwAPI3D8vector3DE"></span><span id="_CPPv2N7CwAPI3D10Interfaces22ICwAPI3DFileController17importVariantFileEPK9characterN7CwAPI3D8vector3DE"></span><span id="CwAPI3D::Interfaces::ICwAPI3DFileController::importVariantFile__characterCP.CwAPI3D::vector3D"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_file_controller_1a235afe94fffcaaf170f2f19695a54ecb"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">importVariantFile</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">character</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aFilePath</span></span>, <span class="n"><span class="pre">CwAPI3D</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector3D</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aInsertPosition</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces22ICwAPI3DFileController17importVariantFileEPK9characterN7CwAPI3D8vector3DE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>imports a variant by .val-File </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aFilePath</strong> – </p></li>
+<li><p><strong>aInsertPosition</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>imported element ID list </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces22ICwAPI3DFileController26exportRhinoFileWithOptionsEP21ICwAPI3DElementIDListPKN7CwAPI3D9characterEibbP20ICwAPI3DRhinoOptions">
+<span id="_CPPv3N7CwAPI3D10Interfaces22ICwAPI3DFileController26exportRhinoFileWithOptionsEP21ICwAPI3DElementIDListPKN7CwAPI3D9characterEibbP20ICwAPI3DRhinoOptions"></span><span id="_CPPv2N7CwAPI3D10Interfaces22ICwAPI3DFileController26exportRhinoFileWithOptionsEP21ICwAPI3DElementIDListPKN7CwAPI3D9characterEibbP20ICwAPI3DRhinoOptions"></span><span id="CwAPI3D::Interfaces::ICwAPI3DFileController::exportRhinoFileWithOptions__ICwAPI3DElementIDListP.CwAPI3D::characterCP.i.b.b.ICwAPI3DRhinoOptionsP"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_file_controller_1af171a339feb86b7b36481ddd688b61b2"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">exportRhinoFileWithOptions</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aElementIdList</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">CwAPI3D</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">character</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aFilePath</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aVersion</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aUseDefaultAssignment</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aWriteStandardAttributes</span></span>, <span class="n"><span class="pre">ICwAPI3DRhinoOptions</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aRhinoOptions</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces22ICwAPI3DFileController26exportRhinoFileWithOptionsEP21ICwAPI3DElementIDListPKN7CwAPI3D9characterEibbP20ICwAPI3DRhinoOptions" title="Permalink to this definition"></a><br /></dt>
+<dd><p>exports elements to a rhino 3dm file based on the export options </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aElementIdList</strong> – </p></li>
+<li><p><strong>aFilePath</strong> – </p></li>
+<li><p><strong>aVersion</strong> – Rhino V5.0 = 5, V6.0 = 6, V7.0 = 7, V8.0 = 8 </p></li>
+<li><p><strong>aUseDefaultAssignment</strong> – true: default assignment is used; false: no attributes are exported </p></li>
+<li><p><strong>aWriteStandardAttributes</strong> – see checkbox in assignment dialog </p></li>
+<li><p><strong>aRhinoOptions</strong> – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces22ICwAPI3DFileController24import3dcFileWithOptionsEPK9characterP24ICwAPI3DImport3dcOptions">
+<span id="_CPPv3N7CwAPI3D10Interfaces22ICwAPI3DFileController24import3dcFileWithOptionsEPK9characterP24ICwAPI3DImport3dcOptions"></span><span id="_CPPv2N7CwAPI3D10Interfaces22ICwAPI3DFileController24import3dcFileWithOptionsEPK9characterP24ICwAPI3DImport3dcOptions"></span><span id="CwAPI3D::Interfaces::ICwAPI3DFileController::import3dcFileWithOptions__characterCP.ICwAPI3DImport3dcOptionsP"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_file_controller_1aa2088880fa0ff4447b6824a8ddd1e49e"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">import3dcFileWithOptions</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">character</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aFilePath</span></span>, <span class="n"><span class="pre">ICwAPI3DImport3dcOptions</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aImport3dcOptions</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces22ICwAPI3DFileController24import3dcFileWithOptionsEPK9characterP24ICwAPI3DImport3dcOptions" title="Permalink to this definition"></a><br /></dt>
+<dd><p>imports a 3d or a 3dc file depending on the import options </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aFilePath</strong> – </p></li>
+<li><p><strong>aImport3dcOptions</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>imported element ID list </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces22ICwAPI3DFileController19loadWebGlPresetFileEPK9character">
+<span id="_CPPv3N7CwAPI3D10Interfaces22ICwAPI3DFileController19loadWebGlPresetFileEPK9character"></span><span id="_CPPv2N7CwAPI3D10Interfaces22ICwAPI3DFileController19loadWebGlPresetFileEPK9character"></span><span id="CwAPI3D::Interfaces::ICwAPI3DFileController::loadWebGlPresetFile__characterCP"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_file_controller_1ac1956636eec9a51114bf0d5b98233edb"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">loadWebGlPresetFile</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">character</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aFilePath</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces22ICwAPI3DFileController19loadWebGlPresetFileEPK9character" title="Permalink to this definition"></a><br /></dt>
+<dd><p>loads a preset file for the WebGl export </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aFilePath</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces22ICwAPI3DFileController30exportStepFileExtrudeDrillingsEP21ICwAPI3DElementIDListPK9characterd7int32_tbb">
+<span id="_CPPv3N7CwAPI3D10Interfaces22ICwAPI3DFileController30exportStepFileExtrudeDrillingsEP21ICwAPI3DElementIDListPK9characterd7int32_tbb"></span><span id="_CPPv2N7CwAPI3D10Interfaces22ICwAPI3DFileController30exportStepFileExtrudeDrillingsEP21ICwAPI3DElementIDListPK9characterd7int32_tbb"></span><span id="CwAPI3D::Interfaces::ICwAPI3DFileController::exportStepFileExtrudeDrillings__ICwAPI3DElementIDListP.characterCP.double.int32_t.b.b"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_file_controller_1a486712df45a2d656b3dfd6fd08241be0"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">exportStepFileExtrudeDrillings</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aElements</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">character</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aFilePath</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aScaleFactor</span></span>, <span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aVersion</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aTextMode</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aImperialUnits</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces22ICwAPI3DFileController30exportStepFileExtrudeDrillingsEP21ICwAPI3DElementIDListPK9characterd7int32_tbb" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Exports a STEP file with extruded drillings. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aElementList</strong> – element ID list </p></li>
+<li><p><strong>aFilePath</strong> – file path </p></li>
+<li><p><strong>aScaleFactor</strong> – file scale factor </p></li>
+<li><p><strong>aVersion</strong> – file version </p></li>
+<li><p><strong>aTextMode</strong> – use text mode </p></li>
+<li><p><strong>aImperialUnits</strong> – use imperial units </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Cadwork.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

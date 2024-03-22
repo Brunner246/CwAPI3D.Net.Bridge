@@ -1,0 +1,240 @@
+ImageRuntimeVersion: v4.0.30319
+Assembly CwAPI3D_CSharp, Version=0.0.*, Culture=Invariant Language (Invariant Country): 
+	hash=SHA1, flags=PublicKey
+Assembly mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a: 
+	hash=None, flags=None
+Assembly System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Interface CwAPI3D_CLI.IAttributeController: AutoLayout, AnsiClass, Class, Public, ClassSemanticsMask, Abstract, BeforeFieldInit
+  Methods:
+    getName(Int32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+Class CwAPI3D_CLI.AttributeController: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+    Void .ctor(IntPtr): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    CwAPI3D_CLI.IAttributeController
+    System.IDisposable
+  Methods:
+    getName(Int32): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Interface CwAPI3D_CLI.IBimController: AutoLayout, AnsiClass, Class, Public, ClassSemanticsMask, Abstract, BeforeFieldInit
+  Methods:
+    getIfcType(Int32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    getIfcTypeDisplayString(Int32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    getElementIdFromIfcBase64Guid(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    getIfcBase64Guid(Int32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+Class CwAPI3D_CLI.BimController: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+    Void .ctor(IntPtr): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    CwAPI3D_CLI.IBimController
+  Methods:
+    getIfcTypeDisplayString(Int32): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    getElementIdFromIfcBase64Guid(String): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    getIfcBase64Guid(Int32): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    getIfcType(Int32): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+Struct CwAPI3D_CLI.EBimIfcType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    CwAPI3D_CLI.EBimIfcType none = 0 : Public, Static, Literal, HasDefault
+    CwAPI3D_CLI.EBimIfcType ifcBeam = 1 : Public, Static, Literal, HasDefault
+    CwAPI3D_CLI.EBimIfcType ifcColumn = 2 : Public, Static, Literal, HasDefault
+    CwAPI3D_CLI.EBimIfcType ifcCurtainWall = 3 : Public, Static, Literal, HasDefault
+    CwAPI3D_CLI.EBimIfcType ifcDoor = 4 : Public, Static, Literal, HasDefault
+    CwAPI3D_CLI.EBimIfcType ifcMember = 5 : Public, Static, Literal, HasDefault
+    CwAPI3D_CLI.EBimIfcType ifcPlate = 6 : Public, Static, Literal, HasDefault
+    CwAPI3D_CLI.EBimIfcType ifcRailing = 7 : Public, Static, Literal, HasDefault
+    CwAPI3D_CLI.EBimIfcType ifcRamp = 8 : Public, Static, Literal, HasDefault
+    CwAPI3D_CLI.EBimIfcType ifcRampFlight = 9 : Public, Static, Literal, HasDefault
+    CwAPI3D_CLI.EBimIfcType ifcRoof = 10 : Public, Static, Literal, HasDefault
+    CwAPI3D_CLI.EBimIfcType ifcSlab = 11 : Public, Static, Literal, HasDefault
+    CwAPI3D_CLI.EBimIfcType ifcStair = 12 : Public, Static, Literal, HasDefault
+    CwAPI3D_CLI.EBimIfcType ifcStairFlight = 13 : Public, Static, Literal, HasDefault
+    CwAPI3D_CLI.EBimIfcType ifcWall = 14 : Public, Static, Literal, HasDefault
+    CwAPI3D_CLI.EBimIfcType ifcWallStandardCase = 15 : Public, Static, Literal, HasDefault
+    CwAPI3D_CLI.EBimIfcType ifcWindow = 16 : Public, Static, Literal, HasDefault
+    CwAPI3D_CLI.EBimIfcType ifcBuildingElementProxy = 17 : Public, Static, Literal, HasDefault
+    CwAPI3D_CLI.EBimIfcType ifcChimney = 18 : Public, Static, Literal, HasDefault
+    CwAPI3D_CLI.EBimIfcType ifcCovering = 19 : Public, Static, Literal, HasDefault
+    CwAPI3D_CLI.EBimIfcType ifcFooting = 20 : Public, Static, Literal, HasDefault
+    CwAPI3D_CLI.EBimIfcType ifcFurnishingElement = 21 : Public, Static, Literal, HasDefault
+    CwAPI3D_CLI.EBimIfcType ifcOpeningElement = 22 : Public, Static, Literal, HasDefault
+    CwAPI3D_CLI.EBimIfcType ifcSpace = 23 : Public, Static, Literal, HasDefault
+    CwAPI3D_CLI.EBimIfcType ifcFlowSegment = 24 : Public, Static, Literal, HasDefault
+    CwAPI3D_CLI.EBimIfcType ifcBuildingElementPart = 25 : Public, Static, Literal, HasDefault
+    CwAPI3D_CLI.EBimIfcType ifcDiscreteAccessory = 26 : Public, Static, Literal, HasDefault
+    CwAPI3D_CLI.EBimIfcType ifcFastener = 27 : Public, Static, Literal, HasDefault
+    CwAPI3D_CLI.EBimIfcType ifcMechanicalFastener = 28 : Public, Static, Literal, HasDefault
+Class CwAPI3D_CLI.vector3D: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Double, Double, Double): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Double Z   'get set' : 
+    Double Y   'get set' : 
+    Double X   'get set' : 
+  Methods:
+    get_X(): PrivateScope, Public, HideBySig, SpecialName
+    set_X(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_Y(): PrivateScope, Public, HideBySig, SpecialName
+    set_Y(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_Z(): PrivateScope, Public, HideBySig, SpecialName
+    set_Z(Double): PrivateScope, Public, HideBySig, SpecialName
+    op_Addition(vector3D, vector3D): PrivateScope, Public, Static, HideBySig, SpecialName
+    op_Subtraction(vector3D, vector3D): PrivateScope, Public, Static, HideBySig, SpecialName
+    op_Multiply(vector3D, Double IsConst): PrivateScope, Public, Static, HideBySig, SpecialName
+    op_Multiply(vector3D, vector3D): PrivateScope, Public, Static, HideBySig, SpecialName
+    scalar(vector3D IsConst): PrivateScope, Public, HideBySig
+    cross(vector3D IsConst): PrivateScope, Public, HideBySig
+    length(): PrivateScope, Public, HideBySig
+    normalized(): PrivateScope, Public, HideBySig
+    toVector3D(vector3D*): PrivateScope, Public, HideBySig
+Interface CwAPI3D_CLI.ICameraData: AutoLayout, AnsiClass, Class, Public, ClassSemanticsMask, Abstract, BeforeFieldInit
+  Methods:
+    destroy(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    setPosition(vector3D): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    getPosition(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    setTarget(vector3D): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    getTarget(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    setUp(vector3D): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    getUp(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    setProjectionType(projectionType): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    getProjectionType(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    setFieldWidth(Single): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    getFieldWidth(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    setFieldHeight(Single): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    getFieldHeight(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    setFieldOfView(Double): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    getFieldOfView(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+Struct CwAPI3D_CLI.ICameraData+projectionType: AutoLayout, AnsiClass, Class, NestedPublic, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    projectionType perspective = 0 : Public, Static, Literal, HasDefault
+    projectionType orthographic = 1 : Public, Static, Literal, HasDefault
+Class CwAPI3D_CLI.CameraData: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(CwAPI3D.Interfaces.ICwAPI3DCameraData*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    CwAPI3D_CLI.ICameraData
+    System.IDisposable
+  Methods:
+    destroy(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    setPosition(vector3D): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    getPosition(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    setTarget(vector3D): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    getTarget(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    setUp(vector3D): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    getUp(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    setProjectionType(projectionType): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    getProjectionType(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    setFieldWidth(Single): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    getFieldWidth(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    setFieldHeight(Single): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    getFieldHeight(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    setFieldOfView(Double): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    getFieldOfView(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Interface CwAPI3D_CLI.IVisualizationController: AutoLayout, AnsiClass, Class, Public, ClassSemanticsMask, Abstract, BeforeFieldInit
+  Methods:
+    isActive(Int32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    setActive(List`1): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    setInActive(List`1): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    isVisible(Int32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    setVisible(List`1): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    hideAllElements(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    showAllElements(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    isPlane2D(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    setCamera(ICameraData): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    getCamera(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    refresh(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+Interface CwAPI3D_CLI.ICwApi3DFactory: AutoLayout, AnsiClass, Class, Public, ClassSemanticsMask, Abstract, BeforeFieldInit
+  Methods:
+    getElementController(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    getAttributeController(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    getUtilityController(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    getVisualizationController(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    getBimController(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    getCameraData(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+Interface CwAPI3D_CLI.IElementController: AutoLayout, AnsiClass, Class, Public, ClassSemanticsMask, Abstract, BeforeFieldInit
+  Methods:
+    getAllIdentifiableElementIDs(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    getVisibleIdentifiableElementIDs(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    getActiveIdentifiableElementIDs(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    addElementsToUndo(List`1, undoType): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+Class CwAPI3D_CLI.CwApi3DFactory: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(IntPtr): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    CwAPI3D_CLI.ICwApi3DFactory
+  Methods:
+    getElementController(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    getAttributeController(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    getUtilityController(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    getVisualizationController(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    getBimController(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    getCameraData(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+Class CwAPI3D_CLI.ElementController: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+    Void .ctor(IntPtr): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    CwAPI3D_CLI.IElementController
+    System.IDisposable
+  Methods:
+    getAllIdentifiableElementIDs(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    getActiveIdentifiableElementIDs(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    getVisibleIdentifiableElementIDs(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    addElementsToUndo(List`1, undoType): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Interface CwAPI3D_CLI.IUtilityController: AutoLayout, AnsiClass, Class, Public, ClassSemanticsMask, Abstract, BeforeFieldInit
+  Methods:
+    getPluginPath(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    getUseOfGlobalCoordinates(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    getGlobalOrigin(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    createSnapshot(String, Int32, Boolean(HasFieldMarshal)): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    disableAutoDisplayRefresh(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    enableAutoDisplayRefresh(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    get3dGuiUpperLeftScreenCoordinates(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    getLanguage(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+Class CwAPI3D_CLI.UtilityController: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+    Void .ctor(IntPtr): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    CwAPI3D_CLI.IUtilityController
+    System.IDisposable
+  Methods:
+    getPluginPath(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    getUseOfGlobalCoordinates(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    getGlobalOrigin(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    createSnapshot(String, Int32, Boolean(HasFieldMarshal)): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    disableAutoDisplayRefresh(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    enableAutoDisplayRefresh(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    get3dGuiUpperLeftScreenCoordinates(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    getLanguage(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class CwAPI3D_CLI.VisualizationController: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+    Void .ctor(IntPtr): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    CwAPI3D_CLI.IVisualizationController
+    System.IDisposable
+  Methods:
+    isActive(Int32): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    setActive(List`1): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    setInActive(List`1): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    isVisible(Int32): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    setVisible(List`1): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    hideAllElements(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    showAllElements(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    isPlane2D(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    setCamera(ICameraData): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    getCamera(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    refresh(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Struct CwAPI3D_CLI.Utils.undoType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    CwAPI3D_CLI.Utils.undoType add = 0 : Public, Static, Literal, HasDefault
+    CwAPI3D_CLI.Utils.undoType modify = 1 : Public, Static, Literal, HasDefault

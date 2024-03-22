@@ -1,0 +1,1476 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Attribute Controller &mdash; CwAPI3D V29</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Connector Axis Controller" href="connectoraxiscontroller.html" />
+    <link rel="prev" title="Controller Factory" href="controllerfactory.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> CwAPI3D
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">General</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gettingstartedcpp.html">Getting Started (C++)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gettingstartedlua.html">Getting Started (Lua)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="versioning.html">Versioning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="philosophy.html">Philosophy</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lua</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="lua.html">Lua</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Factories</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="controllerfactory.html">Controller Factory</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Controllers</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Attribute Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="connectoraxiscontroller.html">Connector Axis Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="elementcontroller.html">Element Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="endtypecontroller.html">Endtype Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="filecontroller.html">File Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="geometrycontroller.html">Geometry Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="listcontroller.html">List Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="machinecontroller.html">Machine Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="materialcontroller.html">Material Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="menucontroller.html">Menu Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="roofcontroller.html">Roof Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scenecontroller.html">Scene Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shopdrawingcontroller.html">Shop Drawing Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utilitycontroller.html">Utility Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visualizationcontroller.html">Visualization Controller</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Helpers</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="activationstate.html">Activation State</a></li>
+<li class="toctree-l1"><a class="reference internal" href="elementidlist.html">Element ID List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="elementtype.html">Element Type</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extendedsettings.html">Extended Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="menu.html">Menu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="processtype.html">Process Type</a></li>
+<li class="toctree-l1"><a class="reference internal" href="string.html">String</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vertexlist.html">Vertex List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visibilitystate.html">Visibility State</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CwAPI3D</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Attribute Controller</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/attributecontroller.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="attribute-controller">
+<h1>Attribute Controller<a class="headerlink" href="#attribute-controller" title="Permalink to this headline"></a></h1>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeControllerE">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeControllerE"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeControllerE"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller"></span><span class="k"><span class="pre">interface</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">CwAPI3D</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Interfaces</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">ICwAPI3DAttributeController</span></span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeControllerE" title="Permalink to this definition"></a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController12getLastErrorEP7int32_t">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController12getLastErrorEP7int32_t"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController12getLastErrorEP7int32_t"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::getLastError__int32_tP"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1ae46905750767398253e8644a4148edd9"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><a class="reference internal" href="string.html#_CPPv4N7CwAPI3D10Interfaces14ICwAPI3DStringE" title="CwAPI3D::Interfaces::ICwAPI3DString"><span class="n"><span class="pre">ICwAPI3DString</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getLastError</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aErrorCode</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController12getLastErrorEP7int32_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the last error. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aErrorCode</strong> – error code </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>error string </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController7getNameE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController7getNameE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController7getNameE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::getName__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1ae9bde94df7f464230e99ad1148281ff0"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><a class="reference internal" href="string.html#_CPPv4N7CwAPI3D10Interfaces14ICwAPI3DStringE" title="CwAPI3D::Interfaces::ICwAPI3DString"><span class="n"><span class="pre">ICwAPI3DString</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getName</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController7getNameE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the element name. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>element name </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController7setNameEP21ICwAPI3DElementIDListPK9character">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController7setNameEP21ICwAPI3DElementIDListPK9character"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController7setNameEP21ICwAPI3DElementIDListPK9character"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::setName__ICwAPI3DElementIDListP.characterCP"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1ad38244c2e4cf2f8442d512065d5a2db6"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setName</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aElementIDList</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">character</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aName</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController7setNameEP21ICwAPI3DElementIDListPK9character" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sets the element name. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aElementIDList</strong> – element ID list </p></li>
+<li><p><strong>aName</strong> – element name </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController8getGroupE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController8getGroupE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController8getGroupE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::getGroup__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1a0b2d439150ef8f9e7a65dd8181f3046a"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><a class="reference internal" href="string.html#_CPPv4N7CwAPI3D10Interfaces14ICwAPI3DStringE" title="CwAPI3D::Interfaces::ICwAPI3DString"><span class="n"><span class="pre">ICwAPI3DString</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getGroup</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController8getGroupE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the element group. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>element group </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController8setGroupEP21ICwAPI3DElementIDListPK9character">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController8setGroupEP21ICwAPI3DElementIDListPK9character"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController8setGroupEP21ICwAPI3DElementIDListPK9character"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::setGroup__ICwAPI3DElementIDListP.characterCP"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1a4c343ce42a6272fddc4ff6018b1122dc"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setGroup</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aElementIDList</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">character</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aGroup</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController8setGroupEP21ICwAPI3DElementIDListPK9character" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sets the element group. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aElementIDList</strong> – element ID list </p></li>
+<li><p><strong>aGroup</strong> – element group </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController11getSubgroupE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController11getSubgroupE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController11getSubgroupE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::getSubgroup__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1acc0e9547139d04abd6bce316a6b01dd3"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><a class="reference internal" href="string.html#_CPPv4N7CwAPI3D10Interfaces14ICwAPI3DStringE" title="CwAPI3D::Interfaces::ICwAPI3DString"><span class="n"><span class="pre">ICwAPI3DString</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getSubgroup</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController11getSubgroupE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the element subgroup. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>element subgroup </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController11setSubgroupEP21ICwAPI3DElementIDListPK9character">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController11setSubgroupEP21ICwAPI3DElementIDListPK9character"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController11setSubgroupEP21ICwAPI3DElementIDListPK9character"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::setSubgroup__ICwAPI3DElementIDListP.characterCP"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1a8aac43f43692dfff7a81261430e538a4"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setSubgroup</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aElementIDList</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">character</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aSubgroup</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController11setSubgroupEP21ICwAPI3DElementIDListPK9character" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sets the element subgroup. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aElementIDList</strong> – element ID list </p></li>
+<li><p><strong>aSubgroup</strong> – element subgroup </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController10getCommentE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController10getCommentE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController10getCommentE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::getComment__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1a88763979dc185dc3f7343d8f9b5a47d8"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><a class="reference internal" href="string.html#_CPPv4N7CwAPI3D10Interfaces14ICwAPI3DStringE" title="CwAPI3D::Interfaces::ICwAPI3DString"><span class="n"><span class="pre">ICwAPI3DString</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getComment</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController10getCommentE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the element comment. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>element comment </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController10setCommentEP21ICwAPI3DElementIDListPK9character">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController10setCommentEP21ICwAPI3DElementIDListPK9character"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController10setCommentEP21ICwAPI3DElementIDListPK9character"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::setComment__ICwAPI3DElementIDListP.characterCP"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1a650d9e078e4fd5738d0e74d0feb9d6b4"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setComment</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aElementIDList</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">character</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aComment</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController10setCommentEP21ICwAPI3DElementIDListPK9character" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sets the element comment. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aElementIDList</strong> – element ID list </p></li>
+<li><p><strong>aComment</strong> – element comment </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController16getUserAttributeE9elementID8uint32_t">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController16getUserAttributeE9elementID8uint32_t"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController16getUserAttributeE9elementID8uint32_t"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::getUserAttribute__elementID.uint32_t"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1a4a3fe1a3f75074e4d14968141b04756a"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><a class="reference internal" href="string.html#_CPPv4N7CwAPI3D10Interfaces14ICwAPI3DStringE" title="CwAPI3D::Interfaces::ICwAPI3DString"><span class="n"><span class="pre">ICwAPI3DString</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getUserAttribute</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aNumber</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController16getUserAttributeE9elementID8uint32_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the element user attribute. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aID</strong> – element ID </p></li>
+<li><p><strong>aNumber</strong> – user attribute number </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>element user attribute </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController16setUserAttributeEP21ICwAPI3DElementIDList8uint32_tPK9character">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController16setUserAttributeEP21ICwAPI3DElementIDList8uint32_tPK9character"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController16setUserAttributeEP21ICwAPI3DElementIDList8uint32_tPK9character"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::setUserAttribute__ICwAPI3DElementIDListP.uint32_t.characterCP"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1a7bcc3a8318f65136480c2d806b8dd616"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setUserAttribute</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aElementIDList</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aNumber</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">character</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aUserAttribute</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController16setUserAttributeEP21ICwAPI3DElementIDList8uint32_tPK9character" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sets the element user attribute. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aElementIDList</strong> – element ID list </p></li>
+<li><p><strong>aNumber</strong> – user attribute number </p></li>
+<li><p><strong>aUserAttribute</strong> – element user attribute </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController6getSKUE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController6getSKUE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController6getSKUE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::getSKU__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1a7d853e3b06e2d19af59deaa667a44dbf"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><a class="reference internal" href="string.html#_CPPv4N7CwAPI3D10Interfaces14ICwAPI3DStringE" title="CwAPI3D::Interfaces::ICwAPI3DString"><span class="n"><span class="pre">ICwAPI3DString</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getSKU</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController6getSKUE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the element SKU. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>element SKU </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController6setSKUEP21ICwAPI3DElementIDListPK9character">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController6setSKUEP21ICwAPI3DElementIDListPK9character"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController6setSKUEP21ICwAPI3DElementIDListPK9character"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::setSKU__ICwAPI3DElementIDListP.characterCP"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1a9afd0b7753ad9c8385633905c8d14a60"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setSKU</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aElementIDList</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">character</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aSKU</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController6setSKUEP21ICwAPI3DElementIDListPK9character" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sets the element SKU. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aElementIDList</strong> – element ID list </p></li>
+<li><p><strong>aSKU</strong> – element SKU </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController19getProductionNumberE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController19getProductionNumberE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController19getProductionNumberE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::getProductionNumber__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1afc9112eedc95d1c5ab7b189f3788eb64"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getProductionNumber</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController19getProductionNumberE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the element production number. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>element production number </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController19setProductionNumberEP21ICwAPI3DElementIDList8uint32_t">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController19setProductionNumberEP21ICwAPI3DElementIDList8uint32_t"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController19setProductionNumberEP21ICwAPI3DElementIDList8uint32_t"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::setProductionNumber__ICwAPI3DElementIDListP.uint32_t"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1aa5cba6bd75c89956ddd698378c1a7c08"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setProductionNumber</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aElementIDList</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aProductionNumber</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController19setProductionNumberEP21ICwAPI3DElementIDList8uint32_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sets the element production number. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aElementIDList</strong> – element ID list </p></li>
+<li><p><strong>aProductionNumber</strong> – element production number </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController13getPartNumberE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController13getPartNumberE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController13getPartNumberE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::getPartNumber__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1a927cd97e022c99a8b525ed82e044aa95"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getPartNumber</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController13getPartNumberE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the element part number. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>element part number </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController13setPartNumberEP21ICwAPI3DElementIDList8uint32_t">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController13setPartNumberEP21ICwAPI3DElementIDList8uint32_t"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController13setPartNumberEP21ICwAPI3DElementIDList8uint32_t"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::setPartNumber__ICwAPI3DElementIDListP.uint32_t"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1adedf86487cc28132b54676c53cfea83d"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setPartNumber</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aElementIDList</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aPartNumber</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController13setPartNumberEP21ICwAPI3DElementIDList8uint32_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sets the element part number. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aElementIDList</strong> – element ID list </p></li>
+<li><p><strong>aPartNumber</strong> – element part number </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController17getAdditionalDataE9elementIDPK9character">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController17getAdditionalDataE9elementIDPK9character"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController17getAdditionalDataE9elementIDPK9character"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::getAdditionalData__elementID.characterCP"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1a8200289e5653699058c648a36fdba81d"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><a class="reference internal" href="string.html#_CPPv4N7CwAPI3D10Interfaces14ICwAPI3DStringE" title="CwAPI3D::Interfaces::ICwAPI3DString"><span class="n"><span class="pre">ICwAPI3DString</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getAdditionalData</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">character</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aDataID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController17getAdditionalDataE9elementIDPK9character" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the element additional data. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aID</strong> – element ID </p></li>
+<li><p><strong>aDataID</strong> – data ID </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>element additional data </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController17setAdditionalDataEP21ICwAPI3DElementIDListPK9characterPK9character">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController17setAdditionalDataEP21ICwAPI3DElementIDListPK9characterPK9character"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController17setAdditionalDataEP21ICwAPI3DElementIDListPK9characterPK9character"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::setAdditionalData__ICwAPI3DElementIDListP.characterCP.characterCP"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1a362d9ebc980d677dbcc307f7f7cccaf8"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setAdditionalData</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aElementIDList</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">character</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aDataID</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">character</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aDataText</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController17setAdditionalDataEP21ICwAPI3DElementIDListPK9characterPK9character" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sets the element additional data. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aElementIDList</strong> – element ID list </p></li>
+<li><p><strong>aDataID</strong> – data ID </p></li>
+<li><p><strong>aDataText</strong> – element additional data </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController20deleteAdditionalDataEP21ICwAPI3DElementIDListPK9character">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController20deleteAdditionalDataEP21ICwAPI3DElementIDListPK9character"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController20deleteAdditionalDataEP21ICwAPI3DElementIDListPK9character"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::deleteAdditionalData__ICwAPI3DElementIDListP.characterCP"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1ab631339766a5ee657034c5878381f6ee"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">deleteAdditionalData</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aElementIDList</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">character</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aDataID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController20deleteAdditionalDataEP21ICwAPI3DElementIDListPK9character" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Deletes the element additional data. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aElementIDList</strong> – element ID list </p></li>
+<li><p><strong>aDataID</strong> – data ID </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController20getUserAttributeNameE8uint32_t">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController20getUserAttributeNameE8uint32_t"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController20getUserAttributeNameE8uint32_t"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::getUserAttributeName__uint32_t"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1ab62f0ee1b6a783d995a70f5008a02835"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><a class="reference internal" href="string.html#_CPPv4N7CwAPI3D10Interfaces14ICwAPI3DStringE" title="CwAPI3D::Interfaces::ICwAPI3DString"><span class="n"><span class="pre">ICwAPI3DString</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getUserAttributeName</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aNumber</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController20getUserAttributeNameE8uint32_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the user attribute name. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aNumber</strong> – user attribute number </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>user attribute name </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController20setUserAttributeNameE8uint32_tPK9character">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController20setUserAttributeNameE8uint32_tPK9character"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController20setUserAttributeNameE8uint32_tPK9character"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::setUserAttributeName__uint32_t.characterCP"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1a8ffacdb0f4307b4a5d91ad0916849d3d"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setUserAttributeName</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aNumber</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">character</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aUserAttributeName</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController20setUserAttributeNameE8uint32_tPK9character" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sets the user attribute name. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aNumber</strong> – user attribute number </p></li>
+<li><p><strong>aUserAttributeName</strong> – user attribute name </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController16getWallSituationE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController16getWallSituationE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController16getWallSituationE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::getWallSituation__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1aae441e94cbff62eedf25bba770d7516a"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><a class="reference internal" href="string.html#_CPPv4N7CwAPI3D10Interfaces14ICwAPI3DStringE" title="CwAPI3D::Interfaces::ICwAPI3DString"><span class="n"><span class="pre">ICwAPI3DString</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getWallSituation</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController16getWallSituationE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the element wall situation. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>element wall situation </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController6isBeamE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController6isBeamE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController6isBeamE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::isBeam__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1a0542dcb5a5887d920f39512ef7bc8ec6"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isBeam</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController6isBeamE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Tests if element is beam. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>is element beam </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController7isPanelE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController7isPanelE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController7isPanelE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::isPanel__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1aec1e09521506388f72dc7d33975d2809"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isPanel</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController7isPanelE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Tests if element is panel. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>is element panel </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController9isOpeningE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController9isOpeningE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController9isOpeningE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::isOpening__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1a4032490ef26df62f49602fb6ca98c143"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isOpening</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController9isOpeningE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Tests if element is opening. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>is element opening </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController6isWallE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController6isWallE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController6isWallE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::isWall__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1a5aca32ecffd83b37c069e592ae708627"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isWall</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController6isWallE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Tests if element is wall. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>is element wall </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController7isFloorE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController7isFloorE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController7isFloorE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::isFloor__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1ade08b85a7822b4e5a065921d03d23618"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isFloor</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController7isFloorE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Tests if element is floor. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>is element floor </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController6isRoofE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController6isRoofE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController6isRoofE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::isRoof__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1a056e44178f19ffc1b188d2a09d481903"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isRoof</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController6isRoofE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Tests if element is roof. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>is element roof </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController7isMetalE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController7isMetalE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController7isMetalE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::isMetal__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1aed3c230260c103080803f8d3ab3c48bb"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isMetal</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController7isMetalE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Tests if element is metal. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>is element metal </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController13isExportSolidE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController13isExportSolidE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController13isExportSolidE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::isExportSolid__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1a6cf58b5ba5527009c9c553f5a9b0ecb0"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isExportSolid</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController13isExportSolidE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Tests if element is export solid. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>is element export solid </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController11isContainerE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController11isContainerE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController11isContainerE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::isContainer__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1a7b3b932c1ea242c7b3576783b98995ce"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isContainer</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController11isContainerE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Tests if element is container. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>is element container </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController15isConnectorAxisE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController15isConnectorAxisE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController15isConnectorAxisE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::isConnectorAxis__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1a3f1a8ab461fd3c1874cf37261a24b6b1"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isConnectorAxis</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController15isConnectorAxisE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Tests if element is connector axis. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>is element connector axis </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController10isDrillingE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController10isDrillingE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController10isDrillingE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::isDrilling__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1ac8741dd599f1d206606fa2554bb3ed65"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isDrilling</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController10isDrillingE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Tests if element is drilling. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>is element drilling </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController6isNodeE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController6isNodeE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController6isNodeE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::isNode__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1ae7011fc5a7484f236dbc48a7440e0561"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isNode</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController6isNodeE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Tests if element is node. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>is element node </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController11isAuxiliaryE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController11isAuxiliaryE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController11isAuxiliaryE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::isAuxiliary__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1a61d71d13bbee415633011f8443056a26"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isAuxiliary</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController11isAuxiliaryE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Tests if element is auxiliary. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>is element auxiliary </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController22getElementMaterialNameE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController22getElementMaterialNameE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController22getElementMaterialNameE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::getElementMaterialName__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1adb645cc33b5125d06cb8419c1092b156"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><a class="reference internal" href="string.html#_CPPv4N7CwAPI3D10Interfaces14ICwAPI3DStringE" title="CwAPI3D::Interfaces::ICwAPI3DString"><span class="n"><span class="pre">ICwAPI3DString</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getElementMaterialName</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController22getElementMaterialNameE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the element material name. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>element material name </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController14getPrefabLayerE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController14getPrefabLayerE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController14getPrefabLayerE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::getPrefabLayer__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1a8d451444ad02dc85191304312ec55897"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><a class="reference internal" href="string.html#_CPPv4N7CwAPI3D10Interfaces14ICwAPI3DStringE" title="CwAPI3D::Interfaces::ICwAPI3DString"><span class="n"><span class="pre">ICwAPI3DString</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getPrefabLayer</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController14getPrefabLayerE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the element prefab layer. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>element prefab layer </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController24getMachineCalculationSetE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController24getMachineCalculationSetE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController24getMachineCalculationSetE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::getMachineCalculationSet__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1a4f15c05709a2ad2b1edb586d0801285a"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><a class="reference internal" href="string.html#_CPPv4N7CwAPI3D10Interfaces14ICwAPI3DStringE" title="CwAPI3D::Interfaces::ICwAPI3DString"><span class="n"><span class="pre">ICwAPI3DString</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getMachineCalculationSet</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController24getMachineCalculationSetE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the element machine calculation set. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>element machine calculation set </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController13getCuttingSetE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController13getCuttingSetE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController13getCuttingSetE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::getCuttingSet__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1ab0e973d93380def71d87ba4e47407f31"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><a class="reference internal" href="string.html#_CPPv4N7CwAPI3D10Interfaces14ICwAPI3DStringE" title="CwAPI3D::Interfaces::ICwAPI3DString"><span class="n"><span class="pre">ICwAPI3DString</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getCuttingSet</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController13getCuttingSetE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the element cutting set. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>element cutting set </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController41setProcessTypeAndExtendedSettingsFromNameEP21ICwAPI3DElementIDList">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController41setProcessTypeAndExtendedSettingsFromNameEP21ICwAPI3DElementIDList"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController41setProcessTypeAndExtendedSettingsFromNameEP21ICwAPI3DElementIDList"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::setProcessTypeAndExtendedSettingsFromName__ICwAPI3DElementIDListP"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1aecd459aebab142c00a439529799ff57d"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setProcessTypeAndExtendedSettingsFromName</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aElementIDList</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController41setProcessTypeAndExtendedSettingsFromNameEP21ICwAPI3DElementIDList" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sets the element process type and extended settings from the element name. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aElementIDList</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController18setNameProcessTypeEPK9characterP19ICwAPI3DProcessType">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController18setNameProcessTypeEPK9characterP19ICwAPI3DProcessType"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController18setNameProcessTypeEPK9characterP19ICwAPI3DProcessType"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::setNameProcessType__characterCP.ICwAPI3DProcessTypeP"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1ad729828faa927730d8249953140e1281"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setNameProcessType</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">character</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aName</span></span>, <a class="reference internal" href="processtype.html#_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessTypeE" title="CwAPI3D::Interfaces::ICwAPI3DProcessType"><span class="n"><span class="pre">ICwAPI3DProcessType</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aProcessType</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController18setNameProcessTypeEPK9characterP19ICwAPI3DProcessType" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sets the process type for an element name. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aName</strong> – element name </p></li>
+<li><p><strong>aProcessType</strong> – process type </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController18getNameProcessTypeEPK9character">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController18getNameProcessTypeEPK9character"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController18getNameProcessTypeEPK9character"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::getNameProcessType__characterCP"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1a7644be33ed65c377279466edf13dbbfa"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><a class="reference internal" href="processtype.html#_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessTypeE" title="CwAPI3D::Interfaces::ICwAPI3DProcessType"><span class="n"><span class="pre">ICwAPI3DProcessType</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getNameProcessType</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">character</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aName</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController18getNameProcessTypeEPK9character" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the process type for an element name. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aName</strong> – element name </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>process type </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController23setNameExtendedSettingsEPK9characterP24ICwAPI3DExtendedSettings">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController23setNameExtendedSettingsEPK9characterP24ICwAPI3DExtendedSettings"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController23setNameExtendedSettingsEPK9characterP24ICwAPI3DExtendedSettings"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::setNameExtendedSettings__characterCP.ICwAPI3DExtendedSettingsP"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1a41f01c99b9a9fdc1c63dd93296adb68f"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setNameExtendedSettings</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">character</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aName</span></span>, <a class="reference internal" href="extendedsettings.html#_CPPv4N7CwAPI3D10Interfaces24ICwAPI3DExtendedSettingsE" title="CwAPI3D::Interfaces::ICwAPI3DExtendedSettings"><span class="n"><span class="pre">ICwAPI3DExtendedSettings</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aExtendedSettings</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController23setNameExtendedSettingsEPK9characterP24ICwAPI3DExtendedSettings" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sets the extended settings for an element name. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aName</strong> – element name </p></li>
+<li><p><strong>aExtendedSettings</strong> – extended settings </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController23getNameExtendedSettingsEPK9character">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController23getNameExtendedSettingsEPK9character"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController23getNameExtendedSettingsEPK9character"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::getNameExtendedSettings__characterCP"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1a42d649e3703ad27e478805a18cba257d"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><a class="reference internal" href="extendedsettings.html#_CPPv4N7CwAPI3D10Interfaces24ICwAPI3DExtendedSettingsE" title="CwAPI3D::Interfaces::ICwAPI3DExtendedSettings"><span class="n"><span class="pre">ICwAPI3DExtendedSettings</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getNameExtendedSettings</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">character</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aName</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController23getNameExtendedSettingsEPK9character" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the extended settings for an element name. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aName</strong> – element name </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>extended settings </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController13getOutputTypeE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController13getOutputTypeE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController13getOutputTypeE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::getOutputType__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1a083c709823c528724efa39eef74f8a93"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><a class="reference internal" href="processtype.html#_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessTypeE" title="CwAPI3D::Interfaces::ICwAPI3DProcessType"><span class="n"><span class="pre">ICwAPI3DProcessType</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getOutputType</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController13getOutputTypeE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the element output type. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>element output type </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController13setOutputTypeEP21ICwAPI3DElementIDListP19ICwAPI3DProcessType">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController13setOutputTypeEP21ICwAPI3DElementIDListP19ICwAPI3DProcessType"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController13setOutputTypeEP21ICwAPI3DElementIDListP19ICwAPI3DProcessType"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::setOutputType__ICwAPI3DElementIDListP.ICwAPI3DProcessTypeP"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1a7939a1017685c6c3c07c17fb4189ee29"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setOutputType</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aElementIDList</span></span>, <a class="reference internal" href="processtype.html#_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DProcessTypeE" title="CwAPI3D::Interfaces::ICwAPI3DProcessType"><span class="n"><span class="pre">ICwAPI3DProcessType</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aProcessType</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController13setOutputTypeEP21ICwAPI3DElementIDListP19ICwAPI3DProcessType" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sets the element output type. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aElementIDList</strong> – element ID list </p></li>
+<li><p><strong>aProcessType</strong> – element output type </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController19getExtendedSettingsE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController19getExtendedSettingsE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController19getExtendedSettingsE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::getExtendedSettings__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1ab06931c0b27aaee7e3c37b936fdb1d9d"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><a class="reference internal" href="extendedsettings.html#_CPPv4N7CwAPI3D10Interfaces24ICwAPI3DExtendedSettingsE" title="CwAPI3D::Interfaces::ICwAPI3DExtendedSettings"><span class="n"><span class="pre">ICwAPI3DExtendedSettings</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getExtendedSettings</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController19getExtendedSettingsE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the element extended settings. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>element extended settings </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController19setExtendedSettingsEP21ICwAPI3DElementIDListP24ICwAPI3DExtendedSettings">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController19setExtendedSettingsEP21ICwAPI3DElementIDListP24ICwAPI3DExtendedSettings"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController19setExtendedSettingsEP21ICwAPI3DElementIDListP24ICwAPI3DExtendedSettings"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::setExtendedSettings__ICwAPI3DElementIDListP.ICwAPI3DExtendedSettingsP"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1a5b6be18a05ae4906007b8fc597ec03ad"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setExtendedSettings</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aElementIDList</span></span>, <a class="reference internal" href="extendedsettings.html#_CPPv4N7CwAPI3D10Interfaces24ICwAPI3DExtendedSettingsE" title="CwAPI3D::Interfaces::ICwAPI3DExtendedSettings"><span class="n"><span class="pre">ICwAPI3DExtendedSettings</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aExtendedSettings</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController19setExtendedSettingsEP21ICwAPI3DElementIDListP24ICwAPI3DExtendedSettings" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sets the element extended settings. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aElementIDList</strong> – element ID list </p></li>
+<li><p><strong>aExtendedSettings</strong> – element extended settings </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController14getElementTypeE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController14getElementTypeE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController14getElementTypeE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::getElementType__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1a887bbfde08b4eedaabb7bb2563b48a66"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><a class="reference internal" href="elementtype.html#_CPPv4N7CwAPI3D10Interfaces19ICwAPI3DElementTypeE" title="CwAPI3D::Interfaces::ICwAPI3DElementType"><span class="n"><span class="pre">ICwAPI3DElementType</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getElementType</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController14getElementTypeE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gets the element type. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>element type </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController7setWallEP21ICwAPI3DElementIDList">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController7setWallEP21ICwAPI3DElementIDList"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController7setWallEP21ICwAPI3DElementIDList"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::setWall__ICwAPI3DElementIDListP"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1a01f09452128b3b67ee35b499d817891f"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setWall</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aElementIDList</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController7setWallEP21ICwAPI3DElementIDList" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sets the element to wall. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aElementIDList</strong> – element ID list </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController8setFloorEP21ICwAPI3DElementIDList">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController8setFloorEP21ICwAPI3DElementIDList"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController8setFloorEP21ICwAPI3DElementIDList"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::setFloor__ICwAPI3DElementIDListP"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1aee7159825fc0e7e4c040356d87995585"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setFloor</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aElementIDList</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController8setFloorEP21ICwAPI3DElementIDList" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sets the element to floor. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aElementIDList</strong> – element ID list </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController10setOpeningEP21ICwAPI3DElementIDList">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController10setOpeningEP21ICwAPI3DElementIDList"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController10setOpeningEP21ICwAPI3DElementIDList"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::setOpening__ICwAPI3DElementIDListP"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1a11e2a214d02d04929340edb8fe0a2d12"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setOpening</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aElementIDList</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController10setOpeningEP21ICwAPI3DElementIDList" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sets the element to opening. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aElementIDList</strong> – element ID list </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController21getFasteningAttributeE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController21getFasteningAttributeE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController21getFasteningAttributeE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::getFasteningAttribute__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1a1fa7187bc9b7f6db8017c7c7315b71fd"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><a class="reference internal" href="string.html#_CPPv4N7CwAPI3D10Interfaces14ICwAPI3DStringE" title="CwAPI3D::Interfaces::ICwAPI3DString"><span class="n"><span class="pre">ICwAPI3DString</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getFasteningAttribute</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController21getFasteningAttributeE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Get the element fastening attribute. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>element fastening attribute </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController21setFasteningAttributeEP21ICwAPI3DElementIDListPK9character">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController21setFasteningAttributeEP21ICwAPI3DElementIDListPK9character"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController21setFasteningAttributeEP21ICwAPI3DElementIDListPK9character"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::setFasteningAttribute__ICwAPI3DElementIDListP.characterCP"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1a70cd6e1a5abd5ac0e298feef364ca6ed"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setFasteningAttribute</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aElementIDList</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">character</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aValue</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController21setFasteningAttributeEP21ICwAPI3DElementIDListPK9character" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sets the element fastening attribute. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aElementIDList</strong> – element ID list </p></li>
+<li><p><strong>aValue</strong> – element fastening attribute </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController13isRoofSurfaceE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController13isRoofSurfaceE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController13isRoofSurfaceE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::isRoofSurface__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1a7e9ab3d39fc8d97c7d1c5e2ef0e8d5e0"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isRoofSurface</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController13isRoofSurfaceE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Tests if the element is roof surface. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>is element roof surface </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController13isCaddyObjectE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController13isCaddyObjectE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController13isCaddyObjectE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::isCaddyObject__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1a13f66b3b9bf465fd6b0dc6f7599d1ea8"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isCaddyObject</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController13isCaddyObjectE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Tests if the element is caddy object. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>is element caddy object </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController18setElementMaterialEP21ICwAPI3DElementIDList10materialID">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController18setElementMaterialEP21ICwAPI3DElementIDList10materialID"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController18setElementMaterialEP21ICwAPI3DElementIDList10materialID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::setElementMaterial__ICwAPI3DElementIDListP.materialID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1ac7635419bfe467941f8810dda75e949c"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setElementMaterial</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aElementIDList</span></span>, <span class="n"><span class="pre">materialID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aMaterial</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController18setElementMaterialEP21ICwAPI3DElementIDList10materialID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sets the element material. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aElementIDList</strong> – element ID list </p></li>
+<li><p><strong>aMaterial</strong> – material ID </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController17getAssemblyNumberE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController17getAssemblyNumberE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController17getAssemblyNumberE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::getAssemblyNumber__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1a6ebc69320ba934c3884b0a93760549b5"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><a class="reference internal" href="string.html#_CPPv4N7CwAPI3D10Interfaces14ICwAPI3DStringE" title="CwAPI3D::Interfaces::ICwAPI3DString"><span class="n"><span class="pre">ICwAPI3DString</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getAssemblyNumber</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController17getAssemblyNumberE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController17setAssemblyNumberEP21ICwAPI3DElementIDListPK9character">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController17setAssemblyNumberEP21ICwAPI3DElementIDListPK9character"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController17setAssemblyNumberEP21ICwAPI3DElementIDListPK9character"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::setAssemblyNumber__ICwAPI3DElementIDListP.characterCP"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1a1c4764f9fa6d372522b0339c24702e36"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setAssemblyNumber</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aElementIDList</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">character</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aAssemblyNumber</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController17setAssemblyNumberEP21ICwAPI3DElementIDListPK9character" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aElementIDList</strong> – </p></li>
+<li><p><strong>aAssemblyNumber</strong> – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController15getListQuantityE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController15getListQuantityE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController15getListQuantityE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::getListQuantity__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1a88ac43d0b270791d3cd4482f14c6876c"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getListQuantity</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController15getListQuantityE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController15setListQuantityEP21ICwAPI3DElementIDList8uint32_t">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController15setListQuantityEP21ICwAPI3DElementIDList8uint32_t"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController15setListQuantityEP21ICwAPI3DElementIDList8uint32_t"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::setListQuantity__ICwAPI3DElementIDListP.uint32_t"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1a9d8ba03af002952c884f9fdb3eae72de"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setListQuantity</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aElementIDList</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aListQuantity</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController15setListQuantityEP21ICwAPI3DElementIDList8uint32_t" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aElementIDList</strong> – </p></li>
+<li><p><strong>aListQuantity</strong> – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController10isEnvelopeE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController10isEnvelopeE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController10isEnvelopeE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::isEnvelope__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1a44792abc3cfe41599c8c651e0c4defd4"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isEnvelope</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController10isEnvelopeE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController16setLayerSettingsEP21ICwAPI3DElementIDListP21ICwAPI3DLayerSettings">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController16setLayerSettingsEP21ICwAPI3DElementIDListP21ICwAPI3DLayerSettings"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController16setLayerSettingsEP21ICwAPI3DElementIDListP21ICwAPI3DLayerSettings"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::setLayerSettings__ICwAPI3DElementIDListP.ICwAPI3DLayerSettingsP"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1a0c54fa162a5c9c0160087bb12a123441"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setLayerSettings</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aElementIDList</span></span>, <span class="n"><span class="pre">ICwAPI3DLayerSettings</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aLayerSettings</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController16setLayerSettingsEP21ICwAPI3DElementIDListP21ICwAPI3DLayerSettings" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aElementIDList</strong> – </p></li>
+<li><p><strong>aLayerSettings</strong> – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController25setIgnoreInVBACalculationEP21ICwAPI3DElementIDListb">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController25setIgnoreInVBACalculationEP21ICwAPI3DElementIDListb"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController25setIgnoreInVBACalculationEP21ICwAPI3DElementIDListb"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::setIgnoreInVBACalculation__ICwAPI3DElementIDListP.b"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1a6cf1198e00e968c8c00b50eccb2c0238"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setIgnoreInVBACalculation</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aElements</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aIgnore</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController25setIgnoreInVBACalculationEP21ICwAPI3DElementIDListb" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sets if the element should be ignored in VBA Calculation. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aElements</strong> – element ID list </p></li>
+<li><p><strong>aIgnore</strong> – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController25getIgnoreInVBACalculationE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController25getIgnoreInVBACalculationE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController25getIgnoreInVBACalculationE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::getIgnoreInVBACalculation__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1a9fe99ebeafa65590bbc4f96e09da521d"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getIgnoreInVBACalculation</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aElement</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController25getIgnoreInVBACalculationE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aElement</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController21isArchitectureWall2dcEN7CwAPI3D9elementIDE">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController21isArchitectureWall2dcEN7CwAPI3D9elementIDE"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController21isArchitectureWall2dcEN7CwAPI3D9elementIDE"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::isArchitectureWall2dc__CwAPI3D::elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1a3186e82ca07093114c2580cc8d4f3dfe"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isArchitectureWall2dc</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">CwAPI3D</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aElement</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController21isArchitectureWall2dcEN7CwAPI3D9elementIDE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Tests if the element has a 2dc reference wall. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aElement</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>is architecturewall 2dc </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController21isArchitectureWallXmlEN7CwAPI3D9elementIDE">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController21isArchitectureWallXmlEN7CwAPI3D9elementIDE"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController21isArchitectureWallXmlEN7CwAPI3D9elementIDE"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::isArchitectureWallXml__CwAPI3D::elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1afd7bb46424ba2bb99687086d284546b0"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isArchitectureWallXml</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">CwAPI3D</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aElement</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController21isArchitectureWallXmlEN7CwAPI3D9elementIDE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Tests if the element has a xml reference wall. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aElement</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>is architecturewall xml </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController19setReferenceWall2dcEP21ICwAPI3DElementIDListPK9character">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController19setReferenceWall2dcEP21ICwAPI3DElementIDListPK9character"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController19setReferenceWall2dcEP21ICwAPI3DElementIDListPK9character"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::setReferenceWall2dc__ICwAPI3DElementIDListP.characterCP"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1a48116d0140762f664cf0130a54dad043"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setReferenceWall2dc</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aElements</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">character</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">a2dcFilePath</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController19setReferenceWall2dcEP21ICwAPI3DElementIDListPK9character" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Applies a new 2dc reference wall to an element. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aElements</strong> – element IDs </p></li>
+<li><p><strong>a2dcFilePath</strong> – 2dc file path </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController9isSurfaceEN7CwAPI3D9elementIDE">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController9isSurfaceEN7CwAPI3D9elementIDE"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController9isSurfaceEN7CwAPI3D9elementIDE"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::isSurface__CwAPI3D::elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1a0934d8d5412d659ddcb0ce89647f57f4"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isSurface</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">CwAPI3D</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController9isSurfaceEN7CwAPI3D9elementIDE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Tests if the element is a Surface. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>is Surface </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController6isLineEN7CwAPI3D9elementIDE">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController6isLineEN7CwAPI3D9elementIDE"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController6isLineEN7CwAPI3D9elementIDE"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::isLine__CwAPI3D::elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1a20fdc12154a5a43c96243425cda6de02"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isLine</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">CwAPI3D</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController6isLineEN7CwAPI3D9elementIDE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Tests if the element is a Line. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>is Line </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController15setStandardPartEP21ICwAPI3DElementIDList">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController15setStandardPartEP21ICwAPI3DElementIDList"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController15setStandardPartEP21ICwAPI3DElementIDList"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::setStandardPart__ICwAPI3DElementIDListP"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1a53ab8cef01c9409903bc3191befd128e"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setStandardPart</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aElements</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController15setStandardPartEP21ICwAPI3DElementIDList" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sets covers (wall,opening or floor) to standard part. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aElements</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController12setSolidWallEP21ICwAPI3DElementIDList">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController12setSolidWallEP21ICwAPI3DElementIDList"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController12setSolidWallEP21ICwAPI3DElementIDList"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::setSolidWall__ICwAPI3DElementIDListP"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1aedd3976700f08b8a6c30a73b990c21c6"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setSolidWall</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aElements</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController12setSolidWallEP21ICwAPI3DElementIDList" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sets elements to solid wall. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aElements</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController10setLogWallEP21ICwAPI3DElementIDList">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController10setLogWallEP21ICwAPI3DElementIDList"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController10setLogWallEP21ICwAPI3DElementIDList"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::setLogWall__ICwAPI3DElementIDListP"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1ade6bd369cf86f073030ba77e4a2064c8"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setLogWall</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aElements</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController10setLogWallEP21ICwAPI3DElementIDList" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sets elements to log wall. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aElements</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController13setSolidFloorEP21ICwAPI3DElementIDList">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController13setSolidFloorEP21ICwAPI3DElementIDList"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController13setSolidFloorEP21ICwAPI3DElementIDList"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::setSolidFloor__ICwAPI3DElementIDListP"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1ab4310da09589f0dc4033b11f7eac7ef4"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setSolidFloor</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aElements</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController13setSolidFloorEP21ICwAPI3DElementIDList" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sets elements to solid floor. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aElements</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController7setRoofEP21ICwAPI3DElementIDList">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController7setRoofEP21ICwAPI3DElementIDList"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController7setRoofEP21ICwAPI3DElementIDList"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::setRoof__ICwAPI3DElementIDListP"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1a02b4b01009e07ec633ae2172631fdd2f"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setRoof</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aElements</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController7setRoofEP21ICwAPI3DElementIDList" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sets elements to roof cover. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aElements</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController12setSolidRoofEP21ICwAPI3DElementIDList">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController12setSolidRoofEP21ICwAPI3DElementIDList"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController12setSolidRoofEP21ICwAPI3DElementIDList"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::setSolidRoof__ICwAPI3DElementIDListP"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1a8067437ca840408d3c75366b9ae0a5e8"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setSolidRoof</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aElements</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController12setSolidRoofEP21ICwAPI3DElementIDList" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sets elements to solid roof cover. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aElements</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController13getNodeSymbolEN7CwAPI3D9elementIDE">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController13getNodeSymbolEN7CwAPI3D9elementIDE"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController13getNodeSymbolEN7CwAPI3D9elementIDE"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::getNodeSymbol__CwAPI3D::elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1aa0b0d218458abea677706eed6db613ea"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getNodeSymbol</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">CwAPI3D</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aElement</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController13getNodeSymbolEN7CwAPI3D9elementIDE" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aElement</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController13setNodeSymbolEP21ICwAPI3DElementIDList7int32_t">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController13setNodeSymbolEP21ICwAPI3DElementIDList7int32_t"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController13setNodeSymbolEP21ICwAPI3DElementIDList7int32_t"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::setNodeSymbol__ICwAPI3DElementIDListP.int32_t"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1a169336a60728061db7474c7d4241f610"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setNodeSymbol</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aElements</span></span>, <span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aSymbol</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController13setNodeSymbolEP21ICwAPI3DElementIDList7int32_t" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aElements</strong> – element ID list </p></li>
+<li><p><strong>aSymbol</strong> – symbol </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController12isProcessingEN7CwAPI3D9elementIDE">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController12isProcessingEN7CwAPI3D9elementIDE"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController12isProcessingEN7CwAPI3D9elementIDE"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::isProcessing__CwAPI3D::elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1a9a880a0a76ad0ce5db3e36d76b9bad73"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isProcessing</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">CwAPI3D</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController12isProcessingEN7CwAPI3D9elementIDE" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController22getStandardElementNameEN7CwAPI3D9elementIDE">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController22getStandardElementNameEN7CwAPI3D9elementIDE"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController22getStandardElementNameEN7CwAPI3D9elementIDE"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::getStandardElementName__CwAPI3D::elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1a994790d4b0ea6e17fd5ea92bd50e17a1"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><a class="reference internal" href="string.html#_CPPv4N7CwAPI3D10Interfaces14ICwAPI3DStringE" title="CwAPI3D::Interfaces::ICwAPI3DString"><span class="n"><span class="pre">ICwAPI3DString</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getStandardElementName</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">CwAPI3D</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController22getStandardElementNameEN7CwAPI3D9elementIDE" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController17getSteelShapeNameEN7CwAPI3D9elementIDE">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController17getSteelShapeNameEN7CwAPI3D9elementIDE"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController17getSteelShapeNameEN7CwAPI3D9elementIDE"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::getSteelShapeName__CwAPI3D::elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1a72ab6e13e34ee007182d2b72f361beed"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><a class="reference internal" href="string.html#_CPPv4N7CwAPI3D10Interfaces14ICwAPI3DStringE" title="CwAPI3D::Interfaces::ICwAPI3DString"><span class="n"><span class="pre">ICwAPI3DString</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getSteelShapeName</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">CwAPI3D</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController17getSteelShapeNameEN7CwAPI3D9elementIDE" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController26getAssociatedNestingNumberEN7CwAPI3D9elementIDE">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController26getAssociatedNestingNumberEN7CwAPI3D9elementIDE"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController26getAssociatedNestingNumberEN7CwAPI3D9elementIDE"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::getAssociatedNestingNumber__CwAPI3D::elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1af3209a3d1689549cc1179c19ec91a466"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><a class="reference internal" href="string.html#_CPPv4N7CwAPI3D10Interfaces14ICwAPI3DStringE" title="CwAPI3D::Interfaces::ICwAPI3DString"><span class="n"><span class="pre">ICwAPI3DString</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getAssociatedNestingNumber</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">CwAPI3D</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController26getAssociatedNestingNumberEN7CwAPI3D9elementIDE" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController24getAssociatedNestingNameEN7CwAPI3D9elementIDE">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController24getAssociatedNestingNameEN7CwAPI3D9elementIDE"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController24getAssociatedNestingNameEN7CwAPI3D9elementIDE"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::getAssociatedNestingName__CwAPI3D::elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1ab27601c9507c8e1682e60ceec2ad2b9d"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><a class="reference internal" href="string.html#_CPPv4N7CwAPI3D10Interfaces14ICwAPI3DStringE" title="CwAPI3D::Interfaces::ICwAPI3DString"><span class="n"><span class="pre">ICwAPI3DString</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getAssociatedNestingName</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">CwAPI3D</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController24getAssociatedNestingNameEN7CwAPI3D9elementIDE" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – element ID </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController16getAutoAttributeE9elementID8uint32_t">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController16getAutoAttributeE9elementID8uint32_t"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController16getAutoAttributeE9elementID8uint32_t"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::getAutoAttribute__elementID.uint32_t"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1a46572b25d205450497ce5ed0f92d01e9"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><a class="reference internal" href="string.html#_CPPv4N7CwAPI3D10Interfaces14ICwAPI3DStringE" title="CwAPI3D::Interfaces::ICwAPI3DString"><span class="n"><span class="pre">ICwAPI3DString</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getAutoAttribute</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aNumber</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController16getAutoAttributeE9elementID8uint32_t" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aID</strong> – element ID </p></li>
+<li><p><strong>aNumber</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController20getAutoAttributeNameE8uint32_t">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController20getAutoAttributeNameE8uint32_t"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController20getAutoAttributeNameE8uint32_t"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::getAutoAttributeName__uint32_t"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1a5b64a41dde1e9dcf16a365f0651c63df"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><a class="reference internal" href="string.html#_CPPv4N7CwAPI3D10Interfaces14ICwAPI3DStringE" title="CwAPI3D::Interfaces::ICwAPI3DString"><span class="n"><span class="pre">ICwAPI3DString</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">getAutoAttributeName</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aNumber</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController20getAutoAttributeNameE8uint32_t" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aNumber</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController12isFramedWallE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController12isFramedWallE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController12isFramedWallE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::isFramedWall__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1aa850fa9ccdd5dacde1d190e3fb6b8b8f"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isFramedWall</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController12isFramedWallE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController11isSolidWallE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController11isSolidWallE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController11isSolidWallE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::isSolidWall__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1ae61b2fa9036c04ceb49d4b0ceecc597b"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isSolidWall</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController11isSolidWallE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController9isLogWallE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController9isLogWallE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController9isLogWallE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::isLogWall__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1ac42070a61be0dd9dda9d1f1637c633da"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isLogWall</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController9isLogWallE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController13isFramedFloorE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController13isFramedFloorE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController13isFramedFloorE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::isFramedFloor__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1a41ac23697196d21987598a29c4b2bdec"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isFramedFloor</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController13isFramedFloorE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController12isSolidFloorE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController12isSolidFloorE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController12isSolidFloorE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::isSolidFloor__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1aef7e72430f4d6c505f0982522dab6050"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isSolidFloor</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController12isSolidFloorE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController12isFramedRoofE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController12isFramedRoofE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController12isFramedRoofE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::isFramedRoof__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1aeb4589ea6980a31a95f3c20234efbb11"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isFramedRoof</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController12isFramedRoofE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController11isSolidRoofE9elementID">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController11isSolidRoofE9elementID"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController11isSolidRoofE9elementID"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::isSolidRoof__elementID"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1ae424577de6c6e45272bae32add4be18a"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isSolidRoof</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">elementID</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aID</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController11isSolidRoofE9elementID" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aID</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController22getElementGroupingTypeEv">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController22getElementGroupingTypeEv"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController22getElementGroupingTypeEv"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::getElementGroupingType"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1a43f266fec8c86e64ccfa1418eee9705b"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="n"><span class="pre">CwAPI3D</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">elementGroupingType</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getElementGroupingType</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController22getElementGroupingTypeEv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Get the element grouping type (group, subgroup) </p>
+<p>
+return element grouping type </p>
+<dl class="field-list simple">
+<dt class="field-odd">Param </dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController22setElementGroupingTypeEKN7CwAPI3D19elementGroupingTypeE">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController22setElementGroupingTypeEKN7CwAPI3D19elementGroupingTypeE"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController22setElementGroupingTypeEKN7CwAPI3D19elementGroupingTypeE"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::setElementGroupingType__CwAPI3D::elementGroupingTypeC"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1a6a6f4fbd44608c60965568e1bf63dec6"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setElementGroupingType</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">CwAPI3D</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">elementGroupingType</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aType</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController22setElementGroupingTypeEKN7CwAPI3D19elementGroupingTypeE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Set the element grouping type (group, subgroup) </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aType</strong> – elementGroupingType </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController13setFramedWallEP21ICwAPI3DElementIDList">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController13setFramedWallEP21ICwAPI3DElementIDList"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController13setFramedWallEP21ICwAPI3DElementIDList"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::setFramedWall__ICwAPI3DElementIDListP"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1a3799452a4c9587f53f5eb419787919ef"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setFramedWall</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aElementIDList</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController13setFramedWallEP21ICwAPI3DElementIDList" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sets the element to framed wall. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aElementIDList</strong> – element ID list </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController19deleteUserAttributeE8uint32_t">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController19deleteUserAttributeE8uint32_t"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController19deleteUserAttributeE8uint32_t"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::deleteUserAttribute__uint32_t"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1a4a723d4fc8024b56abd51b7938e37a9e"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">deleteUserAttribute</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aNumber</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController19deleteUserAttributeE8uint32_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Delete user attribute from attribute list. The attribute is only deleted when the attribute is not used. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aNumber</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>bool deletion successfully </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController14setFramedFloorEP21ICwAPI3DElementIDList">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController14setFramedFloorEP21ICwAPI3DElementIDList"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController14setFramedFloorEP21ICwAPI3DElementIDList"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::setFramedFloor__ICwAPI3DElementIDListP"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1ae409ea2f175cc9332ecd71b0e0e036da"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setFramedFloor</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aElementIDList</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController14setFramedFloorEP21ICwAPI3DElementIDList" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sets the elements to framed floor. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aElementIDList</strong> – element ID list </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController13setFramedRoofEP21ICwAPI3DElementIDList">
+<span id="_CPPv3N7CwAPI3D10Interfaces27ICwAPI3DAttributeController13setFramedRoofEP21ICwAPI3DElementIDList"></span><span id="_CPPv2N7CwAPI3D10Interfaces27ICwAPI3DAttributeController13setFramedRoofEP21ICwAPI3DElementIDList"></span><span id="CwAPI3D::Interfaces::ICwAPI3DAttributeController::setFramedRoof__ICwAPI3DElementIDListP"></span><span class="target" id="class_cw_a_p_i3_d_1_1_interfaces_1_1_i_cw_a_p_i3_d_attribute_controller_1a8b4eba9cef9f2b20b881b25705d64e5f"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setFramedRoof</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="elementidlist.html#_CPPv4N7CwAPI3D10Interfaces21ICwAPI3DElementIDListE" title="CwAPI3D::Interfaces::ICwAPI3DElementIDList"><span class="n"><span class="pre">ICwAPI3DElementIDList</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aElementIDList</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N7CwAPI3D10Interfaces27ICwAPI3DAttributeController13setFramedRoofEP21ICwAPI3DElementIDList" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sets the elements to framed roof. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>aElementIDList</strong> – element ID list </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Cadwork.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
