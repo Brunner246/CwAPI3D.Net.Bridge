@@ -70,7 +70,11 @@
       <AdditionalDependencies />
     </Link>
     <PostBuildEvent>
-      <Command>copy /y $(TargetPath) $(USERPROFILE_API)\$(API_NAME)\$(AssemblyName).dll</Command>
+      <Command>if exist "$(USERPROFILE_API)\$(API_NAME)" (
+  copy /y "$(TargetPath)" "$(USERPROFILE_API)\$(API_NAME)\$(AssemblyName).dll"
+) else (
+  echo "Destination directory does not exist, skipping copy."
+)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
