@@ -13,41 +13,40 @@ CWAPI3D_PLUGIN bool plugin_x64_init(CwAPI3D::ControllerFactory* aFactory);
 
 namespace Constants
 {
-	const std::wstring NetLibraryName = L"CWAPI3D_NET";
+	const std::wstring NetLibraryName = L"examplelib";
 }
 
 public
 ref class ManagedConstants abstract sealed // abstract sealed makes it static
 {
 public:
-	static String ^ InitializerName = "CwAPI3D_NET.Initializer";
+	static String ^ InitializerNamespace = "examplelib";
+	static String ^ InitializerName = String::Format("{0}.{1}", InitializerNamespace, "Initializer");
+	static String ^ InitializerHookName = "Initialize";
 };
 
-bool loadAssemblyAndGetType(CwAPI3D::ControllerFactory* aFactory, Assembly ^ &aAssembly, Type ^ &aPluginType)
-{
+Type ^ loadAssemblyAndGetType(CwAPI3D::ControllerFactory* aFactory) {
 	const auto lPluginPath = aFactory->getUtilityController()->getPluginPath()->data();
 	const std::wstring lNetLibrary = std::format(L"{}\\{}.dll", lPluginPath, Constants::NetLibraryName);
 
 	try
 	{
-		aAssembly = Assembly::LoadFrom(gcnew String(lNetLibrary.c_str()));
-		aPluginType = aAssembly->GetType(ManagedConstants::InitializerName);
+		Assembly ^ lAssembly = Assembly::LoadFrom(gcnew String(lNetLibrary.c_str()));
+		return lAssembly->GetType(ManagedConstants::InitializerName);
 	}
 	catch(FileNotFoundException ^ e)
 	{
 		Console::WriteLine(e->Message);
-		return false;
 	}
 	catch(FileLoadException ^ e)
 	{
 		Console::WriteLine(e->Message);
-		return false;
 	}
 
-	return aPluginType != nullptr;
+	return nullptr;
 }
 
-bool invokePluginInitializer(Type ^ aPluginType, CwAPI3D::ControllerFactory* aFactory)
+	bool invokePluginInitializer(Type ^ aPluginType, CwAPI3D::ControllerFactory* aFactory)
 {
 	Object ^ lPluginInstance = Activator::CreateInstance(aPluginType);
 	auto lFactoryPointer = IntPtr(aFactory);
@@ -55,13 +54,15 @@ bool invokePluginInitializer(Type ^ aPluginType, CwAPI3D::ControllerFactory* aFa
 
 	try
 	{
-		if(aPluginType->InvokeMember("Initialize",
+		if(aPluginType->InvokeMember(ManagedConstants::InitializerHookName,
 									 BindingFlags::InvokeMethod,
 									 nullptr,
 									 lPluginInstance,
 									 lMethodArgs))
 		{
-			Console::WriteLine("Plugin initialization successful");
+			Diagnostics::Trace::Unindent();
+			Diagnostics::Trace::WriteLine("Plugin initialization successful");
+
 			return true;
 		}
 	}
@@ -76,19 +77,20 @@ bool invokePluginInitializer(Type ^ aPluginType, CwAPI3D::ControllerFactory* aFa
 
 auto plugin_x64_init(CwAPI3D::ControllerFactory* aFactory) -> bool
 {
+	Diagnostics::Trace::Listeners->Add(gcnew Diagnostics::TextWriterTraceListener(Console::Out));
+	Diagnostics::Trace::AutoFlush = true;
 	if(!aFactory)
 	{
+		Diagnostics::Trace::Indent();
+		Diagnostics::Trace::WriteLine("factory pointer is null");
 		return false;
 	}
 
-	Assembly ^ lAssembly;
-	Type ^ lPluginType;
-
-	if(!loadAssemblyAndGetType(aFactory, lAssembly, lPluginType))
+	if(auto lPluginType = loadAssemblyAndGetType(aFactory);
+	   lPluginType != nullptr)
 	{
-		aFactory->getUtilityController()->printMessage(L"Plugin initialization failed");
-		return false;
+		return invokePluginInitializer(lPluginType, aFactory);
 	}
-
-	return invokePluginInitializer(lPluginType, aFactory);
+	Diagnostics::Trace::WriteLine("Plugin initialization failed");
+	return false;
 }

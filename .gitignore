@@ -3,3 +3,7 @@
 ################################################################################
 
 /.vs/cwpai3d_bridge
+/.idea/.idea.cwpai3d_bridge/.idea
+/examplelib/.vs/examplelib/v17
+/examplelib/bin
+/examplelib/obj

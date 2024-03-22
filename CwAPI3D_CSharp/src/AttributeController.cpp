@@ -23,8 +23,8 @@ CwAPI3D_CLI::AttributeController::~AttributeController()
 
 CwAPI3D_CLI::AttributeController::!AttributeController() { }
 
-String ^ CwAPI3D_CLI::AttributeController::getName(elementId aElementID)
+String ^ CwAPI3D_CLI::AttributeController::getName(const elementId aElementId)
 {
-	const auto lName = mAttributeController->getName(static_cast<uint64_t>(aElementID));
+	const auto lName = mAttributeController->getName(static_cast<uint64_t>(aElementId));
 	return gcnew String(lName->data());
 }
