@@ -27,7 +27,7 @@ jobs:
 
       - name: BUILD SOLUTION
         run: |
-          msbuild ./CwAPI3D_CSharp.sln /p:Configuration=${{ env.BUILD_CONFIGURATION }} /p:Platform=${{ env.PLATFORM }} 
+          msbuild ./cwpai3d_bridge.sln /p:Configuration=${{ env.BUILD_CONFIGURATION }} /p:Platform=${{ env.PLATFORM }} 
 
       # - name: Test
       #  run: dotnet test ./CWAPI3D_UnitTest/CWAPI3D_UnitTest.csproj --no-restore --verbosity normal
