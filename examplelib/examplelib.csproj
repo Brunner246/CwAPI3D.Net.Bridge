@@ -54,13 +54,10 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>- name: Check if directory exists
-  run: |
-    if exist "D:\cadwork\userprofil_30\3d\API.x64\CwAPI3D_CSharp" (
-      echo "Directory exists."
-    ) else (
-      echo "Directory does not exist."
-    )
-  shell: cmd</PostBuildEvent>
+    <PostBuildEvent>if exist "D:\cadwork\userprofil_30\3d\API.x64\CwAPI3D_CSharp" (
+  xcopy /y "$(TargetPath)" "D:\cadwork\userprofil_30\3d\API.x64\CwAPI3D_CSharp"
+) else (
+  echo "Destination directory does not exist, skipping copy."
+)</PostBuildEvent>
   </PropertyGroup>
 </Project>
