@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="Globals">
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <ItemsProjectGuid>{c9d04a72-1c1a-47a2-8225-489abbd24813}</ItemsProjectGuid>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(MSBuildThisFileDirectory)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ProjectCapability Include="SourceItemsFromImports" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="$(MSBuildThisFileDirectory)IAttributeController.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)IBimController.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)ICameraData.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)ICwApi3DFactory.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)IElementController.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)IUtilityController.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)IVisualizationController.h" />
+  </ItemGroup>
+</Project>

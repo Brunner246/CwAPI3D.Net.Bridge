@@ -10,6 +10,7 @@ This project serves as a .NET bridge for the C++ API from Cadwork 3D. It leverag
 
 - Visual Studio 2022 or JetBrains Rider
 - .NET Framework 4.8
+- Install C++/CLI support in Visual Studio (Visual Studio Installer -> Modify -> Individual Components -> C++/CLI support)
 
 ### C++ CLI 
 [.NET programming with C++/CLI](https://learn.microsoft.com/en-us/cpp/dotnet/dotnet-programming-with-cpp-cli-visual-cpp?view=msvc-170)

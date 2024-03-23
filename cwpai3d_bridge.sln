@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CwAPI3D_CSharp", "CwAPI3D_C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "examplelib", "examplelib\examplelib.csproj", "{9AD20925-7191-446E-8343-8277348FD78F}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Interfaces", "Interfaces\Interfaces.vcxitems", "{C9D04A72-1C1A-47A2-8225-489ABBD24813}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,5 +39,9 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7F31F651-CBB6-4D6C-8E27-BD5E7A127019}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		Interfaces\Interfaces.vcxitems*{c9d04a72-1c1a-47a2-8225-489abbd24813}*SharedItemsImports = 9
+		Interfaces\Interfaces.vcxitems*{d7afeb12-6630-40fe-a8e1-bed9c0238ab8}*SharedItemsImports = 4
 	EndGlobalSection
 EndGlobal
