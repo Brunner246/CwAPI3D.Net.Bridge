@@ -37,6 +37,9 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
+  <ImportGroup Label="Shared">
+    <Import Project="..\Interfaces\Interfaces.vcxitems" Label="Shared" />
+  </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="CwAPI3D.props" />
@@ -117,14 +120,7 @@
     <ClInclude Include="src\CwApi3DFactory.h" />
     <ClInclude Include="src\EBimIfcType.h" />
     <ClInclude Include="src\ElementController.h" />
-    <ClInclude Include="src\IAttributeController.h" />
-    <ClInclude Include="src\IBimController.h" />
-    <ClInclude Include="src\ICameraData.h" />
-    <ClInclude Include="src\ICwApi3DFactory.h" />
-    <ClInclude Include="src\IElementController.h" />
     <ClInclude Include="src\IfcTypeMapper.h" />
-    <ClInclude Include="src\IUtilityController.h" />
-    <ClInclude Include="src\IVisualizationController.h" />
     <ClInclude Include="src\typedefs.h" />
     <ClInclude Include="src\UtilityController.h" />
     <ClInclude Include="src\vector3D.h" />

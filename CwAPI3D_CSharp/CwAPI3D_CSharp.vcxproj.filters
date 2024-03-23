@@ -34,29 +34,14 @@
     <ClInclude Include="src\AttributeController.h">
       <Filter>AttributeController</Filter>
     </ClInclude>
-    <ClInclude Include="src\IAttributeController.h">
-      <Filter>AttributeController</Filter>
-    </ClInclude>
     <ClInclude Include="src\BimController.h">
-      <Filter>BimController</Filter>
-    </ClInclude>
-    <ClInclude Include="src\IBimController.h">
       <Filter>BimController</Filter>
     </ClInclude>
     <ClInclude Include="src\ElementController.h">
       <Filter>ElementController</Filter>
     </ClInclude>
-    <ClInclude Include="src\IElementController.h">
-      <Filter>ElementController</Filter>
-    </ClInclude>
-    <ClInclude Include="src\IUtilityController.h">
-      <Filter>UtilityController</Filter>
-    </ClInclude>
     <ClInclude Include="src\UtilityController.h">
       <Filter>UtilityController</Filter>
-    </ClInclude>
-    <ClInclude Include="src\IVisualizationController.h">
-      <Filter>VisualizationController</Filter>
     </ClInclude>
     <ClInclude Include="src\VisualizationController.h">
       <Filter>VisualizationController</Filter>
@@ -70,9 +55,6 @@
     <ClInclude Include="src\EBimIfcType.h">
       <Filter>Utils</Filter>
     </ClInclude>
-    <ClInclude Include="src\ICameraData.h">
-      <Filter>Utils</Filter>
-    </ClInclude>
     <ClInclude Include="src\IfcTypeMapper.h">
       <Filter>Utils</Filter>
     </ClInclude>
@@ -80,9 +62,6 @@
       <Filter>Utils</Filter>
     </ClInclude>
     <ClInclude Include="src\CwApi3DFactory.h">
-      <Filter>ControllerFactory</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ICwApi3DFactory.h">
       <Filter>ControllerFactory</Filter>
     </ClInclude>
     <ClInclude Include="src\typedefs.h">
