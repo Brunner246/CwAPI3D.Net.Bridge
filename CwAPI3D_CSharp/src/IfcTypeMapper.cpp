@@ -2,7 +2,7 @@
 
 #include <stdexcept>
 
-CwAPI3D_CLI::EBimIfcType CwAPI3D_CLI::Utils::mapIfcType(CwAPI3D::Interfaces::ICwAPI3DIfc2x3ElementType* aIfcType)
+CwAPI3D_Net::EBimIfcType CwAPI3D_Net::Utils::mapIfcType(CwAPI3D::Interfaces::ICwAPI3DIfc2x3ElementType* aIfcType)
 {
 	if(aIfcType->isNone())
 	{

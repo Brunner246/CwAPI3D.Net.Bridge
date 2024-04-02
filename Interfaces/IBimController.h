@@ -4,7 +4,7 @@
 
 using namespace System;
 
-namespace CwAPI3D_CLI
+namespace CwAPI3D_Net
 {
 public
 	interface class IBimController
@@ -17,4 +17,4 @@ public
 
 		String ^ getIfcBase64Guid(elementId aElementId);
 	};
-} // namespace CwAPI3D_CLI
+} // namespace CwAPI3D_Net

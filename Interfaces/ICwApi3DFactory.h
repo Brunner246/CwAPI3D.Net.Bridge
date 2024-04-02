@@ -3,7 +3,7 @@
 #include "IBimController.h"
 #include "IVisualizationController.h"
 
-namespace CwAPI3D_CLI
+namespace CwAPI3D_Net
 {
 	interface class IElementController;
 	interface class IAttributeController;
@@ -25,4 +25,4 @@ public
 
 		ICameraData ^ getCameraData();
 	};
-} // namespace CwAPI3D_CLI
+} // namespace CwAPI3D_Net

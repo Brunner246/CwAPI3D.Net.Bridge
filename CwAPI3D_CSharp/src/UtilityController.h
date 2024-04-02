@@ -6,7 +6,7 @@
 
 using namespace System;
 
-namespace CwAPI3D_CLI
+namespace CwAPI3D_Net
 {
 
 public
@@ -29,4 +29,4 @@ public
 		virtual Tuple<int, int> ^ get3dGuiUpperLeftScreenCoordinates();
 		virtual String ^ getLanguage();
 	};
-} // namespace CwAPI3D_CLI
+} // namespace CwAPI3D_Net

@@ -1,21 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace examplelib
 {
   public class Initializer
   {
-    private static CwAPI3D_CLI.ICwApi3DFactory _mControllerFactory;
+    private static CwAPI3D_Net.ICwApi3DFactory _mControllerFactory;
     public static bool Initialize(IntPtr aFactoryPointer)
     {
       if (aFactoryPointer == IntPtr.Zero)
       {
         return false;
       }
-      _mControllerFactory = new CwAPI3D_CLI.CwApi3DFactory(aFactoryPointer);
+      _mControllerFactory = new CwAPI3D_Net.CwApi3DFactory(aFactoryPointer);
 
       var lActiveElementIds = _mControllerFactory.getElementController().getActiveIdentifiableElementIDs();
 

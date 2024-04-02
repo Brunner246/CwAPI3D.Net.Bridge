@@ -3,7 +3,7 @@
 #include "CwAPI3D.h"
 #include "ICameraData.h"
 
-namespace CwAPI3D_CLI
+namespace CwAPI3D_Net
 {
 public
 	ref class CameraData sealed : public ICameraData
@@ -17,14 +17,14 @@ public
 
 		virtual void destroy();
 
-		virtual void setPosition(CwAPI3D_CLI::vector3D ^ aPosition);
-		virtual CwAPI3D_CLI::vector3D ^ getPosition();
+		virtual void setPosition(CwAPI3D_Net::vector3D ^ aPosition);
+		virtual CwAPI3D_Net::vector3D ^ getPosition();
 
-		virtual void setTarget(CwAPI3D_CLI::vector3D ^ aTarget);
-		virtual CwAPI3D_CLI::vector3D ^ getTarget();
+		virtual void setTarget(CwAPI3D_Net::vector3D ^ aTarget);
+		virtual CwAPI3D_Net::vector3D ^ getTarget();
 
-		virtual void setUp(CwAPI3D_CLI::vector3D ^ aUp);
-		virtual CwAPI3D_CLI::vector3D ^ getUp();
+		virtual void setUp(CwAPI3D_Net::vector3D ^ aUp);
+		virtual CwAPI3D_Net::vector3D ^ getUp();
 
 		virtual void setProjectionType(ICameraData::projectionType aProjectionType);
 		virtual ICameraData::projectionType getProjectionType();
@@ -41,4 +41,4 @@ public
 	private:
 		CwAPI3D::Interfaces::ICwAPI3DCameraData* mCameraDataInstance{nullptr};
 	};
-} // namespace CwAPI3D_CLI
+} // namespace CwAPI3D_Net

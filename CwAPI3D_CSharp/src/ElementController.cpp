@@ -2,7 +2,7 @@
 #include "ApiUtils.h"
 #include <stdexcept>
 
-CwAPI3D_CLI::ElementController::ElementController(System::IntPtr aFactoryPtr)
+CwAPI3D_Net::ElementController::ElementController(System::IntPtr aFactoryPtr)
 {
 	if(aFactoryPtr == System::IntPtr::Zero)
 	{
@@ -16,32 +16,32 @@ CwAPI3D_CLI::ElementController::ElementController(System::IntPtr aFactoryPtr)
 	mElementController = mControllerFactory->getElementController();
 }
 
-CwAPI3D_CLI::ElementController::~ElementController()
+CwAPI3D_Net::ElementController::~ElementController()
 {
 	this->!ElementController();
 }
 
-CwAPI3D_CLI::ElementController::!ElementController() { }
+CwAPI3D_Net::ElementController::!ElementController() { }
 
-List<elementId> ^ CwAPI3D_CLI::ElementController::getAllIdentifiableElementIDs()
+List<elementId> ^ CwAPI3D_Net::ElementController::getAllIdentifiableElementIDs()
 {
 	const auto lElementIds = mElementController->getAllIdentifiableElementIDs();
 	return Utils::elementVectorToList<elementId>(lElementIds);
 }
 
-List<elementId> ^ CwAPI3D_CLI::ElementController::getActiveIdentifiableElementIDs()
+List<elementId> ^ CwAPI3D_Net::ElementController::getActiveIdentifiableElementIDs()
 {
 	const auto lElementIds = mElementController->getActiveIdentifiableElementIDs();
 	return Utils::elementVectorToList<elementId>(lElementIds);
 }
 
-List<elementId> ^ CwAPI3D_CLI::ElementController::getVisibleIdentifiableElementIDs()
+List<elementId> ^ CwAPI3D_Net::ElementController::getVisibleIdentifiableElementIDs()
 {
 	const auto lElementIds = mElementController->getVisibleIdentifiableElementIDs();
 	return Utils::elementVectorToList<elementId>(lElementIds);
 }
 
-void CwAPI3D_CLI::ElementController::addElementsToUndo(List<elementId> ^ aElementIDs, const Utils::undoType aUndoType)
+void CwAPI3D_Net::ElementController::addElementsToUndo(List<elementId> ^ aElementIDs, const Utils::undoType aUndoType)
 {
 	const auto lElementIdList = mControllerFactory->createEmptyElementIDList();
 

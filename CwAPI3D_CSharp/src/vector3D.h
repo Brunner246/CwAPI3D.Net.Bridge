@@ -1,7 +1,7 @@
 #pragma once
 #include <cmath>
 
-namespace CwAPI3D_CLI
+namespace CwAPI3D_Net
 {
 public
 	ref class vector3D
@@ -106,4 +106,4 @@ public
 			return CwAPI3D::vector3D{mX, mY, mZ};
 		}
 	};
-} // namespace CwAPI3D_CLI
+} // namespace CwAPI3D_Net

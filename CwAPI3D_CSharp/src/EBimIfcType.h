@@ -1,6 +1,6 @@
 #pragma once
 
-namespace CwAPI3D_CLI
+namespace CwAPI3D_Net
 {
 public
 	enum class EBimIfcType
@@ -35,4 +35,4 @@ public
 		ifcFastener,
 		ifcMechanicalFastener,
 	};
-} // namespace CwAPI3D_CLI
+} // namespace CwAPI3D_Net

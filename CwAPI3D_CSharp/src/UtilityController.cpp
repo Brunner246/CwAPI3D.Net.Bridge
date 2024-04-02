@@ -4,7 +4,7 @@
 
 #include "vector3D.h"
 
-CwAPI3D_CLI::UtilityController::UtilityController(System::IntPtr aFactoryPtr)
+CwAPI3D_Net::UtilityController::UtilityController(System::IntPtr aFactoryPtr)
 {
 	if(aFactoryPtr == System::IntPtr::Zero)
 	{
@@ -18,54 +18,54 @@ CwAPI3D_CLI::UtilityController::UtilityController(System::IntPtr aFactoryPtr)
 	mUtilityController = lControllerFactory->getUtilityController();
 }
 
-CwAPI3D_CLI::UtilityController::~UtilityController()
+CwAPI3D_Net::UtilityController::~UtilityController()
 {
 	this->!UtilityController();
 }
 
-CwAPI3D_CLI::UtilityController::!UtilityController() { }
+CwAPI3D_Net::UtilityController::!UtilityController() { }
 
-String ^ CwAPI3D_CLI::UtilityController::getPluginPath()
+String ^ CwAPI3D_Net::UtilityController::getPluginPath()
 {
 	const auto lPath = mUtilityController->getPluginPath();
 	return gcnew String(lPath->data());
 }
 
-bool CwAPI3D_CLI::UtilityController::getUseOfGlobalCoordinates()
+bool CwAPI3D_Net::UtilityController::getUseOfGlobalCoordinates()
 {
 	return mUtilityController->getUseOfGlobalCoordinates();
 }
 
-CwAPI3D_CLI::vector3D ^ CwAPI3D_CLI::UtilityController::getGlobalOrigin()
+CwAPI3D_Net::vector3D ^ CwAPI3D_Net::UtilityController::getGlobalOrigin()
 {
 	const auto [mX, mY, mZ] = mUtilityController->getGlobalOrigin();
 	return gcnew vector3D(mX, mY, mZ);
 }
 
-String ^ CwAPI3D_CLI::UtilityController::createSnapshot(String ^ aFormat, const int aQuality, const bool aWhiteBackground)
+String ^ CwAPI3D_Net::UtilityController::createSnapshot(String ^ aFormat, const int aQuality, const bool aWhiteBackground)
 {
 	const std::wstring lNativeString = msclr::interop::marshal_as<std::wstring>(aFormat);
 	const auto lSnapshot = mUtilityController->createSnapshot(lNativeString.c_str(), aQuality, aWhiteBackground);
 	return gcnew String(lSnapshot->data());
 }
 
-void CwAPI3D_CLI::UtilityController::disableAutoDisplayRefresh()
+void CwAPI3D_Net::UtilityController::disableAutoDisplayRefresh()
 {
 	mUtilityController->disableAutoDisplayRefresh();
 }
 
-void CwAPI3D_CLI::UtilityController::enableAutoDisplayRefresh()
+void CwAPI3D_Net::UtilityController::enableAutoDisplayRefresh()
 {
 	mUtilityController->enableAutoDisplayRefresh();
 }
 
-Tuple<int, int> ^ CwAPI3D_CLI::UtilityController::get3dGuiUpperLeftScreenCoordinates()
+Tuple<int, int> ^ CwAPI3D_Net::UtilityController::get3dGuiUpperLeftScreenCoordinates()
 {
 	const auto [mX, mY] = mUtilityController->get3dGuiUpperLeftScreenCoordinates();
 	return gcnew Tuple<int, int>(static_cast<int>(mX), static_cast<int>(mY));
 }
 
-String ^ CwAPI3D_CLI::UtilityController::getLanguage()
+String ^ CwAPI3D_Net::UtilityController::getLanguage()
 {
 	const auto lLanguageString = mUtilityController->getLanguage();
 	return gcnew String(lLanguageString->data());

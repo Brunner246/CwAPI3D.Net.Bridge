@@ -5,7 +5,7 @@
 
 using namespace System;
 
-namespace CwAPI3D_CLI
+namespace CwAPI3D_Net
 {
 public
 	ref class AttributeController sealed : public IAttributeController
@@ -21,4 +21,4 @@ public
 
 		virtual String ^ getName(elementId aElementId);
 	};
-} // namespace CwAPI3D_CLI
+} // namespace CwAPI3D_Net
