@@ -2,7 +2,7 @@
 #include "CwAPI3D.h"
 #include "IVisualizationController.h"
 
-namespace CwAPI3D_CLI
+namespace CwAPI3D_Net
 {
 public
 	ref class VisualizationController sealed : public IVisualizationController
@@ -43,4 +43,4 @@ public
 
 	public:
 	};
-} // namespace CwAPI3D_CLI
+} // namespace CwAPI3D_Net

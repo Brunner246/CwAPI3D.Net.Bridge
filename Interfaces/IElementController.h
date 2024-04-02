@@ -4,7 +4,7 @@
 
 using namespace System::Collections::Generic;
 
-namespace CwAPI3D_CLI
+namespace CwAPI3D_Net
 {
 public
 	interface class IElementController
@@ -17,4 +17,4 @@ public
 
 		void addElementsToUndo(List<elementId> ^ aElementIDs, Utils::undoType aUndoType);
 	};
-} // namespace CwAPI3D_CLI
+} // namespace CwAPI3D_Net

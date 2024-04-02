@@ -1,7 +1,7 @@
 #pragma once
 #include "vector3D.h"
 
-namespace CwAPI3D_CLI
+namespace CwAPI3D_Net
 {
 public
 	interface class ICameraData
@@ -14,14 +14,14 @@ public
 
 		void destroy();
 
-		void setPosition(CwAPI3D_CLI::vector3D ^ aPosition);
-		CwAPI3D_CLI::vector3D ^ getPosition();
+		void setPosition(CwAPI3D_Net::vector3D ^ aPosition);
+		CwAPI3D_Net::vector3D ^ getPosition();
 
-		void setTarget(CwAPI3D_CLI::vector3D ^ aTarget);
-		CwAPI3D_CLI::vector3D ^ getTarget();
+		void setTarget(CwAPI3D_Net::vector3D ^ aTarget);
+		CwAPI3D_Net::vector3D ^ getTarget();
 
-		void setUp(CwAPI3D_CLI::vector3D ^ aUp);
-		CwAPI3D_CLI::vector3D ^ getUp();
+		void setUp(CwAPI3D_Net::vector3D ^ aUp);
+		CwAPI3D_Net::vector3D ^ getUp();
 
 		void setProjectionType(projectionType aProjectionType);
 		projectionType getProjectionType();
@@ -35,4 +35,4 @@ public
 		void setFieldOfView(double aFieldOfView);
 		double getFieldOfView();
 	};
-} // namespace CwAPI3D_CLI
+} // namespace CwAPI3D_Net

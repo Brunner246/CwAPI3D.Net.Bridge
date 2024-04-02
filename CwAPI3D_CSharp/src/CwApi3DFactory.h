@@ -8,7 +8,7 @@
 #include "IElementController.h"
 #include "IVisualizationController.h"
 
-namespace CwAPI3D_CLI
+namespace CwAPI3D_Net
 {
 	// clang-format off
 	public ref class CwApi3DFactory : public ICwApi3DFactory
@@ -43,4 +43,4 @@ namespace CwAPI3D_CLI
 
 		virtual ICameraData ^ getCameraData();
 	};
-} // namespace CwAPI3D_CLI
+} // namespace CwAPI3D_Net

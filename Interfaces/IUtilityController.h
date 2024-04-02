@@ -2,7 +2,7 @@
 
 using namespace System;
 
-namespace CwAPI3D_CLI
+namespace CwAPI3D_Net
 {
 	ref class vector3D;
 public
@@ -24,4 +24,4 @@ public
 
 		String ^ getLanguage();
 	};
-} // namespace CwAPI3D_CLI
+} // namespace CwAPI3D_Net

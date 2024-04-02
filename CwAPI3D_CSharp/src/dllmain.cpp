@@ -13,6 +13,7 @@ CWAPI3D_PLUGIN bool plugin_x64_init(CwAPI3D::ControllerFactory* aFactory);
 
 namespace Constants
 {
+	// The name of the .NET library (DLL) that contains the plugin
 	const std::wstring NetLibraryName = L"examplelib";
 }
 

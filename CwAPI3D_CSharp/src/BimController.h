@@ -2,7 +2,7 @@
 #include "CwAPI3D.h"
 #include "IBimController.h"
 
-namespace CwAPI3D_CLI
+namespace CwAPI3D_Net
 {
 public
 	ref class BimController sealed : public IBimController
@@ -20,4 +20,4 @@ public
 
 		virtual EBimIfcType getIfcType(elementId aElementId);
 	};
-} // namespace CwAPI3D_CLI
+} // namespace CwAPI3D_Net

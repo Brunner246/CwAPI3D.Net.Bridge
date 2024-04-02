@@ -3,7 +3,7 @@
 
 using namespace System::Collections::Generic;
 
-namespace CwAPI3D_CLI
+namespace CwAPI3D_Net
 {
 public
 	interface class IVisualizationController
@@ -30,4 +30,4 @@ public
 
 		void refresh();
 	};
-} // namespace CwAPI3D_CLI
+} // namespace CwAPI3D_Net

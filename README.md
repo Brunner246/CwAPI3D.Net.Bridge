@@ -6,6 +6,23 @@ This project serves as a .NET bridge for the C++ API from Cadwork 3D. It leverag
 
 ## Getting Started
 
+Clone the repository to your local machine.
+
+```bash
+git clone https://github.com/Brunner246/CwAPI3D_CSharp.git
+```
+
+Update the macros in `CwAPI3D.props` to point to the correct paths for cadwork. The macros are used to include the necessary headers and for copying the DLLs as a post-build event into the userprofile directory.
+
+```xml
+  <PropertyGroup Label="UserMacros">
+    <CwAPI3D>./CwAPI3D/includes</CwAPI3D>
+    <USERPROFILE_API>D:\cadwork\userprofil_30\3d\API.x64</USERPROFILE_API>
+    <AssemblyName>CwAPI3D_CSharp</AssemblyName>
+    <API_NAME>CwAPI3D_CSharp</API_NAME>
+  </PropertyGroup>
+```
+
 ### Prerequisites
 
 - Visual Studio 2022 or JetBrains Rider
@@ -16,6 +33,77 @@ This project serves as a .NET bridge for the C++ API from Cadwork 3D. It leverag
 [.NET programming with C++/CLI](https://learn.microsoft.com/en-us/cpp/dotnet/dotnet-programming-with-cpp-cli-visual-cpp?view=msvc-170)
 
 [Walkthrough: Compile a C++/CLI program](https://learn.microsoft.com/en-us/cpp/dotnet/walkthrough-compiling-a-cpp-program-that-targets-the-clr-in-visual-studio?view=msvc-170)
+
+#### C++/CLI Syntax
+
+```cpp
+using namespace System;
+
+////////////////////////// managed C# code //////////////////////////
+
+public ref class Greeter
+{
+    public:
+        Greeter(String^ name)
+        {
+            this->name = name;
+        }
+
+        String^ Greet()
+        {
+            return "Hello, " + name;
+        }
+    private:
+        String^ name;
+}
+
+////////////////////////// native CXX code //////////////////////////
+
+public ref class MyClass
+{
+    public:
+
+        MyClass()
+        {
+            mPoint = new C3dPoint();
+        }
+
+        explicit MyClass(const double aX, const double aY, const double aZ)
+        {
+            Console::WriteLine("Hello from C++/CLI!");
+            mPoint = new C3dPoint(aX, aY, aZ);
+        }
+        
+        explicit MyClass(const C3dPoint% p)
+        {
+            mPoint = new C3dPoint(p);
+        }
+
+        // Destructor
+        ~MyClass()
+        {
+            this->!MyClass();
+        }
+
+        // Finalizer
+        !MyClass()
+        {
+            Console::WriteLine("Finalizer from C++/CLI!");
+            delete mPoint;
+        }
+
+        property C3dPoint* Point
+        {
+            C3dPoint* get()
+            {
+                return mPoint;
+            }
+        }
+
+    private:
+        C3dPoint* mPoint;
+};
+```
 
 
 ## Debugging
