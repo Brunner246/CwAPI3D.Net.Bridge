@@ -27,6 +27,12 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
 
+    - name: setup-msbuild
+      uses: microsoft/setup-msbuild@v2
+          
+      with:
+        msbuild-architecture: 'x64'
+
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v3
       with:
@@ -34,7 +40,7 @@ jobs:
         build-mode: ${{ matrix.build-mode }}
 
     - name: Build with MSBuild
-      run: msbuild CwAPI3D.Net.Bridge.sln /t:Rebuild
-
+      run: |
+        msbuild CwAPI3D.Net.Bridge.sln /t:Rebuild
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v3
