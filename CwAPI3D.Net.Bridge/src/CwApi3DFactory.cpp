@@ -9,7 +9,7 @@
 
 #include "CameraData.h"
 
-CwAPI3D_Net::CwApi3DFactory::CwApi3DFactory(System::IntPtr aFactoryPtr)
+CwAPI3D::Net::Bridge::CwApi3DFactory::CwApi3DFactory(System::IntPtr aFactoryPtr)
 {
 	if(aFactoryPtr == System::IntPtr::Zero)
 	{
@@ -22,7 +22,7 @@ CwAPI3D_Net::CwApi3DFactory::CwApi3DFactory(System::IntPtr aFactoryPtr)
 	}
 }
 
-CwAPI3D_Net::IElementController ^ CwAPI3D_Net::CwApi3DFactory::getElementController()
+CwAPI3D::Net::Bridge::IElementController ^ CwAPI3D::Net::Bridge::CwApi3DFactory::getElementController()
 {
 	if(!mElementController)
 	{
@@ -31,7 +31,7 @@ CwAPI3D_Net::IElementController ^ CwAPI3D_Net::CwApi3DFactory::getElementControl
 	return mElementController;
 }
 
-CwAPI3D_Net::IAttributeController ^ CwAPI3D_Net::CwApi3DFactory::getAttributeController()
+CwAPI3D::Net::Bridge::IAttributeController ^ CwAPI3D::Net::Bridge::CwApi3DFactory::getAttributeController()
 {
 	if(!mAttributeController)
 	{
@@ -40,7 +40,7 @@ CwAPI3D_Net::IAttributeController ^ CwAPI3D_Net::CwApi3DFactory::getAttributeCon
 	return mAttributeController;
 }
 
-CwAPI3D_Net::IUtilityController ^ CwAPI3D_Net::CwApi3DFactory::getUtilityController()
+CwAPI3D::Net::Bridge::IUtilityController ^ CwAPI3D::Net::Bridge::CwApi3DFactory::getUtilityController()
 {
 	if(!mUtilityController)
 	{
@@ -49,7 +49,7 @@ CwAPI3D_Net::IUtilityController ^ CwAPI3D_Net::CwApi3DFactory::getUtilityControl
 	return mUtilityController;
 }
 
-CwAPI3D_Net::IVisualizationController ^ CwAPI3D_Net::CwApi3DFactory::getVisualizationController()
+CwAPI3D::Net::Bridge::IVisualizationController ^ CwAPI3D::Net::Bridge::CwApi3DFactory::getVisualizationController()
 {
 	if(!mVisualizationController)
 	{
@@ -58,7 +58,7 @@ CwAPI3D_Net::IVisualizationController ^ CwAPI3D_Net::CwApi3DFactory::getVisualiz
 	return mVisualizationController;
 }
 
-CwAPI3D_Net::IBimController ^ CwAPI3D_Net::CwApi3DFactory::getBimController()
+CwAPI3D::Net::Bridge::IBimController ^ CwAPI3D::Net::Bridge::CwApi3DFactory::getBimController()
 {
 	if(!mBimController)
 	{
@@ -67,7 +67,7 @@ CwAPI3D_Net::IBimController ^ CwAPI3D_Net::CwApi3DFactory::getBimController()
 	return mBimController;
 }
 
-CwAPI3D_Net::ICameraData ^ CwAPI3D_Net::CwApi3DFactory::getCameraData()
+CwAPI3D::Net::Bridge::ICameraData ^ CwAPI3D::Net::Bridge::CwApi3DFactory::getCameraData()
 {
 	const auto lCameraData = mControllerFactory->createCameraData();
 	if(!lCameraData)

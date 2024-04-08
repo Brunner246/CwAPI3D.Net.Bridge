@@ -1,6 +1,6 @@
 #pragma once
 
-namespace CwAPI3D_Net
+namespace CwAPI3D::Net::Bridge
 {
 public
 	enum class EBimIfcType

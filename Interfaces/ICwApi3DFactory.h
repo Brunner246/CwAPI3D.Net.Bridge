@@ -3,7 +3,7 @@
 #include "IBimController.h"
 #include "IVisualizationController.h"
 
-namespace CwAPI3D_Net
+namespace CwAPI3D::Net::Bridge
 {
 	interface class IElementController;
 	interface class IAttributeController;

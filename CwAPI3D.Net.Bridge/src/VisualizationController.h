@@ -2,7 +2,7 @@
 #include "CwAPI3D.h"
 #include "IVisualizationController.h"
 
-namespace CwAPI3D_Net
+namespace CwAPI3D::Net::Bridge
 {
 public
 	ref class VisualizationController sealed : public IVisualizationController

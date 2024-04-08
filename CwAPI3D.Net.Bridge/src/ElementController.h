@@ -5,7 +5,7 @@
 
 using namespace System::Collections::Generic;
 
-namespace CwAPI3D_Net
+namespace CwAPI3D::Net::Bridge
 {
 public
 	ref class ElementController sealed : public IElementController
@@ -26,6 +26,6 @@ public
 
 		virtual List<elementId> ^ getVisibleIdentifiableElementIDs();
 
-		virtual void addElementsToUndo(List<elementId> ^ aElementIDs, Utils::undoType aUndoType);
+		virtual void addElementsToUndo(List<elementId> ^ aElementIDs, CwAPI3D_Net::Utils::undoType aUndoType);
 	};
-} // namespace CwAPI3D_Net
+} // namespace CwAPI3D::Net::Bridge

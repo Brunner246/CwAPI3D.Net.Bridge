@@ -3,7 +3,7 @@
 
 using namespace System::Collections::Generic;
 
-namespace CwAPI3D_Net
+namespace CwAPI3D::Net::Bridge
 {
 public
 	interface class IVisualizationController
