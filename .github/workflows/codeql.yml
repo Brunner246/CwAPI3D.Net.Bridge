@@ -41,6 +41,6 @@ jobs:
 
     - name: Build with MSBuild
       run: |
-        msbuild CwAPI3D.Net.Bridge.sln /t:Rebuild
+        msbuild CwAPI3D.Net.Bridge.sln /t:Rebuild /p:Configuration=Release /p:Platform=x64
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v3
