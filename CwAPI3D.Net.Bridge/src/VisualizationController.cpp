@@ -4,7 +4,7 @@
 
 #include "CameraData.h"
 
-CwAPI3D_Net::VisualizationController::VisualizationController(System::IntPtr aFactoryPtr)
+CwAPI3D::Net::Bridge::VisualizationController::VisualizationController(System::IntPtr aFactoryPtr)
 {
 	if(aFactoryPtr == System::IntPtr::Zero)
 	{
@@ -18,21 +18,21 @@ CwAPI3D_Net::VisualizationController::VisualizationController(System::IntPtr aFa
 	mVisualizationController = mControllerFactory->getVisualizationController();
 }
 
-CwAPI3D_Net::VisualizationController::~VisualizationController()
+CwAPI3D::Net::Bridge::VisualizationController::~VisualizationController()
 {
 	this->!VisualizationController();
 }
 
-CwAPI3D_Net::VisualizationController::!VisualizationController()
+CwAPI3D::Net::Bridge::VisualizationController::!VisualizationController()
 {
 }
 
-bool CwAPI3D_Net::VisualizationController::isActive(int aElementID)
+bool CwAPI3D::Net::Bridge::VisualizationController::isActive(int aElementID)
 {
 	return mVisualizationController->isActive(aElementID);
 }
 
-void CwAPI3D_Net::VisualizationController::setActive(List<int> ^ aElementIDs)
+void CwAPI3D::Net::Bridge::VisualizationController::setActive(List<int> ^ aElementIDs)
 {
 	const auto lElementIDList = mControllerFactory->createEmptyElementIDList();
 	for each(int aElementID in aElementIDs)
@@ -42,7 +42,7 @@ void CwAPI3D_Net::VisualizationController::setActive(List<int> ^ aElementIDs)
 	mVisualizationController->setActive(lElementIDList);
 }
 
-void CwAPI3D_Net::VisualizationController::setInActive(List<int> ^ aElementIDs)
+void CwAPI3D::Net::Bridge::VisualizationController::setInActive(List<int> ^ aElementIDs)
 {
 	const auto lElementIDList = mControllerFactory->createEmptyElementIDList();
 	for each(int aElementID in aElementIDs)
@@ -52,12 +52,12 @@ void CwAPI3D_Net::VisualizationController::setInActive(List<int> ^ aElementIDs)
 	mVisualizationController->setInactive(lElementIDList);
 }
 
-bool CwAPI3D_Net::VisualizationController::isVisible(int aElementID)
+bool CwAPI3D::Net::Bridge::VisualizationController::isVisible(int aElementID)
 {
 	return mVisualizationController->isVisible(aElementID);
 }
 
-void CwAPI3D_Net::VisualizationController::setVisible(List<int> ^ aElementIDs)
+void CwAPI3D::Net::Bridge::VisualizationController::setVisible(List<int> ^ aElementIDs)
 {
 	const auto lElementIDList = mControllerFactory->createEmptyElementIDList();
 	for each(int aElementID in aElementIDs)
@@ -67,22 +67,22 @@ void CwAPI3D_Net::VisualizationController::setVisible(List<int> ^ aElementIDs)
 	mVisualizationController->setVisible(lElementIDList);
 }
 
-void CwAPI3D_Net::VisualizationController::hideAllElements()
+void CwAPI3D::Net::Bridge::VisualizationController::hideAllElements()
 {
 	mVisualizationController->hideAllElements();
 }
 
-void CwAPI3D_Net::VisualizationController::showAllElements()
+void CwAPI3D::Net::Bridge::VisualizationController::showAllElements()
 {
 	mVisualizationController->showAllElements();
 }
 
-bool CwAPI3D_Net::VisualizationController::isPlane2D()
+bool CwAPI3D::Net::Bridge::VisualizationController::isPlane2D()
 {
 	return mVisualizationController->isPlane2d();
 }
 
-void CwAPI3D_Net::VisualizationController::setCamera(ICameraData ^ aCameraData)
+void CwAPI3D::Net::Bridge::VisualizationController::setCamera(ICameraData ^ aCameraData)
 {
 	const auto lCameraData = mControllerFactory->createCameraData();
 
@@ -97,12 +97,12 @@ void CwAPI3D_Net::VisualizationController::setCamera(ICameraData ^ aCameraData)
 	mVisualizationController->setCameraData(lCameraData);
 }
 
-CwAPI3D_Net::ICameraData ^ CwAPI3D_Net::VisualizationController::getCamera()
+CwAPI3D::Net::Bridge::ICameraData ^ CwAPI3D::Net::Bridge::VisualizationController::getCamera()
 {
 	return gcnew CameraData(mVisualizationController->getCameraData());
 }
 
-void CwAPI3D_Net::VisualizationController::refresh()
+void CwAPI3D::Net::Bridge::VisualizationController::refresh()
 {
 	mVisualizationController->refresh();
 }

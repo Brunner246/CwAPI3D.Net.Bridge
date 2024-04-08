@@ -1,7 +1,7 @@
 #pragma once
 #include <cmath>
 
-namespace CwAPI3D_Net
+namespace CwAPI3D::Net::Bridge
 {
 public
 	ref class vector3D

@@ -2,7 +2,7 @@
 #include "ApiUtils.h"
 #include <stdexcept>
 
-CwAPI3D_Net::ElementController::ElementController(System::IntPtr aFactoryPtr)
+CwAPI3D::Net::Bridge::ElementController::ElementController(System::IntPtr aFactoryPtr)
 {
 	if(aFactoryPtr == System::IntPtr::Zero)
 	{
@@ -16,32 +16,32 @@ CwAPI3D_Net::ElementController::ElementController(System::IntPtr aFactoryPtr)
 	mElementController = mControllerFactory->getElementController();
 }
 
-CwAPI3D_Net::ElementController::~ElementController()
+CwAPI3D::Net::Bridge::ElementController::~ElementController()
 {
 	this->!ElementController();
 }
 
-CwAPI3D_Net::ElementController::!ElementController() { }
+CwAPI3D::Net::Bridge::ElementController::!ElementController() { }
 
-List<elementId> ^ CwAPI3D_Net::ElementController::getAllIdentifiableElementIDs()
+List<elementId> ^ CwAPI3D::Net::Bridge::ElementController::getAllIdentifiableElementIDs()
 {
 	const auto lElementIds = mElementController->getAllIdentifiableElementIDs();
-	return Utils::elementVectorToList<elementId>(lElementIds);
+	return CwAPI3D_Net::Utils::elementVectorToList<elementId>(lElementIds);
 }
 
-List<elementId> ^ CwAPI3D_Net::ElementController::getActiveIdentifiableElementIDs()
+List<elementId> ^ CwAPI3D::Net::Bridge::ElementController::getActiveIdentifiableElementIDs()
 {
 	const auto lElementIds = mElementController->getActiveIdentifiableElementIDs();
-	return Utils::elementVectorToList<elementId>(lElementIds);
+	return CwAPI3D_Net::Utils::elementVectorToList<elementId>(lElementIds);
 }
 
-List<elementId> ^ CwAPI3D_Net::ElementController::getVisibleIdentifiableElementIDs()
+List<elementId> ^ CwAPI3D::Net::Bridge::ElementController::getVisibleIdentifiableElementIDs()
 {
 	const auto lElementIds = mElementController->getVisibleIdentifiableElementIDs();
-	return Utils::elementVectorToList<elementId>(lElementIds);
+	return CwAPI3D_Net::Utils::elementVectorToList<elementId>(lElementIds);
 }
 
-void CwAPI3D_Net::ElementController::addElementsToUndo(List<elementId> ^ aElementIDs, const Utils::undoType aUndoType)
+void CwAPI3D::Net::Bridge::ElementController::addElementsToUndo(List<elementId> ^ aElementIDs, const CwAPI3D_Net::Utils::undoType aUndoType)
 {
 	const auto lElementIdList = mControllerFactory->createEmptyElementIDList();
 
@@ -49,6 +49,6 @@ void CwAPI3D_Net::ElementController::addElementsToUndo(List<elementId> ^ aElemen
 	{
 		lElementIdList->append(lItem);
 	}
-	mElementController->addElementsToUndo(lElementIdList, aUndoType == Utils::undoType::add ? 1 : 2);
+	mElementController->addElementsToUndo(lElementIdList, aUndoType == CwAPI3D_Net::Utils::undoType::add ? 1 : 2);
 	lElementIdList->destroy();
 }

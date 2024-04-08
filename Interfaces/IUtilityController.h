@@ -1,27 +1,25 @@
 #pragma once
 
-using namespace System;
-
-namespace CwAPI3D_Net
+namespace CwAPI3D::Net::Bridge
 {
 	ref class vector3D;
 public
 	interface class IUtilityController
 	{
-		String ^ getPluginPath();
+		System::String ^ getPluginPath();
 
 		bool getUseOfGlobalCoordinates();
 
 		vector3D ^ getGlobalOrigin();
 
-		String ^ createSnapshot(String ^ aFormat, int aQuality, bool aWhiteBackground);
+		System::String ^ createSnapshot(System::String ^ aFormat, int aQuality, bool aWhiteBackground);
 
 		void disableAutoDisplayRefresh();
 
 		void enableAutoDisplayRefresh();
 
-		Tuple<int, int> ^ get3dGuiUpperLeftScreenCoordinates();
+		System::Tuple<int, int> ^ get3dGuiUpperLeftScreenCoordinates();
 
-		String ^ getLanguage();
+		System::String ^ getLanguage();
 	};
 } // namespace CwAPI3D_Net

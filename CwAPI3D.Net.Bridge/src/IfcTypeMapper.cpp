@@ -2,124 +2,124 @@
 
 #include <stdexcept>
 
-CwAPI3D_Net::EBimIfcType CwAPI3D_Net::Utils::mapIfcType(CwAPI3D::Interfaces::ICwAPI3DIfc2x3ElementType* aIfcType)
+CwAPI3D::Net::Bridge::EBimIfcType CwAPI3D_Net::Utils::mapIfcType(CwAPI3D::Interfaces::ICwAPI3DIfc2x3ElementType* aIfcType)
 {
 	if(aIfcType->isNone())
 	{
-		return EBimIfcType::none;
+		return CwAPI3D::Net::Bridge::EBimIfcType::none;
 	}
 	if(aIfcType->isIfcBeam())
 	{
-		return EBimIfcType::ifcBeam;
+		return CwAPI3D::Net::Bridge::EBimIfcType::ifcBeam;
 	}
 	if(aIfcType->isIfcColumn())
 	{
-		return EBimIfcType::ifcColumn;
+		return CwAPI3D::Net::Bridge::EBimIfcType::ifcColumn;
 	}
 	if(aIfcType->isIfcCurtainWall())
 	{
-		return EBimIfcType::ifcCurtainWall;
+		return CwAPI3D::Net::Bridge::EBimIfcType::ifcCurtainWall;
 	}
 	if(aIfcType->isIfcDoor())
 	{
-		return EBimIfcType::ifcDoor;
+		return CwAPI3D::Net::Bridge::EBimIfcType::ifcDoor;
 	}
 	if(aIfcType->isIfcMember())
 	{
-		return EBimIfcType::ifcMember;
+		return CwAPI3D::Net::Bridge::EBimIfcType::ifcMember;
 	}
 	if(aIfcType->isIfcPlate())
 	{
-		return EBimIfcType::ifcPlate;
+		return CwAPI3D::Net::Bridge::EBimIfcType::ifcPlate;
 	}
 	if(aIfcType->isIfcRailing())
 	{
-		return EBimIfcType::ifcRailing;
+		return CwAPI3D::Net::Bridge::EBimIfcType::ifcRailing;
 	}
 	if(aIfcType->isIfcRamp())
 	{
-		return EBimIfcType::ifcRamp;
+		return CwAPI3D::Net::Bridge::EBimIfcType::ifcRamp;
 	}
 	if(aIfcType->isIfcRampFlight())
 	{
-		return EBimIfcType::ifcRampFlight;
+		return CwAPI3D::Net::Bridge::EBimIfcType::ifcRampFlight;
 	}
 	if(aIfcType->isIfcRoof())
 	{
-		return EBimIfcType::ifcRoof;
+		return CwAPI3D::Net::Bridge::EBimIfcType::ifcRoof;
 	}
 	if(aIfcType->isIfcSlab())
 	{
-		return EBimIfcType::ifcSlab;
+		return CwAPI3D::Net::Bridge::EBimIfcType::ifcSlab;
 	}
 	if(aIfcType->isIfcStair())
 	{
-		return EBimIfcType::ifcStair;
+		return CwAPI3D::Net::Bridge::EBimIfcType::ifcStair;
 	}
 	if(aIfcType->isIfcStairFlight())
 	{
-		return EBimIfcType::ifcStairFlight;
+		return CwAPI3D::Net::Bridge::EBimIfcType::ifcStairFlight;
 	}
 	if(aIfcType->isIfcWall())
 	{
-		return EBimIfcType::ifcWall;
+		return CwAPI3D::Net::Bridge::EBimIfcType::ifcWall;
 	}
 	if(aIfcType->isIfcWallStandardCase())
 	{
-		return EBimIfcType::ifcWallStandardCase;
+		return CwAPI3D::Net::Bridge::EBimIfcType::ifcWallStandardCase;
 	}
 	if(aIfcType->isIfcWindow())
 	{
-		return EBimIfcType::ifcWindow;
+		return CwAPI3D::Net::Bridge::EBimIfcType::ifcWindow;
 	}
 	if(aIfcType->isIfcBuildingElementProxy())
 	{
-		return EBimIfcType::ifcBuildingElementProxy;
+		return CwAPI3D::Net::Bridge::EBimIfcType::ifcBuildingElementProxy;
 	}
 	if(aIfcType->isIfcChimney())
 	{
-		return EBimIfcType::ifcChimney;
+		return CwAPI3D::Net::Bridge::EBimIfcType::ifcChimney;
 	}
 	if(aIfcType->isIfcCovering())
 	{
-		return EBimIfcType::ifcCovering;
+		return CwAPI3D::Net::Bridge::EBimIfcType::ifcCovering;
 	}
 	if(aIfcType->isIfcFooting())
 	{
-		return EBimIfcType::ifcFooting;
+		return CwAPI3D::Net::Bridge::EBimIfcType::ifcFooting;
 	}
 	if(aIfcType->isIfcFurnishingElement())
 	{
-		return EBimIfcType::ifcFurnishingElement;
+		return CwAPI3D::Net::Bridge::EBimIfcType::ifcFurnishingElement;
 	}
 	if(aIfcType->isIfcOpeningElement())
 	{
-		return EBimIfcType::ifcOpeningElement;
+		return CwAPI3D::Net::Bridge::EBimIfcType::ifcOpeningElement;
 	}
 	if(aIfcType->isIfcSpace())
 	{
-		return EBimIfcType::ifcSpace;
+		return CwAPI3D::Net::Bridge::EBimIfcType::ifcSpace;
 	}
 	if(aIfcType->isIfcFlowSegment())
 	{
-		return EBimIfcType::ifcFlowSegment;
+		return CwAPI3D::Net::Bridge::EBimIfcType::ifcFlowSegment;
 	}
 	if(aIfcType->isIfcBuildingElementPart())
 	{
-		return EBimIfcType::ifcBuildingElementPart;
+		return CwAPI3D::Net::Bridge::EBimIfcType::ifcBuildingElementPart;
 	}
 	if(aIfcType->isIfcDiscreteAccessory())
 	{
-		return EBimIfcType::ifcDiscreteAccessory;
+		return CwAPI3D::Net::Bridge::EBimIfcType::ifcDiscreteAccessory;
 	}
 	if(aIfcType->isIfcFastener())
 	{
-		return EBimIfcType::ifcFastener;
+		return CwAPI3D::Net::Bridge::EBimIfcType::ifcFastener;
 	}
 	if(aIfcType->isIfcMechanicalFastener())
 	{
-		return EBimIfcType::ifcMechanicalFastener;
+		return CwAPI3D::Net::Bridge::EBimIfcType::ifcMechanicalFastener;
 	}
 	// throw std::runtime_error("Unknown IFC type");
-	return EBimIfcType::none;
+	return CwAPI3D::Net::Bridge::EBimIfcType::none;
 }

@@ -2,7 +2,7 @@
 #include "CwAPI3D.h"
 #include "IBimController.h"
 
-namespace CwAPI3D_Net
+namespace CwAPI3D::Net::Bridge
 {
 public
 	ref class BimController sealed : public IBimController
@@ -12,12 +12,12 @@ public
 	public:
 		explicit BimController(System::IntPtr aFactoryPtr);
 
-		virtual String ^ getIfcTypeDisplayString(elementId aElementId);
+		virtual System::String ^ getIfcTypeDisplayString(elementId aElementId);
 
-		virtual elementId getElementIdFromIfcBase64Guid(String ^ aIfcBase64Guid);
+		virtual elementId getElementIdFromIfcBase64Guid(System::String ^ aIfcBase64Guid);
 
-		virtual String ^ getIfcBase64Guid(elementId aElementId);
+		virtual System::String ^ getIfcBase64Guid(elementId aElementId);
 
 		virtual EBimIfcType getIfcType(elementId aElementId);
 	};
-} // namespace CwAPI3D_Net
+} // namespace CwAPI3D::Net::Bridge

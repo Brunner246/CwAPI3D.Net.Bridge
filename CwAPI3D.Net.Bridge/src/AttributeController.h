@@ -3,9 +3,7 @@
 #include "CwAPI3D.h"
 #include "IAttributeController.h"
 
-using namespace System;
-
-namespace CwAPI3D_Net
+namespace CwAPI3D::Net::Bridge
 {
 public
 	ref class AttributeController sealed : public IAttributeController
@@ -19,6 +17,6 @@ public
 
 		!AttributeController();
 
-		virtual String ^ getName(elementId aElementId);
+		virtual System::String ^ getName(elementId aElementId);
 	};
-} // namespace CwAPI3D_Net
+} // namespace CwAPI3D::Net::Bridge

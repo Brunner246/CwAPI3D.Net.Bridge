@@ -2,7 +2,7 @@
 
 #include <stdexcept>
 
-CwAPI3D_Net::AttributeController::AttributeController(System::IntPtr aFactoryPtr)
+CwAPI3D::Net::Bridge::AttributeController::AttributeController(System::IntPtr aFactoryPtr)
 {
 	if(aFactoryPtr == System::IntPtr::Zero)
 	{
@@ -16,15 +16,17 @@ CwAPI3D_Net::AttributeController::AttributeController(System::IntPtr aFactoryPtr
 	mAttributeController = lControllerFactory->getAttributeController();
 }
 
-CwAPI3D_Net::AttributeController::~AttributeController()
+CwAPI3D::Net::Bridge::AttributeController::~AttributeController()
 {
 	this->!AttributeController();
 }
 
-CwAPI3D_Net::AttributeController::!AttributeController() { }
+CwAPI3D::Net::Bridge::AttributeController::!AttributeController() { }
 
-String ^ CwAPI3D_Net::AttributeController::getName(const elementId aElementId)
+System::String^ CwAPI3D::Net::Bridge::AttributeController::getName(elementId aElementId)
 {
 	const auto lName = mAttributeController->getName(static_cast<uint64_t>(aElementId));
-	return gcnew String(lName->data());
+	return gcnew System::String(lName->data());
 }
+
+

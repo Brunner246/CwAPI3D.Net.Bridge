@@ -8,7 +8,7 @@
 #include "IElementController.h"
 #include "IVisualizationController.h"
 
-namespace CwAPI3D_Net
+namespace CwAPI3D::Net::Bridge
 {
 	// clang-format off
 	public ref class CwApi3DFactory : public ICwApi3DFactory

@@ -2,13 +2,11 @@
 
 #include "typedefs.h"
 
-using namespace System;
-
-namespace CwAPI3D_Net
+namespace CwAPI3D::Net::Bridge
 {
 public
 	interface class IAttributeController
 	{
-		String ^ getName(elementId aElementID);
+		System::String ^ getName(elementId aElementID);
 	};
 } // namespace CwAPI3D_Net
