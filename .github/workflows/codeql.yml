@@ -43,8 +43,9 @@ jobs:
         msbuild CwAPI3D.Net.Bridge.sln /t:Rebuild /p:Configuration=Release /p:Platform=x64
 
     - name: List object files
+      shell: powershell
       run: |
-        dir /s /b *.obj
+        Get-ChildItem -Recurse -Filter "*.obj"
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v3
