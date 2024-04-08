@@ -7,7 +7,8 @@ on:
 env:
   BUILD_CONFIGURATION: Release
   PLATFORM: x64
-  UPLOAD_PATH: D:/a/CwAPI3D.Net.Bridge/CwAPI3D.Net.Bridge/examplelib/bin/Release
+  UPLOAD_PATH: '${{ github.workspace }}/CwAPI3D.Net.Bridge/CwAPI3D.Net.Bridge/examplelib/bin/Release'
+  build: '${{ github.workspace }}'
 
 permissions:
   contents: read
@@ -38,3 +39,4 @@ jobs:
         with:
           name: CwAPI3D.Net.Bridge
           path: ${{ env.UPLOAD_PATH }}
+
