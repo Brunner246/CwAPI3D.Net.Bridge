@@ -29,7 +29,6 @@ jobs:
 
     - name: setup-msbuild
       uses: microsoft/setup-msbuild@v2
-          
       with:
         msbuild-architecture: 'x64'
 
@@ -42,5 +41,10 @@ jobs:
     - name: Build with MSBuild
       run: |
         msbuild CwAPI3D.Net.Bridge.sln /t:Rebuild /p:Configuration=Release /p:Platform=x64
+
+    - name: List object files
+      run: |
+        dir /s /b *.obj
+
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v3
