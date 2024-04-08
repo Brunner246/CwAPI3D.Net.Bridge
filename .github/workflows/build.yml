@@ -7,7 +7,7 @@ on:
 env:
   BUILD_CONFIGURATION: Release
   PLATFORM: x64
-  UPLOAD_PATH: D:/a/CwAPI3D_CSharp/CwAPI3D_CSharp/examplelib/bin/Release
+  UPLOAD_PATH: D:/a/CwAPI3D.Net.Bridge/CwAPI3D.Net.Bridge/examplelib/bin/Release
 
 permissions:
   contents: read
@@ -36,5 +36,5 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: CWAPI3D_CSharp
+          name: CwAPI3D.Net.Bridge
           path: ${{ env.UPLOAD_PATH }}
