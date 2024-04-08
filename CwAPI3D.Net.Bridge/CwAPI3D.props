@@ -4,8 +4,8 @@
   <PropertyGroup Label="UserMacros">
     <CwAPI3D>./CwAPI3D/includes</CwAPI3D>
     <USERPROFILE_API>D:\cadwork\userprofil_30\3d\API.x64</USERPROFILE_API>
-    <AssemblyName>CwAPI3D_CSharp</AssemblyName>
-    <API_NAME>CwAPI3D_CSharp</API_NAME>
+    <AssemblyName>CwAPI3D.Net.Bridge</AssemblyName>
+    <API_NAME>CwAPI3D.Net.Bridge</API_NAME>
   </PropertyGroup>
   <PropertyGroup>
     <OutDir>$(Platform)\$(Configuration)\</OutDir>
