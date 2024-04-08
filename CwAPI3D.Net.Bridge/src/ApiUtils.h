@@ -3,7 +3,7 @@
 
 using namespace System::Collections::Generic;
 
-namespace CwAPI3D_Net::Utils
+namespace CwAPI3D::Net::Bridge::Utils
 {
 	template<typename T>
 		List<elementId> ^
@@ -32,4 +32,4 @@ namespace CwAPI3D_Net::Utils
 	//     return lIds;
 	// }
 
-} // namespace CwAPI3D_Net::Utils
+} // namespace CwAPI3D::Net::Bridge::Utils

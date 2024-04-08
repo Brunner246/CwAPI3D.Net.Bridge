@@ -1,3 +1,3 @@
 #pragma once
 
-using elementId = int;
+using elementId = uint64_t;

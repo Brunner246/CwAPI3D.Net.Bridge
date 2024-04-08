@@ -1,5 +1,6 @@
 #pragma once
 #include "ApiUtils.h"
+#include "vector3D.h"
 #include "typedefs.h"
 
 using namespace System::Collections::Generic;
@@ -15,6 +16,8 @@ public
 
 		List<elementId> ^ getActiveIdentifiableElementIDs();
 
-		void addElementsToUndo(List<elementId> ^ aElementIDs, CwAPI3D_Net::Utils::undoType aUndoType);
+		void addElementsToUndo(List<elementId> ^ aElementIDs, Utils::undoType aUndoType);
+
+		elementId createRectangularBeamPoints(double aWidth, double aHeight, vector3D^ aP1, vector3D^ aP2, vector3D^ aP3);
 	};
 } // namespace CwAPI3D_Net

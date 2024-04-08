@@ -106,4 +106,4 @@ public
 			return CwAPI3D::vector3D{mX, mY, mZ};
 		}
 	};
-} // namespace CwAPI3D_Net
+} // namespace CwAPI3D::Net::Bridge
