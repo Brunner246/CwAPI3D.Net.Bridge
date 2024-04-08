@@ -47,7 +47,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CwAPI3D_CSharp\CwAPI3D_CSharp.vcxproj">
+    <ProjectReference Include="..\CwAPI3D.Net.Bridge\CwAPI3D.Net.Bridge.vcxproj">
       <Project>{d7afeb12-6630-40fe-a8e1-bed9c0238ab8}</Project>
       <Name>CwAPI3D_CSharp</Name>
     </ProjectReference>
