@@ -3,6 +3,7 @@
 #include <msclr/marshal_cppstd.h>
 
 #include "vector3D.h"
+#include "../windowGeometry.h"
 
 CwAPI3D::Net::Bridge::UtilityController::UtilityController(System::IntPtr aFactoryPtr)
 {
@@ -59,10 +60,15 @@ void CwAPI3D::Net::Bridge::UtilityController::enableAutoDisplayRefresh()
 	mUtilityController->enableAutoDisplayRefresh();
 }
 
-System::Tuple<int, int> ^ CwAPI3D::Net::Bridge::UtilityController::get3dGuiUpperLeftScreenCoordinates()
+CwAPI3D::Net::Bridge::windowGeometry ^ CwAPI3D::Net::Bridge::UtilityController::get3dMainWindowGeometry()
 {
-	const auto [mX, mY] = mUtilityController->get3dGuiUpperLeftScreenCoordinates();
-	return gcnew System::Tuple<int, int>(static_cast<int>(mX), static_cast<int>(mY));
+	const auto [mBottomLeft, mBottomRight, mTopLeft, mTopRight] = mUtilityController->get3dMainWindowGeometry();
+	auto lWindowGeometryWrapper = gcnew CwAPI3D::Net::Bridge::windowGeometry();
+	lWindowGeometryWrapper->BottomLeft = gcnew CwAPI3D::Net::Bridge::windowGeometry::point(mBottomLeft.mX, mBottomLeft.mY);
+	lWindowGeometryWrapper->BottomRight = gcnew CwAPI3D::Net::Bridge::windowGeometry::point(mBottomRight.mX, mBottomRight.mY);
+	lWindowGeometryWrapper->TopLeft = gcnew CwAPI3D::Net::Bridge::windowGeometry::point(mTopLeft.mX, mTopLeft.mY);
+	lWindowGeometryWrapper->TopRight = gcnew CwAPI3D::Net::Bridge::windowGeometry::point(mTopRight.mX, mTopRight.mY);
+	return lWindowGeometryWrapper;
 }
 
 System::String ^ CwAPI3D::Net::Bridge::UtilityController::getLanguage()

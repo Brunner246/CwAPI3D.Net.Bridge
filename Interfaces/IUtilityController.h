@@ -2,7 +2,8 @@
 
 namespace CwAPI3D::Net::Bridge
 {
-	ref class vector3D;
+  ref class windowGeometry;
+  ref class vector3D;
 public
 	interface class IUtilityController
 	{
@@ -18,7 +19,7 @@ public
 
 		void enableAutoDisplayRefresh();
 
-		System::Tuple<int, int> ^ get3dGuiUpperLeftScreenCoordinates();
+		CwAPI3D::Net::Bridge::windowGeometry^ get3dMainWindowGeometry();
 
 		System::String ^ getLanguage();
 	};
