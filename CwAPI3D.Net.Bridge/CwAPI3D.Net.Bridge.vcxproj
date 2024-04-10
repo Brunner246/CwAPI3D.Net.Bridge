@@ -125,7 +125,7 @@
     <ClInclude Include="src\UtilityController.h" />
     <ClInclude Include="src\vector3D.h" />
     <ClInclude Include="src\VisualizationController.h" />
-    <ClInclude Include="windowGeometry.h" />
+    <ClInclude Include="src\windowGeometry.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\AttributeController.cpp" />
