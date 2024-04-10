@@ -27,12 +27,12 @@ CwAPI3D::Net::Bridge::VisualizationController::!VisualizationController()
 {
 }
 
-bool CwAPI3D::Net::Bridge::VisualizationController::isActive(int aElementID)
+bool CwAPI3D::Net::Bridge::VisualizationController::isActive(elementId aElementID)
 {
 	return mVisualizationController->isActive(aElementID);
 }
 
-void CwAPI3D::Net::Bridge::VisualizationController::setActive(List<int> ^ aElementIDs)
+void CwAPI3D::Net::Bridge::VisualizationController::setActive(List<elementId> ^ aElementIDs)
 {
 	const auto lElementIDList = mControllerFactory->createEmptyElementIDList();
 	for each(int aElementID in aElementIDs)
@@ -42,7 +42,7 @@ void CwAPI3D::Net::Bridge::VisualizationController::setActive(List<int> ^ aEleme
 	mVisualizationController->setActive(lElementIDList);
 }
 
-void CwAPI3D::Net::Bridge::VisualizationController::setInActive(List<int> ^ aElementIDs)
+void CwAPI3D::Net::Bridge::VisualizationController::setInActive(List<elementId> ^ aElementIDs)
 {
 	const auto lElementIDList = mControllerFactory->createEmptyElementIDList();
 	for each(int aElementID in aElementIDs)
@@ -52,12 +52,12 @@ void CwAPI3D::Net::Bridge::VisualizationController::setInActive(List<int> ^ aEle
 	mVisualizationController->setInactive(lElementIDList);
 }
 
-bool CwAPI3D::Net::Bridge::VisualizationController::isVisible(int aElementID)
+bool CwAPI3D::Net::Bridge::VisualizationController::isVisible(elementId aElementID)
 {
 	return mVisualizationController->isVisible(aElementID);
 }
 
-void CwAPI3D::Net::Bridge::VisualizationController::setVisible(List<int> ^ aElementIDs)
+void CwAPI3D::Net::Bridge::VisualizationController::setVisible(List<elementId> ^ aElementIDs)
 {
 	const auto lElementIDList = mControllerFactory->createEmptyElementIDList();
 	for each(int aElementID in aElementIDs)

@@ -1,5 +1,6 @@
 #pragma once
 #include "ICameraData.h"
+#include "typedefs.h"
 
 using namespace System::Collections::Generic;
 
@@ -8,15 +9,15 @@ namespace CwAPI3D::Net::Bridge
 public
 	interface class IVisualizationController
 	{
-		bool isActive(int aElementID);
+		bool isActive(elementId aElementID);
 
-		void setActive(List<int> ^ aElementIDs);
+		void setActive(List<elementId> ^ aElementIDs);
 
-		void setInActive(List<int> ^ aElementIDs);
+		void setInActive(List<elementId> ^ aElementIDs);
 
-		bool isVisible(int aElementID);
+		bool isVisible(elementId aElementID);
 
-		void setVisible(List<int> ^ aElementIDs);
+		void setVisible(List<elementId> ^ aElementIDs);
 
 		void hideAllElements();
 

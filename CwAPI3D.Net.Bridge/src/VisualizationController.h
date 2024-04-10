@@ -14,15 +14,15 @@ public
 
 		!VisualizationController();
 
-		virtual bool isActive(int aElementID);
+		virtual bool isActive(elementId aElementID);
 
-		virtual void setActive(List<int> ^ aElementIDs);
+		virtual void setActive(List<elementId> ^ aElementIDs);
 
-		virtual void setInActive(List<int> ^ aElementIDs);
+		virtual void setInActive(List<elementId> ^ aElementIDs);
 
-		virtual bool isVisible(int aElementID);
+		virtual bool isVisible(elementId aElementID);
 
-		virtual void setVisible(List<int> ^ aElementIDs);
+		virtual void setVisible(List<elementId> ^ aElementIDs);
 
 		virtual void hideAllElements();
 

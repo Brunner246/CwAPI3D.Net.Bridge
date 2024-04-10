@@ -15,7 +15,7 @@ namespace Constants
 {
 	// The name of the .NET library (DLL) that contains the plugin
 	const std::wstring NetLibraryName = L"examplelib";
-}
+} // namespace Constants
 
 public
 ref class ManagedConstants abstract sealed // abstract sealed makes it static
@@ -61,9 +61,6 @@ Type ^ loadAssemblyAndGetType(CwAPI3D::ControllerFactory* aFactory) {
 									 lPluginInstance,
 									 lMethodArgs))
 		{
-			Diagnostics::Trace::Unindent();
-			Diagnostics::Trace::WriteLine("Plugin initialization successful");
-
 			return true;
 		}
 	}
@@ -78,12 +75,8 @@ Type ^ loadAssemblyAndGetType(CwAPI3D::ControllerFactory* aFactory) {
 
 auto plugin_x64_init(CwAPI3D::ControllerFactory* aFactory) -> bool
 {
-	Diagnostics::Trace::Listeners->Add(gcnew Diagnostics::TextWriterTraceListener(Console::Out));
-	Diagnostics::Trace::AutoFlush = true;
 	if(!aFactory)
 	{
-		Diagnostics::Trace::Indent();
-		Diagnostics::Trace::WriteLine("factory pointer is null");
 		return false;
 	}
 
@@ -92,6 +85,5 @@ auto plugin_x64_init(CwAPI3D::ControllerFactory* aFactory) -> bool
 	{
 		return invokePluginInitializer(lPluginType, aFactory);
 	}
-	Diagnostics::Trace::WriteLine("Plugin initialization failed");
 	return false;
 }
