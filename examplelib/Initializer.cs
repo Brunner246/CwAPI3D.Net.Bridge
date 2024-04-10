@@ -51,7 +51,6 @@ namespace examplelib
                                                                                   lEndPoint,
                                                                                   lHeightPoint);
 
-
       return true;
     }
 
