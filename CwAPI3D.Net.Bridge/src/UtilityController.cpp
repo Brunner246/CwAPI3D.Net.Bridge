@@ -3,7 +3,7 @@
 #include <msclr/marshal_cppstd.h>
 
 #include "vector3D.h"
-#include "../windowGeometry.h"
+#include "windowGeometry.h"
 
 CwAPI3D::Net::Bridge::UtilityController::UtilityController(System::IntPtr aFactoryPtr)
 {
