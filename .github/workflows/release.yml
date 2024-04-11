@@ -35,12 +35,12 @@ jobs:
           msbuild ${{env.PACKAGE_PROJECT_FILE_PATH}} /p:Configuration=${{ env.BUILD_CONFIGURATION }} /p:Platform=${{ env.PLATFORM }} 
 
       - name: Setup NuGet
-        uses: NuGet/setup-nuget@v1
+        uses: NuGet/setup-nuget@v2.0.0
         with:
           nuget-version: 'latest'
 
       - name: Pack
-        run: nuget pack ${{ env.NUSPEC_FILE_PATH }} -OutputDirectory out
+        run: nuget pack ${{ env.NUSPEC_FILE_PATH }} -OutputDirectory out -Verbosity detailed
 
       - name: Push
         run: nuget push ./out/*.nupkg -ApiKey ${{ env.NUGET_API_KEY }} -Source https://api.nuget.org/v3/index.json
