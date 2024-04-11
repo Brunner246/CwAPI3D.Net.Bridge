@@ -1,4 +1,4 @@
-# CwAPI3D_CSharp
+# CwAPI3D.Net.Bridge
 
 This project serves as a .NET bridge for the C++ API from Cadwork 3D. It leverages the power of C++ CLI (Common Language Infrastructure) to provide a seamless integration between the .NET environment and the Cadwork 3D API. This allows developers to utilize the robust features of cadwork 3D API within their .NET applications.
 
@@ -9,7 +9,7 @@ This project serves as a .NET bridge for the C++ API from Cadwork 3D. It leverag
 Clone the repository to your local machine.
 
 ```bash
-git clone https://github.com/Brunner246/CwAPI3D_CSharp.git
+git clone https://github.com/Brunner246/CwAPI3D.Net.Bridge.git
 ```
 
 Update the macros in `CwAPI3D.props` to point to the correct paths for cadwork. The macros are used to include the necessary headers and for copying the DLLs as a post-build event into the userprofile directory.
