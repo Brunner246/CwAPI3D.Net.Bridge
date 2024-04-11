@@ -46,4 +46,4 @@ jobs:
         run: ls -R out
 
       - name: Push
-        run: nuget push ./out/*.nupkg -ApiKey ${{ env.NUGET_API_KEY }} -Source https://api.nuget.org/v3/index.json
+        run: nuget push .\out\*.nupkg -ApiKey ${{ env.NUGET_API_KEY }} -Source https://api.nuget.org/v3/index.json
