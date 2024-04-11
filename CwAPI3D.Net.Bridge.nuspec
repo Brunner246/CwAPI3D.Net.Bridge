@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>CwAPI3D.Net.Bridge</id>
+    <version>0.0.2</version>
+    <title>CwAPI3D.Net.Bridge</title>
+    <authors>Michael Brunner</authors>
+    <owners>Michael Brunner</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>.Net wrapper for CwAPI3D - cadwork 3d</description>
+    <releaseNotes></releaseNotes>
+    <copyright>Copyright 2024</copyright>
+    <tags>cadwork CwAPI3D</tags>
+    <license type="file">LICENSE.txt</license>
+    <readme>docs\README.md</readme>
+    <dependencies>
+      <group targetFramework=".NETFramework4.8" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src=".\LICENSE.txt" target="" />
+    <file src=".\README.md" target="docs\" />
+    <file src=".\CwAPI3D.Net.Bridge\x64\Release\CwAPI3D.Net.Bridge.dll" target="lib\net48\CwAPI3D.Net.Bridge.dll" />
+  </files>
+</package>
