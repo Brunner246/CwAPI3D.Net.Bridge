@@ -1,6 +1,4 @@
-# Common settings
-BasedOnStyle:  WebKit
-TabWidth:        4
+TabWidth:        2
 IndentWidth:     4
 UseTab:          Always
 ColumnLimit: 0
@@ -17,7 +15,7 @@ Language: Cpp
 DisableFormat:   false
 Standard: Cpp11
 
-AccessModifierOffset: -4
+AccessModifierOffset: -2
 AlignAfterOpenBracket: true
 AlignConsecutiveAssignments: false
 AlignConsecutiveDeclarations: false
@@ -66,8 +64,8 @@ BreakStringLiterals: true
 CommentPragmas:  '^ IWYU pragma:'
 CompactNamespaces: false
 ConstructorInitializerAllOnOneLineOrOnePerLine: false
-ConstructorInitializerIndentWidth: 4
-ContinuationIndentWidth: 4
+ConstructorInitializerIndentWidth: 2
+ContinuationIndentWidth: 2
 Cpp11BracedListStyle: true
 SpaceBeforeCpp11BracedList: false
 DerivePointerAlignment: false
@@ -82,7 +80,7 @@ MacroBlockEnd:   ''
 JavaScriptQuotes: Double
 MaxEmptyLinesToKeep: 1
 NamespaceIndentation: All
-ObjCBlockIndentWidth: 4
+ObjCBlockIndentWidth: 2
 ObjCSpaceAfterProperty: true
 ObjCSpaceBeforeProtocolList: true
 PenaltyBreakBeforeFirstCallParameter: 19

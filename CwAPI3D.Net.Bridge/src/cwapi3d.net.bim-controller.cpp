@@ -1,8 +1,6 @@
-#include "BimController.h"
-
+#include "cwapi3d.net.bim-controller.h"
+#include "cwapi3d.net.ifc-type-mapper.h"
 #include <stdexcept>
-
-#include "IfcTypeMapper.h"
 #include <msclr/marshal_cppstd.h>
 
 CwAPI3D::Net::Bridge::BimController::BimController(System::IntPtr aFactoryPtr)

@@ -3,12 +3,13 @@
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros">
     <CwAPI3D>./CwAPI3D/includes</CwAPI3D>
-    <USERPROFILE_API>D:\cadwork\userprofil_30\3d\API.x64</USERPROFILE_API>
+    <USERPROFILE_API>C:\Users\Public\Documents\cadwork\userprofil_30\3d\API.x64</USERPROFILE_API>
     <AssemblyName>CwAPI3D.Net.Bridge</AssemblyName>
     <API_NAME>CwAPI3D.Net.Bridge</API_NAME>
   </PropertyGroup>
   <PropertyGroup>
     <OutDir>$(Platform)\$(Configuration)\</OutDir>
+    <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Label="QtSettings">
     <QtInstall>v30-x64</QtInstall>

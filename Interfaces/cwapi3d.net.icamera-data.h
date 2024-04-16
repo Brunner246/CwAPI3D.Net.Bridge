@@ -1,5 +1,5 @@
 #pragma once
-#include "vector3D.h"
+#include "cwapi3d.net.vector3d.h"
 
 namespace CwAPI3D::Net::Bridge
 {

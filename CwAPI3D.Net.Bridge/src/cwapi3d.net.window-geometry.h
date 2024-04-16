@@ -2,48 +2,48 @@
 
 namespace CwAPI3D::Net::Bridge
 {
-public
-	ref class windowGeometry
-	{
-	public:
-		ref class point
+	public
+		ref class windowGeometry
 		{
-			int mX{0};
-			int mY{0};
-
-		public:
-			point(const int aX, const int aY)
-				: mX(aX)
-				, mY(aY)
-			{ }
-
-			point() { }
-
-			property int X
-			{
-				int get()
+			public:
+				ref class point
 				{
-					return mX;
-				}
-				void set(const int aX)
-				{
-					mX = aX;
-				}
-			}
+						int mX{0};
+						int mY{0};
 
-			property int Y
-			{
-				int get()
-				{
-					return mY;
-				}
-				void set(const int aY)
-				{
-					mX = aY;
-				}
-			}
-		};
-		// clang-format off
+					public:
+						point(const int aX, const int aY)
+							: mX(aX)
+							, mY(aY)
+						{}
+
+						point() {}
+
+						property int X
+						{
+								int get()
+								{
+										return mX;
+								}
+								void set(const int aX)
+								{
+										mX = aX;
+								}
+						}
+
+						property int Y
+						{
+								int get()
+								{
+										return mY;
+								}
+								void set(const int aY)
+								{
+										mX = aY;
+								}
+						}
+				};
+				// clang-format off
 		property point^ BottomLeft
 		{
 			point^ get()
@@ -97,6 +97,6 @@ private:
 		point ^ mTopLeft;
 
 		point ^ mTopRight;
-		// clang-format on
-	};
+				// clang-format on
+		};
 }; // namespace CwAPI3D::Net::Bridge

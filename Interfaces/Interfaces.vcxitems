@@ -14,12 +14,12 @@
     <ProjectCapability Include="SourceItemsFromImports" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="$(MSBuildThisFileDirectory)IAttributeController.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)IBimController.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)ICameraData.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)ICwApi3DFactory.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)IElementController.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)IUtilityController.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)IVisualizationController.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)cwapi3d.net.iattribute-controller.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)cwapi3d.net.ibim-controller.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)cwapi3d.net.icamera-data.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)cwapi3d.net.ifactory.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)cwapi3d.net.ielement-controller.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)cwapi3d.net.iutility-controller.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)cwapi3d.net.ivisualization-controller.h" />
   </ItemGroup>
 </Project>

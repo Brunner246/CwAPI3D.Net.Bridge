@@ -1,5 +1,5 @@
 #pragma once
-#include "ICameraData.h"
+#include "cwapi3d.net.icamera-data.h"
 #include "typedefs.h"
 
 using namespace System::Collections::Generic;

@@ -1,4 +1,4 @@
-#include "CameraData.h"
+#include "cwapi3d.net.camera-data.h"
 
 #include <stdexcept>
 

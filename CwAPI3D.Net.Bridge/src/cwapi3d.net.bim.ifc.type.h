@@ -35,4 +35,4 @@ public
 		ifcFastener,
 		ifcMechanicalFastener,
 	};
-} // namespace CwAPI3D_Net
+} // namespace CwAPI3D::Net::Bridge
