@@ -18,8 +18,8 @@ Update the macros in `CwAPI3D.props` to point to the correct paths for cadwork. 
   <PropertyGroup Label="UserMacros">
     <CwAPI3D>./CwAPI3D/includes</CwAPI3D>
     <USERPROFILE_API>D:\cadwork\userprofil_30\3d\API.x64</USERPROFILE_API>
-    <AssemblyName>CwAPI3D_CSharp</AssemblyName>
-    <API_NAME>CwAPI3D_CSharp</API_NAME>
+    <AssemblyName>CwAPI3D.Net.Bridge</AssemblyName>
+    <API_NAME>CwAPI3D.Net.Bridge</API_NAME>
   </PropertyGroup>
 ```
 
@@ -105,6 +105,28 @@ public ref class MyClass
 };
 ```
 
+## Design `CwAPI3D` Controller Implementation (Bridge Pattern)  
+
+```mermaid
+classDiagram
+    IAttributeController-DotNet <|-- AttributeController-DotNet
+    IAttributeController-DotNet "1" *-- "1" IAttributeController-CPP : has
+    IAttributeController-CPP <|-- AttributeController-CPP
+    class IAttributeController-DotNet {
+        +GetName()
+    }
+    class AttributeController-DotNet {
+        - instance: IAttributeController-CPP
+        +GetName()
+    }
+    class IAttributeController-CPP {
+        +getName()*
+    }
+    class AttributeController-CPP {
+        +getName()
+    }
+
+```
 
 ## Debugging
 
