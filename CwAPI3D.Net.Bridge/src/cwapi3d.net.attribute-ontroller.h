@@ -5,18 +5,18 @@
 
 namespace CwAPI3D::Net::Bridge
 {
-public
-	ref class AttributeController sealed : public IAttributeController
-	{
-		CwAPI3D::AttributeController* mAttributeController{nullptr};
+	public
+		ref class AttributeController sealed : public IAttributeController
+		{
+				CwAPI3D::AttributeController* mAttributeController{nullptr};
 
-	public:
-		explicit AttributeController(System::IntPtr aFactoryPtr);
+			public:
+				explicit AttributeController(System::IntPtr aFactoryPtr);
 
-		~AttributeController();
+				~AttributeController();
 
-		!AttributeController();
+				!AttributeController();
 
-		virtual System::String ^ getName(elementId aElementId);
-	};
+				virtual System::String ^ getName(elementId aElementId);
+		};
 } // namespace CwAPI3D::Net::Bridge
