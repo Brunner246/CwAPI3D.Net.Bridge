@@ -1,5 +1,5 @@
 #pragma once
-#include "EBimIfcType.h"
+#include "cwapi3d.net.bim.ifc.type.h"
 #include "typedefs.h"
 
 namespace CwAPI3D::Net::Bridge

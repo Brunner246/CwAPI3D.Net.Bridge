@@ -1,8 +1,8 @@
-#include "VisualizationController.h"
+#include "cwapi3d.net.visualization-controller.h"
 
 #include <stdexcept>
 
-#include "CameraData.h"
+#include "cwapi3d.net.camera-data.h"
 
 CwAPI3D::Net::Bridge::VisualizationController::VisualizationController(System::IntPtr aFactoryPtr)
 {

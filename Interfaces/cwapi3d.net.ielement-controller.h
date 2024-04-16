@@ -1,6 +1,6 @@
 #pragma once
-#include "ApiUtils.h"
-#include "vector3D.h"
+#include "cwapi3d.net.utils.h"
+#include "cwapi3d.net.vector3d.h"
 #include "typedefs.h"
 
 using namespace System::Collections::Generic;

@@ -1,12 +1,12 @@
 #pragma once
 
 #include "CwAPI3D.h"
-#include "IAttributeController.h"
-#include "IBimController.h"
-#include "ICameraData.h"
-#include "ICwApi3DFactory.h"
-#include "IElementController.h"
-#include "IVisualizationController.h"
+#include "cwapi3d.net.iattribute-controller.h"
+#include "cwapi3d.net.ibim-controller.h"
+#include "cwapi3d.net.icamera-data.h"
+#include "cwapi3d.net.ifactory.h"
+#include "cwapi3d.net.ielement-controller.h"
+#include "cwapi3d.net.ivisualization-controller.h"
 
 namespace CwAPI3D::Net::Bridge
 {
@@ -43,4 +43,4 @@ namespace CwAPI3D::Net::Bridge
 
 		virtual ICameraData ^ getCameraData();
 	};
-} // namespace CwAPI3D_Net
+} // namespace CwAPI3D::Net::Bridge

@@ -1,13 +1,13 @@
 
-#include "CwApi3DFactory.h"
-#include "AttributeController.h"
-#include "BimController.h"
-#include "ElementController.h"
-#include "UtilityController.h"
-#include "VisualizationController.h"
+#include "cwapi3d.net.factory.h"
+#include "cwapi3d.net.attribute-ontroller.h"
+#include "cwapi3d.net.bim-controller.h"
+#include "cwapi3d.net.element-controller.h"
+#include "cwapi3d.net.utility-controller.h"
+#include "cwapi3d.net.visualization-controller.h"
 #include <stdexcept>
 
-#include "CameraData.h"
+#include "cwapi3d.net.camera-data.h"
 
 CwAPI3D::Net::Bridge::CwApi3DFactory::CwApi3DFactory(System::IntPtr aFactoryPtr)
 {

@@ -1,4 +1,4 @@
-#include "IfcTypeMapper.h"
+#include "cwapi3d.net.ifc-type-mapper.h"
 
 #include <stdexcept>
 

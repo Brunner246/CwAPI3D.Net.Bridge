@@ -1,4 +1,4 @@
-#include "AttributeController.h"
+#include "cwapi3d.net.attribute-ontroller.h"
 
 #include <stdexcept>
 
@@ -23,10 +23,8 @@ CwAPI3D::Net::Bridge::AttributeController::~AttributeController()
 
 CwAPI3D::Net::Bridge::AttributeController::!AttributeController() { }
 
-System::String^ CwAPI3D::Net::Bridge::AttributeController::getName(elementId aElementId)
+System::String ^ CwAPI3D::Net::Bridge::AttributeController::getName(elementId aElementId)
 {
 	const auto lName = mAttributeController->getName(static_cast<uint64_t>(aElementId));
 	return gcnew System::String(lName->data());
 }
-
-

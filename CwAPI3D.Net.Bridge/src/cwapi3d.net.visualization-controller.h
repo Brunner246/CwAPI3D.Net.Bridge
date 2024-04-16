@@ -1,6 +1,6 @@
 #pragma once
 #include "CwAPI3D.h"
-#include "IVisualizationController.h"
+#include "cwapi3d.net.ivisualization-controller.h"
 
 namespace CwAPI3D::Net::Bridge
 {
@@ -43,4 +43,4 @@ public
 
 	public:
 	};
-} // namespace CwAPI3D_Net
+} // namespace CwAPI3D::Net::Bridge

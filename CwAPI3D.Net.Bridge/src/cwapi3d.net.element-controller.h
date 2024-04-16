@@ -1,6 +1,6 @@
 #pragma once
 #include "CwAPI3D.h"
-#include "IElementController.h"
+#include "cwapi3d.net.ielement-controller.h"
 
 using namespace System::Collections::Generic;
 
@@ -27,6 +27,6 @@ public
 
 		virtual void addElementsToUndo(List<elementId> ^ aElementIDs, Utils::undoType aUndoType);
 
-		virtual elementId createRectangularBeamPoints(double aWidth, double aHeight, vector3D^ aP1, vector3D^ aP2, vector3D^ aP3);
+		virtual elementId createRectangularBeamPoints(double aWidth, double aHeight, vector3D ^ aP1, vector3D ^ aP2, vector3D ^ aP3);
 	};
 } // namespace CwAPI3D::Net::Bridge

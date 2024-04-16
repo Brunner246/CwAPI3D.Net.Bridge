@@ -1,7 +1,5 @@
 #pragma once
 
-#include "IBimController.h"
-#include "IVisualizationController.h"
 
 namespace CwAPI3D::Net::Bridge
 {
@@ -9,6 +7,8 @@ namespace CwAPI3D::Net::Bridge
 	interface class IAttributeController;
 	interface class IUtilityController;
 	interface class ICameraData;
+	interface class IBimController;
+	interface class IVisualizationController;
 
 public
 	interface class ICwApi3DFactory

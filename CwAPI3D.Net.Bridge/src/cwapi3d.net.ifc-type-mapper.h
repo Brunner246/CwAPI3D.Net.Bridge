@@ -1,7 +1,7 @@
 #pragma once
 
 #include "CwAPI3D.h"
-#include "EBimIfcType.h"
+#include "cwapi3d.net.bim.ifc.type.h"
 
 namespace CwAPI3D_Net::Utils
 {

@@ -1,7 +1,7 @@
 #pragma once
 
 #include "CwAPI3D.h"
-#include "ICameraData.h"
+#include "cwapi3d.net.icamera-data.h"
 
 namespace CwAPI3D::Net::Bridge
 {
@@ -41,4 +41,4 @@ public
 	private:
 		CwAPI3D::Interfaces::ICwAPI3DCameraData* mCameraDataInstance{nullptr};
 	};
-} // namespace CwAPI3D_Net
+} // namespace CwAPI3D::Net::Bridge

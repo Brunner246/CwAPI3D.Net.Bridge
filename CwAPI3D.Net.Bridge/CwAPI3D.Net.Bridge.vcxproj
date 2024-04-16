@@ -113,31 +113,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\ApiUtils.h" />
-    <ClInclude Include="src\AttributeController.h" />
-    <ClInclude Include="src\BimController.h" />
-    <ClInclude Include="src\CameraData.h" />
-    <ClInclude Include="src\CwApi3DFactory.h" />
-    <ClInclude Include="src\EBimIfcType.h" />
-    <ClInclude Include="src\ElementController.h" />
-    <ClInclude Include="src\IfcTypeMapper.h" />
+    <ClInclude Include="src\cwapi3d.net.utils.h" />
+    <ClInclude Include="src\cwapi3d.net.attribute-ontroller.h" />
+    <ClInclude Include="src\cwapi3d.net.bim-controller.h" />
+    <ClInclude Include="src\cwapi3d.net.camera-data.h" />
+    <ClInclude Include="src\cwapi3d.net.factory.h" />
+    <ClInclude Include="src\cwapi3d.net.bim.ifc.type.h" />
+    <ClInclude Include="src\cwapi3d.net.element-controller.h" />
+    <ClInclude Include="src\cwapi3d.net.ifc-type-mapper.h" />
     <ClInclude Include="src\typedefs.h" />
-    <ClInclude Include="src\UtilityController.h" />
-    <ClInclude Include="src\vector3D.h" />
-    <ClInclude Include="src\VisualizationController.h" />
-    <ClInclude Include="src\windowGeometry.h" />
+    <ClInclude Include="src\cwapi3d.net.utility-controller.h" />
+    <ClInclude Include="src\cwapi3d.net.vector3d.h" />
+    <ClInclude Include="src\cwapi3d.net.visualization-controller.h" />
+    <ClInclude Include="src\cwapi3d.net.window-geometry.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\AttributeController.cpp" />
-    <ClCompile Include="src\BimController.cpp" />
-    <ClCompile Include="src\CameraData.cpp" />
-    <ClCompile Include="src\CwApi3DFactory.cpp" />
-    <ClCompile Include="src\dllmain.cpp" />
-    <ClCompile Include="src\EBimIfcType.cpp" />
-    <ClCompile Include="src\ElementController.cpp" />
-    <ClCompile Include="src\IfcTypeMapper.cpp" />
-    <ClCompile Include="src\UtilityController.cpp" />
-    <ClCompile Include="src\VisualizationController.cpp" />
+    <ClCompile Include="src\cwapi3d.net.attribute-controller.cpp" />
+    <ClCompile Include="src\cwapi3d.net.bim-controller.cpp" />
+    <ClCompile Include="src\cwapi3d.net.camera-data.cpp" />
+    <ClCompile Include="src\cwapi3d.net.factory.cpp" />
+    <ClCompile Include="src\cwapi3d.net.library.cpp" />
+    <ClCompile Include="src\cwapi3d.net.element-controller.cpp" />
+    <ClCompile Include="src\cwapi3d.net.ifc-type-mapper.cpp" />
+    <ClCompile Include="src\cwapi3d.net.utility-controller.cpp" />
+    <ClCompile Include="src\cwapi3d.net.visualization-controller.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="CopyAndUnzipCwAPI3D.bat" />

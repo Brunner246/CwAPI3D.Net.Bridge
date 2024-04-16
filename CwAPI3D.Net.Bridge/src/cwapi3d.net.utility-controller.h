@@ -2,7 +2,7 @@
 
 #include "CwAPI3D.h"
 
-#include "IUtilityController.h"
+#include "cwapi3d.net.iutility-controller.h"
 
 namespace CwAPI3D::Net::Bridge
 {

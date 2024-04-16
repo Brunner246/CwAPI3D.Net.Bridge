@@ -1,7 +1,7 @@
 #pragma once
 
 #include "CwAPI3D.h"
-#include "IAttributeController.h"
+#include "cwapi3d.net.iattribute-controller.h"
 
 namespace CwAPI3D::Net::Bridge
 {

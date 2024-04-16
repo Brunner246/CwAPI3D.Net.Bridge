@@ -1,5 +1,5 @@
-#include "ElementController.h"
-#include "ApiUtils.h"
+#include "cwapi3d.net.element-controller.h"
+#include "cwapi3d.net.utils.h"
 #include <stdexcept>
 
 CwAPI3D::Net::Bridge::ElementController::ElementController(System::IntPtr aFactoryPtr)
