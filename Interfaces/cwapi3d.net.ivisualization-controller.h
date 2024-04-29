@@ -19,6 +19,8 @@ public
 
 		void setVisible(List<elementId> ^ aElementIDs);
 
+		void setInVisible(List<elementId> ^ aElementIDs);
+
 		void hideAllElements();
 
 		void showAllElements();

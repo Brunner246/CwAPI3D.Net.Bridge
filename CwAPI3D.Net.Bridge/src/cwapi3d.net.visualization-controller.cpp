@@ -60,11 +60,21 @@ bool CwAPI3D::Net::Bridge::VisualizationController::isVisible(elementId aElement
 void CwAPI3D::Net::Bridge::VisualizationController::setVisible(List<elementId> ^ aElementIDs)
 {
 		const auto lElementIDList = mControllerFactory->createEmptyElementIDList();
-		for each(int aElementID in aElementIDs)
+		for each(const int aElementID in aElementIDs)
 		{
 				lElementIDList->append(aElementID);
 		}
 		mVisualizationController->setVisible(lElementIDList);
+}
+
+void CwAPI3D::Net::Bridge::VisualizationController::setInVisible(List<elementId>^ aElementIDs)
+{
+	const auto lElementIDList = mControllerFactory->createEmptyElementIDList();
+	for each(const int aElementID in aElementIDs)
+	{
+		lElementIDList->append(aElementID);
+	}
+	mVisualizationController->setInvisible(lElementIDList);
 }
 
 void CwAPI3D::Net::Bridge::VisualizationController::hideAllElements()
