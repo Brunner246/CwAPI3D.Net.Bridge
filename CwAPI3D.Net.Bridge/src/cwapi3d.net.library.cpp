@@ -17,8 +17,14 @@ ref class ManagedConstants sealed
 	public:
 		String ^ LibraryName = "examplelib";
 		String ^ InitializerNamespace = "examplelib";
-		String ^ InitializerName = String::Format("{0}.{1}", InitializerNamespace, "Initializer");
+		//	String ^ InitializerName = String::Format("{0}.{1}", InitializerNamespace, "Initializer");
 		String ^ InitializerHookName = "Initialize";
+
+		property String ^ InitializerName {
+				String ^ get() {
+						return String::Format("{0}.{1}", InitializerNamespace, "Initializer");
+				}
+		}
 };
 
 ManagedConstants ^ readConfigsFromTxt(const char* aFilePath) {
@@ -26,6 +32,7 @@ ManagedConstants ^ readConfigsFromTxt(const char* aFilePath) {
 		try
 		{
 				const auto lFile = std::format("{}\\library.config", aFilePath);
+				Console::WriteLine(String::Format(".config file path\t{0}", gcnew String(lFile.c_str())));
 				auto lFilePath = gcnew String(lFile.c_str());
 				StreamReader ^ lStreamReader = File::OpenText(lFilePath);
 				String ^ lString;
@@ -62,6 +69,7 @@ ManagedConstants ^ readConfigsFromTxt(const char* aFilePath) {
 
 				auto lNativeString = static_cast<const wchar_t*>(Marshal::StringToHGlobalUni(aConstants->LibraryName).ToPointer());
 				const std::wstring lNetLibrary = std::format(L"{}\\{}.dll", lPluginPath, lNativeString);
+				Console::WriteLine(String::Format(".net library name\t{0}", gcnew String(lNetLibrary.c_str())));
 				Marshal::FreeHGlobal(IntPtr((void*)lNativeString)); // StringToHGlobalUni allocates memory that has to bee freed
 
 				try
@@ -111,6 +119,7 @@ auto plugin_x64_init(CwAPI3D::ControllerFactory* aFactory) -> bool
 {
 		if(!aFactory)
 		{
+				Console::WriteLine("CwAPI3D::ControllerFactory is null");
 				return false;
 		}
 		auto lConstants = readConfigsFromTxt(aFactory->getUtilityController()->getPluginPath()->narrowData());
@@ -119,5 +128,6 @@ auto plugin_x64_init(CwAPI3D::ControllerFactory* aFactory) -> bool
 		{
 				return invokePluginInitializer(lPluginType, aFactory, lConstants);
 		}
+		Console::WriteLine("could not load library");
 		return false;
 }
