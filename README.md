@@ -25,6 +25,33 @@ Update the macros in `CwAPI3D.props` to point to the correct paths for cadwork. 
   </PropertyGroup>
 ```
 
+### Setup config file for .net assembly
+
+This file must be located in the plugin directory (userprofil_30\3d\API.x64\YourPlugin\library.config)
+
+The file needs the following name `library.config`
+
+
+```txt
+netLibraryName=yourSuperDotNetLibrary
+initializerNamespace=yourNamespace
+```
+
+If the file does not exist, the defaults are:
+- `netLibraryName=examplelib`
+- `initializerNamespace=examplelib`
+
+In my case, the structure looks like this.
+
+```
+ Directory of D:\cadwork\userprofil_30\3d\API.x64\CwAPI3D.Net.Bridge
+
+29/04/2024  09:48           992,256 CwAPI3D.Net.Bridge.dll          (C++/CLI Library)
+29/04/2024  09:33             5,632 yourSuperDotNetLibrary.dll      (Pure C# Library)
+29/04/2024  09:33                60 library.config                  (Config File)
+```
+
+
 ### Prerequisites
 
 - Visual Studio 2022 or JetBrains Rider

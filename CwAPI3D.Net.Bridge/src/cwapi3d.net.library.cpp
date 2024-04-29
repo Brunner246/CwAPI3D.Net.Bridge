@@ -11,43 +11,77 @@ using namespace System::Runtime::InteropServices;
 
 CWAPI3D_PLUGIN bool plugin_x64_init(CwAPI3D::ControllerFactory* aFactory);
 
-namespace Constants
-{
-		// The name of the .NET library (DLL) that contains the plugin
-		const std::wstring NetLibraryName = L"examplelib";
-} // namespace Constants
-
 public
-ref class ManagedConstants abstract sealed // abstract sealed makes it static
+ref class ManagedConstants sealed
 {
 	public:
-		static String ^ InitializerNamespace = "examplelib";
-		static String ^ InitializerName = String::Format("{0}.{1}", InitializerNamespace, "Initializer");
-		static String ^ InitializerHookName = "Initialize";
+		String ^ LibraryName = "examplelib";
+		String ^ InitializerNamespace = "examplelib";
+		String ^ InitializerName = String::Format("{0}.{1}", InitializerNamespace, "Initializer");
+		String ^ InitializerHookName = "Initialize";
 };
 
-Type ^ loadAssemblyAndGetType(CwAPI3D::ControllerFactory* aFactory) {
-		const auto lPluginPath = aFactory->getUtilityController()->getPluginPath()->data();
-		const std::wstring lNetLibrary = std::format(L"{}\\{}.dll", lPluginPath, Constants::NetLibraryName);
-
+ManagedConstants ^ readConfigsFromTxt(const char* aFilePath) {
+		auto lConstants = gcnew ManagedConstants();
 		try
 		{
-				Assembly ^ lAssembly = Assembly::LoadFrom(gcnew String(lNetLibrary.c_str()));
-				return lAssembly->GetType(ManagedConstants::InitializerName);
+				const auto lFile = std::format("{}\\library.config", aFilePath);
+				auto lFilePath = gcnew String(lFile.c_str());
+				StreamReader ^ lStreamReader = File::OpenText(lFilePath);
+				String ^ lString;
+				while((lString = lStreamReader->ReadLine()) != nullptr)
+				{
+						if(array<String ^> ^ lParts = lString->Split('='); lParts->Length == 2)
+						{
+								if(lParts[0] == "netLibraryName")
+								{
+										lConstants->LibraryName = lParts[1];
+								}
+								else if(lParts[0] == "initializerNamespace")
+								{
+										lConstants->InitializerNamespace = lParts[1];
+								}
+						}
+				}
+				return lConstants;
 		}
 		catch(FileNotFoundException ^ e)
 		{
 				Console::WriteLine(e->Message);
 		}
-		catch(FileLoadException ^ e)
+		catch(DirectoryNotFoundException ^ e)
 		{
 				Console::WriteLine(e->Message);
 		}
-
-		return nullptr;
+		return lConstants;
 }
 
-	bool invokePluginInitializer(Type ^ aPluginType, CwAPI3D::ControllerFactory* aFactory)
+	Type
+	^ loadAssemblyAndGetType(CwAPI3D::ControllerFactory* aFactory, ManagedConstants ^ % aConstants) {
+				const auto lPluginPath = aFactory->getUtilityController()->getPluginPath()->data();
+
+				auto lNativeString = static_cast<const wchar_t*>(Marshal::StringToHGlobalUni(aConstants->LibraryName).ToPointer());
+				const std::wstring lNetLibrary = std::format(L"{}\\{}.dll", lPluginPath, lNativeString);
+				Marshal::FreeHGlobal(IntPtr((void*)lNativeString)); // StringToHGlobalUni allocates memory that has to bee freed
+
+				try
+				{
+						Assembly ^ lAssembly = Assembly::LoadFrom(gcnew String(lNetLibrary.c_str()));
+						return lAssembly->GetType(aConstants->InitializerName);
+				}
+				catch(FileNotFoundException ^ e)
+				{
+						Console::WriteLine(e->Message);
+				}
+				catch(FileLoadException ^ e)
+				{
+						Console::WriteLine(e->Message);
+				}
+
+				return nullptr;
+		}
+
+	bool invokePluginInitializer(Type ^ aPluginType, CwAPI3D::ControllerFactory* aFactory, ManagedConstants ^ % aConstants)
 {
 		Object ^ lPluginInstance = Activator::CreateInstance(aPluginType);
 		auto lFactoryPointer = IntPtr(aFactory);
@@ -55,7 +89,7 @@ Type ^ loadAssemblyAndGetType(CwAPI3D::ControllerFactory* aFactory) {
 
 		try
 		{
-				if(aPluginType->InvokeMember(ManagedConstants::InitializerHookName,
+				if(aPluginType->InvokeMember(aConstants->InitializerHookName,
 																		 BindingFlags::InvokeMethod,
 																		 nullptr,
 																		 lPluginInstance,
@@ -79,11 +113,11 @@ auto plugin_x64_init(CwAPI3D::ControllerFactory* aFactory) -> bool
 		{
 				return false;
 		}
-
-		if(auto lPluginType = loadAssemblyAndGetType(aFactory);
+		auto lConstants = readConfigsFromTxt(aFactory->getUtilityController()->getPluginPath()->narrowData());
+		if(auto lPluginType = loadAssemblyAndGetType(aFactory, lConstants);
 			 lPluginType != nullptr)
 		{
-				return invokePluginInitializer(lPluginType, aFactory);
+				return invokePluginInitializer(lPluginType, aFactory, lConstants);
 		}
 		return false;
 }
