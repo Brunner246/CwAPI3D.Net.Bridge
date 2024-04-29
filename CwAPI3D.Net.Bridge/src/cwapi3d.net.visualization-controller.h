@@ -24,6 +24,8 @@ namespace CwAPI3D::Net::Bridge
 
 				virtual void setVisible(List<elementId> ^ aElementIDs);
 
+				virtual void setInVisible(List<elementId>^ aElementIDs);
+
 				virtual void hideAllElements();
 
 				virtual void showAllElements();

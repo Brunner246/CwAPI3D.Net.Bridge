@@ -247,7 +247,6 @@
     <Content Include="CWAPI3D\html\_static\searchtools.js" />
     <Content Include="CWAPI3D\html\_static\underscore-1.13.1.js" />
     <Content Include="CWAPI3D\html\_static\underscore.js" />
-    <Content Include="img.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
