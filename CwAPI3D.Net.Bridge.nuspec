@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>CwAPI3D.Net.Bridge</id>
-    <version>0.0.4</version>
+    <version>0.0.5</version>
     <title>CwAPI3D.Net.Bridge</title>
     <authors>Michael Brunner</authors>
     <owners>Michael Brunner</owners>
