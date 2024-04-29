@@ -4,6 +4,8 @@ This project serves as a .NET bridge for the C++ API from cadwork 3d. It leverag
 
 [![Build Solution](https://github.com/Brunner246/CwAPI3D_CSharp/actions/workflows/build.yml/badge.svg)](https://github.com/Brunner246/CwAPI3D_CSharp/actions/workflows/build.yml)
 
+[![Release to NuGet](https://github.com/Brunner246/CwAPI3D.Net.Bridge/actions/workflows/release.yml/badge.svg?branch=master)](https://github.com/Brunner246/CwAPI3D.Net.Bridge/actions/workflows/release.yml)
+
 ## Getting Started
 
 Clone the repository to your local machine.
